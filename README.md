@@ -23,3 +23,5 @@ En `data/updates.js`, agregar un objeto **al principio** de `UPDATES` con la fec
 Settings → Pages → Source: *Deploy from a branch* → Branch: `main` / `(root)` → Save. A los minutos queda en `https://lucasirod.github.io/gira-colombia-27/`.
 
 Accesos directos: `#decisiones` abre el avión, `#mapa` abre el mapa.
+
+> Después de cambiar un `.js` o el `.css`, subí el número `?v=` en `index.html` para que los navegadores no muestren la versión vieja.
