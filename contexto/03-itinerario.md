@@ -21,7 +21,7 @@
 ## Variantes habladas
 - **Cholón el domingo:** más local (lanchas de colombianos, música a full). Implica salir de Palomino el sábado 16 y perder el día libre de playa.
 - **Si no hay cupo en Tayrona:** ir directo a Palomino (1 h), dormir ahí y volver temprano al día siguiente a pasar el día.
-- **Providencia:** +3 noches después de San Andrés, para quien pueda estirar (no Lucas).
+- **Providencia:** se evaluó como extensión y se descartó (4/10).
 
 ## Hostels recomendados
 - **Medellín (El Poblado):** Los Patios (9,7 en Hostelworld, rooftops con pileta, salsa; primera opción), Viajero Medellín o Masaya (más fiesteros). Socialtel Provenza (ex Selina) con estado confuso.

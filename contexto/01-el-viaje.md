@@ -14,7 +14,7 @@
 | 10 días | Mié 20 | Cartagena | ~USD 2.270 |
 | Completo (15) | Sáb 23 | San Andrés | ~USD 2.870 |
 
-Extensión opcional: Providencia, +3 noches, ~USD 400–600.
+Providencia se evaluó (+3 noches, ~USD 400–600) y se descartó.
 
 ## Por qué Colombia
 Junta ciudad, naturaleza, playa e isla en un viaje, en español (clave para conocer gente), con vuelo corto. Comparación por persona, ~2 semanas: Europa USD 3.500–5.000; Sudeste asiático 2.500–3.500 (vuelo caro y 30+ h, necesita 3 semanas); Costa Rica 2.500–3.500; Nordeste de Brasil 1.500–2.300 (más tranquilo, y Brasil ya lo hicieron: Río en Año Nuevo, y Mendoza); Colombia 1.200–2.900 según bloque.
