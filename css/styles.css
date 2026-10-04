@@ -398,3 +398,7 @@ tr.win td:first-child{font-weight:600}
 .stophead--cost{justify-content:flex-start}
 .stophead--cost .stopcost{text-align:left;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .stophead--cost .stopcost b{display:inline}
+.day .chip.bday{background:var(--sun);border-color:var(--sun);color:#2B2000}
+.reason-bday{border-color:var(--sun);box-shadow:inset 0 4px 0 var(--sun)}
+.cal-bday{font-family:var(--mono);font-size:10.5px;background:var(--sun);color:#2B2000;border-radius:4px;padding:1px 5px;align-self:flex-start}
+@media (max-width:700px){.cal-bday{font-size:0;padding:0;width:8px;height:8px;border-radius:50%}}

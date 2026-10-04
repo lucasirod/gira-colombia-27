@@ -96,6 +96,7 @@
       if(!d){ html+='<div class="cal-d cal-empty"><span class="cal-num">'+fecha+'</span></div>'; continue; }
       html+='<button type="button" class="cal-d" data-n="'+n+'" style="--c:'+COLOR[d.slug]+'">'+
         '<span class="cal-num">'+fecha+(fecha===11?' <em>feriado</em>':'')+'</span>'+
+        (fecha===9?'<span class="cal-bday">cumple de Pancho</span>':'')+
         '<span class="cal-stop">'+NOMBRE[d.slug]+'</span>'+
         '<span class="cal-t">'+d.titulo+'</span>'+
         (VUELTA[n]?'<span class="cal-ret">✈ <span class="long">vuelven los de </span>'+VUELTA[n]+'<span class="long"> días</span></span>':'')+

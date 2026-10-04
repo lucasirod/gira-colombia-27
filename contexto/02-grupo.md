@@ -9,7 +9,7 @@ Ocho amigos de 28 años de Buenos Aires. La mayoría solteros. Ya viajaron junto
 | Reja | Adentro | No puede en febrero. Le preocupa que esté todo explotado de gente. Valora naturaleza y calma (Minca, dormir en Tayrona, Palomino). |
 | Seba | Adentro | Chill. |
 | Monty | Adentro | Muy manija, clave para el grupo. Detalle de su situación en el Project privado. |
-| Pancho | Pensando | En diciembre está en Miami. Le gusta el plan pero teme que sea solo un viaje de joda. Se puede sumar desde Miami (Avianca MIA–MDE o MIA–CTG). |
+| Pancho | Pensando | Cumple años el 9 de enero: la primera noche en Medellín es su festejo. En diciembre está en Miami. Le gusta el plan pero teme que sea solo un viaje de joda. Se puede sumar desde Miami (Avianca MIA–MDE o MIA–CTG). |
 | Iván | Pensando | Tiene novia; es el menos convencido. |
 | José | Pensando | Tiene novia; le sirve más después de abril. Probablemente no venga. |
 

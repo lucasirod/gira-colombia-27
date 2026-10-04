@@ -2,7 +2,7 @@
 
 **Qué:** gira por Colombia entre amigos de 28 años, la mayoría solteros. Mezcla de noche, naturaleza y playa, con hostels sociales "piolas" (ni de mala muerte ni hotel 5 estrellas), idealmente habitación privada para el grupo dentro de un hostel con onda.
 
-**Cuándo:** del sábado 9 al sábado 23 de enero de 2027. Llegan todos juntos a Medellín el 9.
+**Cuándo:** del sábado 9 al sábado 23 de enero de 2027. Llegan todos juntos a Medellín el 9, que es el cumpleaños de Pancho: la primera noche es su festejo.
 
 **Ruta:** Medellín (3 noches) → Minca (2) → Tayrona (1, durmiendo adentro) → Palomino (2) → Cartagena (3) → San Andrés (3).
 

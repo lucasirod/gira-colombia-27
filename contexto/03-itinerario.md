@@ -2,7 +2,7 @@
 
 | Día | Lugar | Plan | Tiempos | Costo aprox. por persona (medio) |
 |---|---|---|---|---|
-| Sáb 9 | Medellín | Llegada, aeropuerto → El Poblado, rooftop y primera noche en Provenza | Aeropuerto a 30–45 min | Traslado ~USD 8 |
+| Sáb 9 | Medellín | Llegada, aeropuerto → El Poblado. Cumple de Pancho: cena todos juntos y después rooftop o Provenza para el que quiera | Aeropuerto a 30–45 min | Traslado ~USD 8 |
 | Dom 10 | Guatapé | Piedra del Peñol (740 escalones), lancha y pueblo. Noche fuerte: víspera de feriado | Salir 7 am; tour ~10 h | Tour USD 33–43 + Piedra 8–10 (en bus desde Terminal Norte: ~USD 10) |
 | Lun 11 (feriado de Reyes) | San Félix + Comuna 13 | Parapente en tándem a la mañana; Comuna 13 con free tour a la tarde; noche tranqui | Parapente 3–4 h con traslado | Parapente 15 min ~USD 66 + traslado ~10; free tour a propina |
 | Mar 12 | Minca | Vuelo MDE–SMR, taxi/colectivo a Minca, mototaxi al hostel, atardecer | Vuelo 1,5 h; Minca a 40–60 min de SMR | Vuelo ~63 + valija; taxi ~USD 25 por auto o colectivo ~3 |
