@@ -40,7 +40,7 @@
   ];
   var LAST = {"7":8, "10":12, "15":15};
 
-  var map = null, capas = {pins:[], tramos:[], vueltas:[]};
+  var map = null, capas = {pins:[], tramos:[], vueltas:[]}, porSlug = {};
 
   function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
   function oscuro(){
@@ -90,10 +90,22 @@
           '<a href="' + gmaps(p.ll, p.nombre + ", Colombia") + '" target="_blank" rel="noopener">Abrir en Google Maps</a></div></div>'
         )
         .addTo(map);
-      m._dia = p.inicio; m._principal = true; capas.pins.push(m);
+      m._dia = p.inicio; m._principal = true; capas.pins.push(m); porSlug[p.slug] = m;
     });
 
-    map.fitBounds(L.latLngBounds(PARADAS.map(function(p){ return p.ll; })).pad(0.15));
+    map.fitBounds(L.latLngBounds(PARADAS.map(function(p){ return p.ll; })).pad(0.12));
+    var lista = document.getElementById("mapList");
+    if(lista){
+      lista.innerHTML = PARADAS.map(function(p){
+        return '<li><button type="button" data-slug="' + p.slug + '"><b>' + p.n + '</b><span><strong>' + p.nombre + '</strong><em>' + p.dias + '</em></span></button></li>';
+      }).join("");
+      lista.addEventListener("click", function(e){
+        var b = e.target.closest("button[data-slug]"); if(!b) return;
+        var m = porSlug[b.dataset.slug];
+        map.flyTo(m.getLatLng(), 9, {duration: 0.8});
+        setTimeout(function(){ m.openPopup(); }, 850);
+      });
+    }
     map.on("popupopen", function(e){
       var b = e.popup.getElement().querySelector("[data-ver]");
       if(b) b.addEventListener("click", function(){ map.closePopup(); window.GIRA_VER_PARADA && window.GIRA_VER_PARADA(b.dataset.ver); });

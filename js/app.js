@@ -1,44 +1,57 @@
+/* Gira Colombia '27 — navegación por páginas, slides, presupuesto, calendario. */
 (function(){
-  /* ---------- prices ---------- */
+  /* ---------- precios por bloque y nivel: [vuelos internacionales, en Colombia] ---------- */
   var P={
     "7":{aj:[670,500],medio:[750,980],gustos:[1100,1600]},
     "10":{aj:[670,795],medio:[750,1520],gustos:[1100,2580]},
     "15":{aj:[720,1125],medio:[800,2070],gustos:[1200,3480]}
   };
-  var lastDay={"7":8,"10":12,"15":15};
+  var LAST_DAY={"7":8,"10":12,"15":15};
+  var NIVEL_TXT={aj:"ajustado",medio:"medio",gustos:"con gustos"};
   var state={b:"15",l:"medio"};
   try{var s=JSON.parse(localStorage.getItem("gira27")||"null");if(s&&P[s.b]&&P[s.b][s.l])state=s;}catch(e){}
   function fmt(n){return "USD "+n.toLocaleString("es-AR");}
+  window.GIRA_BLOQUE=state.b;
+
   function render(){
-    Object.keys(P).forEach(function(b){
-      var v=P[b][state.l],t=v[0]+v[1];
-      var pe=document.querySelector('[data-price="'+b+'"]');
-      pe.innerHTML=fmt(t)+' <small>aprox.</small>';
-      document.querySelector('[data-bd="'+b+'"]').innerHTML='<div><span>Vuelos internacionales</span><span>'+fmt(v[0])+'</span></div><div><span>En Colombia</span><span>'+fmt(v[1])+'</span></div>';
-      document.querySelector('[data-blk="'+b+'"]').classList.toggle("on",b===state.b);
-    });
     var v=P[state.b][state.l];
-    document.getElementById("totalOut").innerHTML='Total aprox. <b>'+fmt(v[0]+v[1])+'</b>';
-    document.querySelectorAll("#segBlock button").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.b===state.b);});
-    document.querySelectorAll("#segLevel button").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.l===state.l);});
-    document.querySelectorAll(".day").forEach(function(d){d.classList.toggle("out",+d.dataset.n>lastDay[state.b]);});
+    document.querySelectorAll(".total-out").forEach(function(o){o.textContent=fmt(v[0]+v[1]);});
+    document.querySelectorAll(".seg-block button").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.b===state.b);});
+    document.querySelectorAll(".seg-level button").forEach(function(x){x.setAttribute("aria-pressed",x.dataset.l===state.l);});
+    Object.keys(P).forEach(function(b){
+      var w=P[b][state.l];
+      var pe=document.querySelector('[data-price="'+b+'"]'); if(pe) pe.innerHTML=fmt(w[0]+w[1])+' <small>aprox.</small>';
+      var bd=document.querySelector('[data-bd="'+b+'"]'); if(bd) bd.innerHTML='<div><span>Vuelos internacionales</span><span>'+fmt(w[0])+'</span></div><div><span>En Colombia</span><span>'+fmt(w[1])+'</span></div>';
+      var card=document.querySelector('[data-blk="'+b+'"]'); if(card) card.classList.toggle("on",b===state.b);
+    });
+    document.querySelectorAll(".day").forEach(function(d){d.classList.toggle("out",+d.dataset.n>LAST_DAY[state.b]);});
+    document.querySelectorAll(".cal-d[data-n]").forEach(function(d){d.classList.toggle("out",+d.dataset.n>LAST_DAY[state.b]);});
+    /* costo de cada parada según el nivel */
+    document.querySelectorAll(".stopcost").forEach(function(sc){
+      var b=sc.querySelector("b[data-costs]"), n=sc.querySelector(".lvl-name"); if(!b||!n) return;
+      if(!n.dataset.orig) n.dataset.orig=n.textContent;
+      b.textContent="~USD "+JSON.parse(b.dataset.costs)[state.l].toLocaleString("es-AR");
+      n.textContent=n.dataset.orig.replace("medio",NIVEL_TXT[state.l]);
+    });
+    document.querySelectorAll(".niv").forEach(function(x){x.classList.toggle("on",x.dataset.l===state.l);});
     try{localStorage.setItem("gira27",JSON.stringify(state));}catch(e){}
     window.GIRA_BLOQUE=state.b;
-    document.dispatchEvent(new CustomEvent("bloque:change",{detail:{b:state.b,l:state.l,last:lastDay[state.b]}}));
+    document.dispatchEvent(new CustomEvent("bloque:change",{detail:{b:state.b,l:state.l,last:LAST_DAY[state.b]}}));
   }
-  document.getElementById("segBlock").addEventListener("click",function(e){var b=e.target.closest("button");if(b){state.b=b.dataset.b;render();}});
-  document.getElementById("segLevel").addEventListener("click",function(e){var b=e.target.closest("button");if(b){state.l=b.dataset.l;render();}});
-  document.querySelectorAll(".blk").forEach(function(c){c.addEventListener("click",function(){state.b=c.dataset.blk;render();});});
+  document.addEventListener("click",function(e){
+    var b=e.target.closest(".seg-block button"); if(b){state.b=b.dataset.b;render();return;}
+    var l=e.target.closest(".seg-level button"); if(l){state.l=l.dataset.l;render();return;}
+    var c=e.target.closest(".blk[data-blk]"); if(c){state.b=c.dataset.blk;render();}
+  });
 
-  /* ---------- meters ---------- */
+  /* ---------- medidores ---------- */
   document.querySelectorAll(".pips").forEach(function(p){var v=+p.dataset.v;for(var i=0;i<5;i++){var e=document.createElement("i");if(i<v)e.className="f";p.appendChild(e);}});
 
-  /* ---------- curve ---------- */
+  /* ---------- curva de joda / naturaleza ---------- */
   (function(){
-    var g=document.getElementById("curveg"),ns="http://www.w3.org/2000/svg";
+    var g=document.getElementById("curveg"); if(!g) return; var ns="http://www.w3.org/2000/svg";
     var vals=[5,5,3,2,1,1,3,2,4,5,4,2,2,2,1];
     var nat=[0,1,1,1,1,1,1,1,0,1,0,0,1,1,0];
-    var labels=["9","10","11","12","13","14","15","16","17","18","19","20","21","22","23"];
     var X0=40,X1=620,Y0=24,Y1=150,n=vals.length,step=(X1-X0)/(n-1);
     function el(t,a){var e=document.createElementNS(ns,t);for(var k in a)e.setAttribute(k,a[k]);g.appendChild(e);return e;}
     function y(v){return Y1-(v/5)*(Y1-Y0);}
@@ -49,156 +62,32 @@
     var pts=vals.map(function(v,i){return (X0+i*step)+","+y(v);}).join(" ");
     el("polygon",{class:"areaA",points:X0+","+Y1+" "+pts+" "+X1+","+Y1});
     el("polyline",{class:"lineA",points:pts});
-    vals.forEach(function(v,i){el("circle",{class:"dot",cx:X0+i*step,cy:y(v),r:(i===9?5:3)});el("text",{class:"ax",x:X0+i*step,y:Y1+16,"text-anchor":"middle"}).textContent=labels[i];});
+    vals.forEach(function(v,i){el("circle",{class:"dot",cx:X0+i*step,cy:y(v),r:3});el("text",{class:"ax",x:X0+i*step,y:Y1+16,"text-anchor":"middle"}).textContent=String(i+9);});
     [["Medellín",0,2],["Minca",3,4],["Tayrona",5,5],["Palomino",6,7],["Cartagena",8,11],["San Andrés",12,14]].forEach(function(s){
-      var cx=X0+((s[1]+s[2])/2)*step;
-      el("text",{class:"stop",x:cx,y:Y1+40,"text-anchor":"middle"}).textContent=s[0];
+      el("text",{class:"stop",x:X0+((s[1]+s[2])/2)*step,y:Y1+40,"text-anchor":"middle"}).textContent=s[0];
     });
   })();
 
-  /* ---------- painted scenes ---------- */
-  function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
-  function grad(c,x0,y0,x1,y1,stops){var g=c.createLinearGradient(x0,y0,x1,y1);stops.forEach(function(s){g.addColorStop(s[0],s[1]);});return g;}
-  function ridge(c,w,h,base,amp,color,seed,fr){var r=rng(seed),p1=r()*6,p2=r()*6,p3=r()*6;c.beginPath();c.moveTo(0,h);for(var x=0;x<=w;x+=4){var t=x/w;var yy=base+amp*(Math.sin(t*fr*3+p1)*.5+Math.sin(t*fr*7+p2)*.3+Math.sin(t*fr*13+p3)*.2);c.lineTo(x,yy);}c.lineTo(w,h);c.closePath();c.fillStyle=color;c.fill();}
-  function sun(c,x,y,r,col,glow){var g=c.createRadialGradient(x,y,r*.2,x,y,r*4);g.addColorStop(0,glow);g.addColorStop(1,"rgba(255,255,255,0)");c.fillStyle=g;c.fillRect(x-r*4,y-r*4,r*8,r*8);c.beginPath();c.arc(x,y,r,0,7);c.fillStyle=col;c.fill();}
-  function palm(c,x,y,hgt,lean,col){c.strokeStyle=col;c.lineWidth=Math.max(2,hgt*.05);c.lineCap="round";var tx=x+lean,ty=y-hgt;c.beginPath();c.moveTo(x,y);c.quadraticCurveTo(x+lean*.2,y-hgt*.6,tx,ty);c.stroke();c.lineWidth=Math.max(1.5,hgt*.035);for(var i=0;i<7;i++){var a=-Math.PI+i*(Math.PI/6)+.1,L=hgt*.45;c.beginPath();c.moveTo(tx,ty);c.quadraticCurveTo(tx+Math.cos(a)*L*.6,ty+Math.sin(a)*L*.6-L*.25,tx+Math.cos(a)*L,ty+Math.sin(a)*L*.4+L*.2);c.stroke();}}
-  function mist(c,w,y,hh,alpha){var g=c.createLinearGradient(0,y-hh,0,y+hh);g.addColorStop(0,"rgba(255,255,255,0)");g.addColorStop(.5,"rgba(255,255,255,"+alpha+")");g.addColorStop(1,"rgba(255,255,255,0)");c.fillStyle=g;c.fillRect(0,y-hh,w,hh*2);}
-  function birds(c,r,w,h,n,col){c.strokeStyle=col;c.lineWidth=1.5;for(var i=0;i<n;i++){var x=r()*w*.7+w*.15,y=r()*h*.25+h*.08,s=4+r()*5;c.beginPath();c.moveTo(x-s,y);c.quadraticCurveTo(x-s/2,y-s*.6,x,y);c.quadraticCurveTo(x+s/2,y-s*.6,x+s,y);c.stroke();}}
-
-  var painters={
-    medellin:function(c,w,h){var r=rng(7);
-      c.fillStyle=grad(c,0,0,0,h,[[0,"#1B1F4B"],[.55,"#7A3E6E"],[.85,"#F08A5D"],[1,"#F6B26B"]]);c.fillRect(0,0,w,h);
-      for(var i=0;i<60;i++){c.fillStyle="rgba(255,255,255,"+(r()*.7)+")";c.fillRect(r()*w,r()*h*.35,1.5,1.5);}
-      ridge(c,w,h,h*.42,h*.12,"#3B2D5C",3,1.2);
-      ridge(c,w,h,h*.55,h*.1,"#2A2448",11,1.6);
-      ridge(c,w,h,h*.68,h*.06,"#1A1834",21,2.2);
-      for(var k=0;k<520;k++){var x=r()*w,yy=h*.66+r()*h*.34;var col=r()<.7?"rgba(255,200,90,":"rgba(255,240,210,";c.fillStyle=col+(.45+r()*.55)+")";var s=r()*2+1;c.fillRect(x,yy,s,s);}
-      c.strokeStyle="rgba(255,255,255,.55)";c.lineWidth=1.2;c.beginPath();c.moveTo(w*.62,h*.6);c.lineTo(w*.9,h*.38);c.stroke();
-      [.68,.76,.84].forEach(function(t){var x=w*.62+(w*.28)*((t-.62)/.28),yy=h*.6-(h*.22)*((t-.62)/.28);c.fillStyle="#F2B705";c.fillRect(x-4,yy,8,6);});
-    },
-    minca:function(c,w,h){var r=rng(13);
-      c.fillStyle=grad(c,0,0,0,h,[[0,"#F7C77E"],[.45,"#F3E3B5"],[1,"#CFE6D2"]]);c.fillRect(0,0,w,h);
-      sun(c,w*.72,h*.32,h*.07,"#FFF4D6","rgba(255,214,140,.55)");
-      ridge(c,w,h,h*.38,h*.1,"#8DB8A0",5,1.1);mist(c,w,h*.46,h*.06,.55);
-      ridge(c,w,h,h*.5,h*.1,"#5E9A7A",9,1.5);mist(c,w,h*.58,h*.06,.45);
-      ridge(c,w,h,h*.63,h*.09,"#3A7A5A",17,2);mist(c,w,h*.7,h*.05,.35);
-      ridge(c,w,h,h*.78,h*.07,"#1F5640",23,2.8);
-      for(var i=0;i<26;i++){var x=r()*w,yy=h*.8+r()*h*.18,s=6+r()*10;c.beginPath();c.arc(x,yy,s,0,7);c.fillStyle=r()<.5?"#174A35":"#246B48";c.fill();}
-      c.strokeStyle="#7A4B2A";c.lineWidth=2;c.beginPath();c.moveTo(w*.12,h*.74);c.quadraticCurveTo(w*.2,h*.83,w*.28,h*.74);c.stroke();
-      c.strokeStyle="#E4553B";c.lineWidth=5;c.beginPath();c.moveTo(w*.14,h*.765);c.quadraticCurveTo(w*.2,h*.83,w*.26,h*.765);c.stroke();
-      birds(c,r,w,h,5,"rgba(40,60,50,.6)");
-    },
-    tayrona:function(c,w,h){var r=rng(19);
-      c.fillStyle=grad(c,0,0,0,h*.5,[[0,"#8FD3F0"],[1,"#DDF3F7"]]);c.fillRect(0,0,w,h*.5);
-      ridge(c,w,h,h*.3,h*.1,"#2E6B3F",4,1.4);ridge(c,w,h,h*.4,h*.08,"#1F5230",8,2.2);
-      c.fillStyle=grad(c,0,h*.48,0,h*.8,[[0,"#0E8FA0"],[.6,"#25C1C0"],[1,"#7FE0D0"]]);c.fillRect(0,h*.48,w,h*.34);
-      c.strokeStyle="rgba(255,255,255,.6)";c.lineWidth=1.5;for(var i=0;i<14;i++){var y=h*.55+r()*h*.22,x=r()*w;c.beginPath();c.moveTo(x,y);c.lineTo(x+20+r()*40,y);c.stroke();}
-      c.fillStyle="#F2E2BC";c.beginPath();c.moveTo(0,h*.82);c.quadraticCurveTo(w*.5,h*.74,w,h*.84);c.lineTo(w,h);c.lineTo(0,h);c.fill();
-      [[.78,.66,.16,.13],[.9,.6,.12,.16],[.68,.74,.09,.07],[.06,.7,.1,.1],[.97,.75,.08,.08]].forEach(function(b){c.beginPath();c.ellipse(w*b[0],h*b[1],w*b[2]*.5,h*b[3],0,0,7);c.fillStyle="#8A7A6C";c.fill();c.beginPath();c.ellipse(w*b[0]-w*b[2]*.12,h*b[1]-h*b[3]*.3,w*b[2]*.3,h*b[3]*.5,0,0,7);c.fillStyle="rgba(255,255,255,.12)";c.fill();});
-      palm(c,w*.22,h*.86,h*.5,-h*.08,"#244A2C");palm(c,w*.3,h*.88,h*.42,h*.06,"#2E5A35");palm(c,w*.55,h*.86,h*.36,-h*.04,"#2E5A35");
-    },
-    palomino:function(c,w,h){var r=rng(29);
-      c.fillStyle=grad(c,0,0,0,h*.55,[[0,"#F6A97A"],[.6,"#F9D9A8"],[1,"#F4EBD6"]]);c.fillRect(0,0,w,h*.55);
-      ridge(c,w*.7,h,h*.28,h*.12,"#8C9DB8",31,1.2);
-      c.fillStyle="#FFFFFF";c.beginPath();c.moveTo(w*.18,h*.2);c.lineTo(w*.24,h*.12);c.lineTo(w*.3,h*.2);c.closePath();c.fill();
-      ridge(c,w*.75,h,h*.42,h*.08,"#4E7A5A",37,1.8);
-      c.fillStyle=grad(c,w*.5,0,w,0,[[0,"#3FB5C0"],[1,"#127C9A"]]);c.beginPath();c.moveTo(w*.55,h*.5);c.lineTo(w,h*.45);c.lineTo(w,h);c.lineTo(w*.78,h);c.quadraticCurveTo(w*.66,h*.7,w*.55,h*.5);c.fill();
-      c.fillStyle="#EED9AE";c.beginPath();c.moveTo(0,h*.55);c.lineTo(w*.55,h*.5);c.quadraticCurveTo(w*.66,h*.7,w*.78,h);c.lineTo(0,h);c.fill();
-      c.strokeStyle="#6CC6D6";c.lineWidth=h*.06;c.lineCap="round";c.beginPath();c.moveTo(w*.2,h*.5);c.bezierCurveTo(w*.3,h*.62,w*.18,h*.74,w*.42,h*.8);c.quadraticCurveTo(w*.6,h*.86,w*.7,h*.8);c.stroke();
-      c.fillStyle="#F2B705";[[.3,.66],[.4,.79]].forEach(function(p){c.beginPath();c.ellipse(w*p[0],h*p[1],10,6,0,0,7);c.fill();c.fillStyle="#E4553B";});
-      palm(c,w*.06,h*.95,h*.55,h*.08,"#3B5A34");palm(c,w*.5,h*.96,h*.4,-h*.05,"#3B5A34");
-    },
-    cartagena:function(c,w,h){var r=rng(41);
-      c.fillStyle=grad(c,0,0,0,h*.7,[[0,"#3C3A78"],[.45,"#C4547A"],[.8,"#F39A5E"],[1,"#FBD38D"]]);c.fillRect(0,0,w,h);
-      sun(c,w*.82,h*.48,h*.08,"#FFE3A3","rgba(255,190,120,.6)");
-      var cols=["#F2B705","#E4553B","#2B9C9A","#F6E6C8","#7DB6E8","#F08AA0","#9CCB6E","#F5A65B"];
-      var x=0;while(x<w){var bw=w*(.07+r()*.06),bh=h*(.22+r()*.16),top=h*.7-bh;c.fillStyle=cols[Math.floor(r()*cols.length)];c.fillRect(x,top,bw+1,bh);
-        c.fillStyle="#B0402F";c.fillRect(x-2,top-6,bw+5,7);
-        c.fillStyle="rgba(30,30,50,.55)";for(var j=0;j<2;j++){c.fillRect(x+bw*.18+j*bw*.4,top+bh*.18,bw*.2,bh*.22);}
-        c.fillStyle="#6B3E26";c.fillRect(x+bw*.1,top+bh*.48,bw*.8,4);for(var k=0;k<5;k++)c.fillRect(x+bw*.1+k*bw*.19,top+bh*.48,2,bh*.12);
-        if(r()<.35){c.fillStyle="#3F8F3A";c.beginPath();c.arc(x+bw*.8,top+bh*.5,bw*.18,0,7);c.fill();c.fillStyle="#E85A9B";for(var q=0;q<6;q++){c.beginPath();c.arc(x+bw*.8+(r()-.5)*bw*.3,top+bh*.5+(r()-.5)*bw*.3,2.5,0,7);c.fill();}}
-        x+=bw;}
-      c.fillStyle="#B79A72";c.fillRect(0,h*.7,w,h*.3);
-      c.fillStyle="#A5885F";for(var b=0;b<w;b+=w/18){c.fillRect(b,h*.66,w/36,h*.05);}
-      c.strokeStyle="rgba(80,60,40,.35)";c.lineWidth=1;for(var yy=h*.74;yy<h;yy+=h*.06){c.beginPath();c.moveTo(0,yy);c.lineTo(w,yy);c.stroke();}
-    },
-    sanandres:function(c,w,h){var r=rng(53);
-      c.fillStyle=grad(c,0,0,0,h*.4,[[0,"#6EC6F2"],[1,"#D7F1FB"]]);c.fillRect(0,0,w,h*.4);
-      var bands=["#1B3F8F","#1F5FA8","#1E7FB8","#1BA1C2","#23BFC4","#5ED6C6","#A8EBD8"];
-      bands.forEach(function(col,i){var y0=h*.38+i*h*.09;c.fillStyle=col;c.beginPath();c.moveTo(0,y0);for(var x=0;x<=w;x+=8){c.lineTo(x,y0+Math.sin(x/w*8+i)*h*.012);}c.lineTo(w,h);c.lineTo(0,h);c.fill();});
-      c.fillStyle="rgba(255,255,255,.7)";[[.25,.18],[.6,.12],[.82,.22]].forEach(function(p){c.beginPath();c.ellipse(w*p[0],h*p[1],w*.06,h*.03,0,0,7);c.ellipse(w*p[0]+w*.04,h*p[1]-h*.015,w*.04,h*.03,0,0,7);c.fill();});
-      c.fillStyle="#F6EBCF";c.beginPath();c.ellipse(w*.62,h*.5,w*.13,h*.05,0,0,7);c.fill();
-      c.fillStyle="#2F7A3E";c.beginPath();c.ellipse(w*.62,h*.47,w*.08,h*.04,0,0,7);c.fill();
-      palm(c,w*.58,h*.49,h*.2,-h*.03,"#21502A");palm(c,w*.64,h*.49,h*.24,h*.03,"#21502A");palm(c,w*.67,h*.5,h*.16,h*.04,"#2E6A38");
-      c.fillStyle="#FFFFFF";c.beginPath();c.moveTo(w*.22,h*.7);c.lineTo(w*.3,h*.7);c.lineTo(w*.28,h*.73);c.lineTo(w*.235,h*.73);c.fill();c.fillStyle="#E4553B";c.fillRect(w*.235,h*.685,w*.03,h*.015);
-      c.strokeStyle="rgba(255,255,255,.7)";c.lineWidth=1.5;for(var i=0;i<6;i++){var x=w*.15+r()*w*.25,y=h*.72+r()*h*.06;c.beginPath();c.moveTo(x,y);c.lineTo(x+25,y);c.stroke();}
-    }
-  };
-  function paintAll(){
-    document.querySelectorAll("canvas.scene").forEach(function(cv){
-      var rect=cv.getBoundingClientRect();if(!rect.width)return;var dpr=Math.min(window.devicePixelRatio||1,2);
-      cv.width=Math.round(rect.width*dpr);cv.height=Math.round(rect.height*dpr);
-      var c=cv.getContext("2d");c.setTransform(dpr,0,0,dpr,0,0);
-      var f=painters[cv.dataset.scene];if(f)f(c,rect.width,rect.height);
-    });
-  }
-  var t;window.addEventListener("resize",function(){clearTimeout(t);t=setTimeout(paintAll,150);});
-  paintAll();
-  render();
-
   /* ---------- ids de paradas + fotos reales desde fotos/ ---------- */
   document.querySelectorAll("canvas.scene").forEach(function(cv){
-    var slug=cv.dataset.scene, card=cv.closest(".stopcard");
+    var slug=cv.dataset.scene, card=cv.closest(".slide");
     if(card) card.id="parada-"+slug;
     var img=new Image();
     img.className="scene-photo";
-    img.alt=cv.getAttribute("aria-label")?cv.getAttribute("aria-label").replace("Ilustración: ","Foto: "):"";
+    img.alt=(cv.getAttribute("aria-label")||"").replace("Ilustración: ","Foto: ");
     img.onload=function(){cv.parentNode.insertBefore(img,cv);cv.hidden=true;};
     img.src="fotos/"+slug+".jpg";
   });
 
-  /* ---------- vista día por día / mapa ---------- */
-  var lista=document.getElementById("listaView"), mapa=document.getElementById("mapaView"), hint=document.getElementById("viewHint");
-  function setView(v){
-    document.querySelectorAll("#segView button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.v===v);});
-    lista.hidden=v!=="lista"; mapa.hidden=v!=="mapa"; document.getElementById("calView").hidden=v!=="cal";
-    hint.textContent=v==="cal"?"Tocá un día para ir al detalle. Los días fuera de tu bloque se ven más claros.":v==="mapa"?"Tocá cada parada para ver los días, el costo y abrirla en Google Maps. Las paradas que quedan fuera de tu bloque se ven más claras.":"Los días que quedan fuera del bloque que elegiste arriba se ven más claros. Cada parada tiene su link de fotos, dónde dormir y cuánto sale.";
-    if(v==="mapa") document.dispatchEvent(new CustomEvent("mapa:show"));
-  }
-  document.getElementById("segView").addEventListener("click",function(e){var b=e.target.closest("button");if(b)setView(b.dataset.v);});
-  window.GIRA_VER_DIA=function(n){
-    setView("lista");
-    var el=document.querySelector('.day[data-n="'+n+'"]'); if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.add("flash");setTimeout(function(){el.classList.remove("flash");},1600);}
-  };
-  window.GIRA_VER_PARADA=function(slug){
-    setView("lista");
-    var el=document.getElementById("parada-"+slug); if(el) el.scrollIntoView({behavior:"smooth",block:"start"});
-  };
-
-  /* ---------- costo por parada según el nivel ---------- */
-  var NIVEL_TXT={aj:"ajustado",medio:"medio",gustos:"con gustos"};
-  function aplicarNivel(l){
-    document.querySelectorAll(".stopcost").forEach(function(sc){
-      var b=sc.querySelector("b[data-costs]"), n=sc.querySelector(".lvl-name"); if(!b||!n) return;
-      if(!n.dataset.orig) n.dataset.orig=n.textContent;
-      var c=JSON.parse(b.dataset.costs);
-      b.textContent="~USD "+c[l].toLocaleString("es-AR");
-      n.textContent=n.dataset.orig.replace("medio",NIVEL_TXT[l]);
-    });
-    document.querySelectorAll(".niv").forEach(function(x){x.classList.toggle("on",x.dataset.l===l);});
-  }
-  document.addEventListener("bloque:change",function(e){aplicarNivel(e.detail.l);});
-  aplicarNivel(state.l);
-
-  /* ---------- vista calendario ---------- */
+  /* ---------- calendario ---------- */
   (function(){
     var cal=document.getElementById("cal"); if(!cal) return;
     var COLOR={medellin:"var(--coral)",minca:"var(--sea)",tayrona:"#2E7D4F",palomino:"var(--sun)",cartagena:"#C4547A",sanandres:"var(--deep)"};
     var NOMBRE={medellin:"Medellín",minca:"Minca",tayrona:"Tayrona",palomino:"Palomino",cartagena:"Cartagena",sanandres:"San Andrés"};
     var dias={};
     document.querySelectorAll(".day").forEach(function(d){
-      var card=d.closest(".stopcard"), cv=card&&card.querySelector("canvas.scene");
-      dias[+d.dataset.n]={n:+d.dataset.n,slug:cv?cv.dataset.scene:"",titulo:(d.querySelector("h3")||{}).textContent||""};
+      var card=d.closest(".slide"), cv=card&&card.querySelector("canvas.scene");
+      dias[+d.dataset.n]={slug:cv?cv.dataset.scene:"",titulo:(d.querySelector("h3")||{}).textContent||""};
     });
     var VUELTA={8:"7",12:"10",15:"15"};
     var html=["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"].map(function(x){return '<div class="cal-h">'+x+'</div>';}).join("");
@@ -215,34 +104,82 @@
     cal.innerHTML=html;
     cal.addEventListener("click",function(e){var b=e.target.closest(".cal-d[data-n]"); if(b) window.GIRA_VER_DIA(+b.dataset.n);});
     document.getElementById("calLegend").innerHTML=Object.keys(NOMBRE).map(function(k){return '<span><i style="background:'+COLOR[k]+'"></i>'+NOMBRE[k]+'</span>';}).join("");
-    function dim(last){ cal.querySelectorAll(".cal-d[data-n]").forEach(function(b){b.classList.toggle("out",+b.dataset.n>last);}); }
-    document.addEventListener("bloque:change",function(e){dim(e.detail.last);});
-    dim(lastDay[state.b]);
   })();
 
-  /* ---------- pestañas: el viaje / decisiones ---------- */
-  function setTab(t){
-    document.querySelectorAll(".tabs button").forEach(function(b){b.setAttribute("aria-selected",b.dataset.tab===t);});
-    document.getElementById("tab-viaje").hidden=t!=="viaje";
-    document.getElementById("tab-decisiones").hidden=t!=="decisiones";
-    if(t==="viaje") setTimeout(paintAll,0);
+  /* ---------- numeración de slides (rombo + n / total) ---------- */
+  document.querySelectorAll(".page").forEach(function(pg){
+    var sl=pg.querySelectorAll(".slide");
+    sl.forEach(function(s,i){
+      var r=s.querySelector(".rombo-n"); if(r) r.textContent=i+1;
+      var c=s.querySelector(".slide-count"); if(c) c.textContent=(i+1)+" / "+sl.length;
+    });
+  });
+
+  /* ---------- páginas ---------- */
+  var PAGES=["inicio","dias","calendario","mapa","decisiones"];
+  var ALIAS={viaje:"inicio",itinerario:"dias"};
+  var actual="inicio";
+  function showPage(p,opts){
+    opts=opts||{};
+    if(PAGES.indexOf(p)<0) p="inicio";
+    actual=p;
+    document.querySelectorAll(".page").forEach(function(m){m.hidden=m.dataset.page!==p;});
+    document.querySelectorAll(".tabs button").forEach(function(b){b.setAttribute("aria-selected",b.dataset.page===p);});
+    document.getElementById("subbar").hidden=["dias","calendario","mapa"].indexOf(p)<0;
+    document.body.dataset.page=p; document.documentElement.dataset.page=p;
+    if(p==="dias" && window.GIRA_PAINT) setTimeout(window.GIRA_PAINT,0);
+    if(p==="mapa") document.dispatchEvent(new CustomEvent("mapa:show"));
+    if(!opts.keepScroll) window.scrollTo(0,0);
+    var sel=document.querySelector('.tabs [data-page="'+p+'"]'); if(sel&&sel.scrollIntoView) sel.scrollIntoView({block:"nearest",inline:"center"});
+  }
+  function fromHash(){
+    var h=(location.hash||"").replace("#","");
+    h=ALIAS[h]||h;
+    if(h.indexOf("parada-")===0){ showPage("dias"); setTimeout(function(){var el=document.getElementById(h); if(el) el.scrollIntoView();},50); return; }
+    showPage(PAGES.indexOf(h)>=0?h:"inicio");
   }
   document.querySelector(".tabs").addEventListener("click",function(e){
     var b=e.target.closest("button"); if(!b) return;
-    setTab(b.dataset.tab);
-    try{history.replaceState(null,"","#"+b.dataset.tab);}catch(err){}
-    window.scrollTo(0,0);
+    if(location.hash==="#"+b.dataset.page) showPage(b.dataset.page); else location.hash=b.dataset.page;
   });
-  function irAHash(scroll){
-    var h=(location.hash||"").replace("#","");
-    if(h==="decisiones") setTab("decisiones");
-    else if(h==="mapa"||h==="calendario"||h==="itinerario"){
-      setTab("viaje"); setView(h==="mapa"?"mapa":h==="calendario"?"cal":"lista");
-      if(scroll) setTimeout(function(){document.getElementById("ruta").scrollIntoView({behavior:"smooth"});},60);
-    }
-    else if(h==="viaje") setTab("viaje");
-  }
-  irAHash(false);
-  window.addEventListener("hashchange",function(){irAHash(true);});
-  document.querySelector(".brand").addEventListener("click",function(e){e.preventDefault();document.querySelector('.tabs [data-tab="viaje"]').click();});
+  window.addEventListener("hashchange",fromHash);
+
+  window.GIRA_VER_DIA=function(n){
+    showPage("dias");
+    try{history.replaceState(null,"","#dias");}catch(err){}
+    setTimeout(function(){
+      var el=document.querySelector('.day[data-n="'+n+'"]'); if(!el) return;
+      el.scrollIntoView({block:"center"});
+      el.classList.add("flash"); setTimeout(function(){el.classList.remove("flash");},1600);
+    },60);
+  };
+  window.GIRA_VER_PARADA=function(slug){
+    showPage("dias");
+    try{history.replaceState(null,"","#dias");}catch(err){}
+    setTimeout(function(){var el=document.getElementById("parada-"+slug); if(el) el.scrollIntoView();},60);
+  };
+
+  /* ---------- flechas para pasar de slide ---------- */
+  document.addEventListener("keydown",function(e){
+    if(e.target.closest("input,textarea,select,[contenteditable]")||e.altKey||e.ctrlKey||e.metaKey) return;
+    if(actual==="mapa") return;
+    var dir=0;
+    if(e.key==="ArrowDown"||e.key==="PageDown"||e.key==="ArrowRight") dir=1;
+    if(e.key==="ArrowUp"||e.key==="PageUp"||e.key==="ArrowLeft") dir=-1;
+    if(!dir) return;
+    if(e.target.closest(".pax")) return;
+    var sl=[].slice.call(document.querySelectorAll('.page[data-page="'+actual+'"] .slide'));
+    if(!sl.length) return;
+    var top=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--nav-h"))||60;
+    var i=0;
+    sl.forEach(function(s,k){ if(s.getBoundingClientRect().top - top <= 4) i=k; });
+    var cur=sl[i].getBoundingClientRect();
+    var target = dir>0 ? sl[Math.min(i+1,sl.length-1)] : (cur.top - top < -4 ? sl[i] : sl[Math.max(i-1,0)]);
+    e.preventDefault();
+    target.scrollIntoView({behavior:"smooth",block:"start"});
+  });
+
+  render();
+  fromHash();
+  if(window.GIRA_PAINT){ window.GIRA_PAINT(); var t; window.addEventListener("resize",function(){clearTimeout(t);t=setTimeout(window.GIRA_PAINT,150);}); }
 })();

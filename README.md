@@ -6,9 +6,10 @@ Página del viaje a Colombia (9 al 23 de enero de 2027): itinerario día por dí
 
 | Archivo | Qué tiene |
 |---|---|
-| `index.html` | Toda la página: pestañas "El viaje" y "Decisiones" |
+| `index.html` | Toda la página, en slides: Inicio, Día por día, Calendario, Mapa y Decisiones |
 | `data/updates.js` | **Los updates del grupo** y quién está en el avión. Es lo que más se toca. |
-| `js/app.js` | Selector de bloques, presupuesto, ilustraciones y pestañas |
+| `js/app.js` | Navegación entre páginas, selector de bloques y nivel, presupuesto y calendario |
+| `js/scenes.js` | Ilustraciones de cada parada (si hay foto en `fotos/`, se usa la foto) |
 | `js/decisiones.js` | El avión arrastrable (no guarda nada: se resetea al recargar) |
 | `js/mapa.js` | Mapa con Leaflet + OpenStreetMap (paradas, tramos y puntos de vuelta) |
 | `css/styles.css` | Estilos |
@@ -22,6 +23,6 @@ En `data/updates.js`, agregar un objeto **al principio** de `UPDATES` con la fec
 
 Settings → Pages → Source: *Deploy from a branch* → Branch: `main` / `(root)` → Save. A los minutos queda en `https://lucasirod.github.io/gira-colombia-27/`.
 
-Accesos directos: `#decisiones` abre el avión, `#mapa` abre el mapa.
+Accesos directos: `#inicio`, `#dias`, `#calendario`, `#mapa` y `#decisiones`.
 
 > Después de cambiar un `.js` o el `.css`, subí el número `?v=` en `index.html` para que los navegadores no muestren la versión vieja.

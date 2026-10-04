@@ -4,538 +4,588 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gira Colombia 2027</title>
-<meta name="description" content="Viaje a Colombia, enero 2027: itinerario, mapa, presupuesto por bloque y decisiones del grupo.">
+<meta name="description" content="Viaje a Colombia, enero 2027: itinerario, calendario, mapa, presupuesto por bloque y decisiones del grupo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
-<link rel="stylesheet" href="css/styles.css?v=6">
+<link rel="stylesheet" href="css/styles.css?v=7">
 </head>
 <body>
 <nav class="topbar" aria-label="Secciones">
   <div class="topbar-in">
-    <a class="brand" href="#viaje">Gira Colombia ’27</a>
+    <a class="brand" href="#inicio">Gira Colombia ’27</a>
     <div class="tabs" role="tablist">
-      <button type="button" role="tab" data-tab="viaje" aria-selected="true">El viaje</button>
-      <button type="button" role="tab" data-tab="decisiones" aria-selected="false">Decisiones</button>
+      <button type="button" role="tab" data-page="inicio" aria-selected="true">Inicio</button>
+      <button type="button" role="tab" data-page="dias" aria-selected="false">Día por día</button>
+      <button type="button" role="tab" data-page="calendario" aria-selected="false">Calendario</button>
+      <button type="button" role="tab" data-page="mapa" aria-selected="false">Mapa</button>
+      <button type="button" role="tab" data-page="decisiones" aria-selected="false">Decisiones</button>
     </div>
   </div>
+  <div class="subbar" id="subbar" hidden><div class="selector">
+  <div class="seg seg-block" role="group" aria-label="Bloque">
+    <button type="button" data-b="7">7 días</button>
+    <button type="button" data-b="10">10 días</button>
+    <button type="button" data-b="15">Completo · 15</button>
+  </div>
+  <div class="seg small seg-level" role="group" aria-label="Nivel de gasto">
+    <button type="button" data-l="aj">Ajustado</button>
+    <button type="button" data-l="medio">Medio</button>
+    <button type="button" data-l="gustos">Con gustos</button>
+  </div>
+  <div class="total"><span>Total aprox.</span> <b class="total-out">USD 2.870</b></div>
+</div></div>
 </nav>
 
-<main id="tab-decisiones" class="panel" hidden>
-  <div class="wrap">
-    <section class="dec-head">
-      <p class="eyebrow">Proceso de decisión</p>
-      <h2>¿Quién se sube al avión?</h2>
-      <p class="prose">Cada update es una foto de cómo quedó el grupo después de charlarlo. Durante la llamada podés arrastrar las caras entre el avión, la escalera y la pista para jugar en vivo: no se guarda nada, al recargar vuelve a la foto del día.</p>
-    </section>
+<main class="page" data-page="inicio">
+<section class="slide slide--dark slide--cover">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Inicio</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    <div class="chiva" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="cover">
+      <p class="eyebrow">Propuesta para el grupo · enero 2027</p>
+      <h1>Gira<br>Colombia <span>’27</span></h1>
+      <p class="lead">Dos semanas de ciudad, selva, Caribe e isla. Arrancamos todos juntos el sábado 9 de enero en Medellín y cada uno se queda 7, 10 o 15 días según su plata y sus vacaciones.</p>
+      <div aria-label="Ruta" class="route">
+<b>Medellín</b><em>→</em><b>Minca</b><em>→</em><b>Tayrona</b><em>→</em><b>Palomino</b><em>→</em><b>Cartagena</b><em>→</em><b>San Andrés</b>
+</div>
+      <div class="jump"><a href="#dias">Día por día</a><a href="#calendario">Calendario</a><a href="#mapa">Mapa</a><a href="#decisiones">¿Quién viene?</a></div>
+    </div>
+    <div class="facts">
+<div class="fact"><strong>9 → 23 ene</strong><span>Sábado a sábado, con 3 puntos de vuelta</span></div>
+<div class="fact"><strong>6 paradas</strong><span>Ciudad, montaña, selva, playa, Caribe, isla</span></div>
+<div class="fact"><strong>desde ~USD 1.200</strong><span>Todo incluido, versión ajustada de 7 días</span></div>
+<div class="fact"><strong>31 oct</strong><span>Fecha límite para comprar el vuelo de ida</span></div>
+</div>
+    <p class="hint-keys">Bajá o usá las flechas ↓ ↑ para pasar de slide.</p>
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide ">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Por qué Colombia</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    <div class="split2"><div class="col"><p class="eyebrow">Por qué Colombia</p><h2>Lo que nos da cada opción por la misma plata</h2><p class="prose">Miramos las alternativas para dos semanas entre amigos. Colombia es la única que junta ciudad, naturaleza, playa y noche en un solo viaje, con vuelo corto y sin barrera de idioma.</p><p class="note">Valores aproximados, armados por nosotros para comparar. El de Colombia sale del presupuesto detallado más abajo.</p></div><div class="col"><div class="tablebox">
+<table>
+<thead><tr><th>Destino</th><th>Por persona, ~2 semanas</th><th>Lo bueno</th><th>Lo que no cierra</th></tr></thead>
+<tbody>
+<tr><td>Europa</td><td class="num">USD 3.500–5.000</td><td>Ciudades, historia, fiesta</td><td>Vuelo de 1.200–1.600 y 80–120 € por día. No llega la mitad del grupo.</td></tr>
+<tr><td>Sudeste asiático</td><td class="num">USD 2.500–3.500</td><td>Barato allá, playas increíbles</td><td>Vuelo de 1.500–2.000, más de 30 h de viaje. Para que valga, necesitás 3 semanas.</td></tr>
+<tr><td>Costa Rica</td><td class="num">USD 2.500–3.500</td><td>Naturaleza top</td><td>Precios tipo Estados Unidos y poca noche.</td></tr>
+<tr><td>Nordeste de Brasil</td><td class="num">USD 1.500–2.300</td><td>Playas lindas (Pipa, Jeri)</td><td>Vibe más tranquila, y Brasil ya lo hicimos.</td></tr>
+<tr class="win"><td>Colombia <span class="tag">elegido</span></td><td class="num">USD 1.200–2.900</td><td>Ciudad + selva + Caribe + isla, en español</td><td>Enero es temporada alta: hay que comprar ya.</td></tr>
+</tbody>
+</table>
+</div></div></div>
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Por qué ahora</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    
+<p class="eyebrow">Por qué ahora</p>
+<h2>Tenemos 28. Es el viaje para hacer antes de los 30.</h2>
+<div class="reasons">
+<div class="reason"><h3>Edad y momento</h3><p>Estamos en una etapa de salir, conocer gente y sumar experiencias. En unos años este viaje ya no se arma igual.</p></div>
+<div class="reason"><h3>La ruta te junta con gente</h3><p>Medellín → Costa → Cartagena es el circuito mochilero clásico. Te cruzás a los mismos grupos en varias paradas y los hostels arman planes todos los días.</p></div>
+<div class="reason"><h3>Joda sana, no solo joda</h3><p>De día hay selva, cascadas, parapente, ríos e islas. La noche es un condimento, no el viaje entero.</p></div>
+<div class="reason"><h3>Cada uno arma el suyo</h3><p>Arrancamos todos juntos. El que tiene una semana se vuelve el 16, el que tiene más sigue. Nadie condiciona a nadie.</p></div>
+<div class="reason"><h3>Mismo idioma</h3><p>Hablás con cualquiera desde el minuto uno, y eso cambia todo cuando la idea es conocer gente.</p></div>
+<div class="reason"><h3>Cerca y con vuelos nuevos</h3><p>Desde noviembre hay directo Buenos Aires–Medellín (JetSMART) y desde enero, Cartagena–Buenos Aires (Aerolíneas).</p></div>
+</div>
 
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide slide--dark">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Por qué enero</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    
+<p class="eyebrow">¿Por qué enero?</p>
+<h2>La fecha donde entramos la mayoría, con buen clima</h2>
+<div class="reasons">
+<div class="reason"><h3>Temporada seca</h3><p>De diciembre a marzo casi no llueve en el Caribe ni en Medellín. Es la mejor época del año para playa, Tayrona y San Andrés.</p></div>
+<div class="reason"><h3>Nuestro verano</h3><p>Es cuando la mayoría tiene las vacaciones largas y es más fácil pedir días en el laburo.</p></div>
+<div class="reason"><h3>Tayrona abierto</h3><p>El parque cierra del 1 al 15 de febrero y del 1 al 15 de junio. En enero está abierto.</p></div>
+<div class="reason"><h3>Esquivamos el pico</h3><p>Lo más caro y lleno es del 20 de diciembre al finde de Reyes (9–11 ene). Después la temporada alta va bajando hasta que los colombianos vuelven a clases, alrededor del 19 de enero.</p></div>
+</div>
+<div class="tablebox">
+<table>
+<thead><tr><th>Alternativa</th><th>Lo bueno</th><th>Por qué no</th></tr></thead>
+<tbody>
+<tr><td>Fines de febrero / principios de marzo</td><td>Sigue seco, más barato y más vacío</td><td>Reja no puede en febrero y Lucas tiene un casamiento en marzo. Del 21 al 28 de marzo es Semana Santa, temporada alta otra vez. El ahorro sería de unos USD 150–300 por persona, casi todo en vuelos.</td></tr>
+<tr><td>Mitad de año</td><td>Clima aceptable en la costa</td><td>Son las vacaciones de mitad de año en Colombia, Tayrona cierra la primera quincena de junio y acá es invierno, con vacaciones cortas. Patearlo seis meses arriesga que se bajen varios.</td></tr>
+</tbody>
+</table>
+</div>
+
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide ">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">¿Solo joda?</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    <div class="split2"><div class="col"><p class="eyebrow">¿Es solo un viaje de joda?</p><h2>No. Es una curva: sube, baja, vuelve a subir y cierra tranqui.</h2><p class="prose">Si no te copa salir todas las noches, no pasa nada: en Minca y Tayrona la noche es hamaca, estrellas y cerveza en el hostel. Y en cada parada hay plan de día para todos.</p></div><div class="col"><div class="curve">
+<svg aria-label="Nivel de joda por día del 9 al 23 de enero, con los días de naturaleza marcados" role="img" viewbox="0 0 640 210">
+<g id="curveg"></g>
+</svg>
+<div class="legend"><span><i style="background:var(--coral)"></i>Nivel de salida/fiesta esa noche</span><span><i style="background:var(--sea);opacity:.5"></i>Día con plan de naturaleza</span></div>
+</div><div class="split">
+<div class="stat"><strong>10 de 15</strong><span>días con un plan de naturaleza o al aire libre</span></div>
+<div class="stat"><strong>5</strong><span>noches de salida fuerte (Medellín y Cartagena)</span></div>
+<div class="stat"><strong>5</strong><span>noches tranqui: Minca, hamaca en Tayrona, isla</span></div>
+</div></div></div>
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Presupuesto</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    
+<p class="eyebrow">Elegí tu bloque</p>
+<h2>Tres formas de hacer el viaje</h2>
+<p class="prose">Precios por persona, todo incluido (vuelos, alojamiento, comida, salidas, actividades y seguro). "Medio" es habitación privada para el grupo en hostel social y todas las actividades del plan.</p>
+<div class="selector">
+  <div class="seg seg-block" role="group" aria-label="Bloque">
+    <button type="button" data-b="7">7 días</button>
+    <button type="button" data-b="10">10 días</button>
+    <button type="button" data-b="15">Completo · 15</button>
+  </div>
+  <div class="seg small seg-level" role="group" aria-label="Nivel de gasto">
+    <button type="button" data-l="aj">Ajustado</button>
+    <button type="button" data-l="medio">Medio</button>
+    <button type="button" data-l="gustos">Con gustos</button>
+  </div>
+  <div class="total"><span>Total aprox.</span> <b class="total-out">USD 2.870</b></div>
+</div><div class="blocks">
+<article class="blk" data-blk="7">
+<p class="eyebrow">Bloque corto</p>
+<h3>7 días</h3>
+<div class="price" data-price="7">USD 1.730 <small>aprox.</small></div>
+<ul><li>Medellín, Minca, Tayrona y Palomino</li><li>Noche, montaña, selva y playa</li></ul>
+<span class="ret">Vuelta sáb 16 desde Santa Marta</span>
+<div class="breakdown" data-bd="7"></div>
+</article>
+<article class="blk" data-blk="10">
+<p class="eyebrow">Bloque medio</p>
+<h3>10 días</h3>
+<div class="price" data-price="10">USD 2.270 <small>aprox.</small></div>
+<ul><li>Todo lo anterior + Cartagena</li><li>Barco a Cholón y última noche grupal</li></ul>
+<span class="ret">Vuelta mié 20 desde Cartagena</span>
+<div class="breakdown" data-bd="10"></div>
+</article>
+<article class="blk on" data-blk="15">
+<p class="eyebrow">Bloque completo</p>
+<h3>15 días</h3>
+<div class="price" data-price="15">USD 2.870 <small>aprox.</small></div>
+<ul><li>Todo lo anterior + San Andrés</li><li>Cierre en el mar de siete colores</li></ul>
+<span class="ret">Vuelta sáb 23 desde San Andrés</span>
+<div class="breakdown" data-bd="15"></div>
+</article>
+</div><div class="jump"><a href="#dias">Ver el día por día</a></div>
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide ">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Vuelos</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    
+<p class="eyebrow">Vuelos</p>
+<h2>Qué hay y cuánto sale</h2>
+<p class="prose">Cada uno compra la ida a Medellín y la vuelta desde donde termina su bloque. Precios por persona, solo ida, buscados en octubre 2026.</p>
+<div class="flist">
+<div class="fl"><span class="route2">BUE → MDE · sáb 9</span><strong>desde ~USD 270</strong><p>JetSMART directo desde Ezeiza (arranca en noviembre, tarifa sin valija). Con escala ~USD 300; Avianca directo ~USD 600.</p><a href="https://jetsmart.com/" rel="noopener" target="_blank">JetSMART</a></div>
+<div class="fl"><span class="route2">MDE → SMR · mar 12</span><strong>~USD 63</strong><p>Vuelo interno de 1,5 h. Las low cost cobran la valija aparte: comprarla al reservar.</p></div>
+<div class="fl"><span class="route2">SMR → BUE · sáb 16</span><strong>~USD 400–500</strong><p>Vuelta del bloque de 7 días, con escala.</p></div>
+<div class="fl"><span class="route2">CTG → BUE · mié 20</span><strong>~USD 400–500</strong><p>Vuelta del bloque de 10 días. Desde enero hay directo de Aerolíneas a Aeroparque.</p><a href="https://www.aerolineas.com.ar/" rel="noopener" target="_blank">Aerolíneas</a></div>
+<div class="fl"><span class="route2">CTG → ADZ · mié 20</span><strong>~USD 90</strong><p>Cartagena → San Andrés, una hora.</p></div>
+<div class="fl"><span class="route2">ADZ → BUE · sáb 23</span><strong>~USD 400–600</strong><p>Vuelta del bloque completo, vía Medellín, Bogotá o Panamá.</p></div>
+</div>
+<p class="note">Colombia pide pasaje de salida para entrar: hay que tener la vuelta comprada antes de viajar.</p>
+
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide slide--dark">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Próximos pasos</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    
+<p class="eyebrow">Qué tenemos que hacer</p>
+<h2>Próximos pasos</h2>
+<ol class="steps">
+<li><div><strong>Cada uno elige su bloque</strong><p>7, 10 o 15 días. Con eso sabemos cuántas camas reservar en cada parada.</p></div></li>
+<li><div><strong>Comprar el vuelo de ida antes del 31 de octubre</strong><p>Las tarifas de los vuelos nuevos son las primeras que se agotan, y enero es temporada alta.</p></div></li>
+<li><div><strong>Reservar hostels con cancelación gratis</strong><p>Habitaciones privadas para el grupo, que son pocas y se van primero. Así podemos sumar o restar gente.</p></div></li>
+<li><div><strong>Vacuna de fiebre amarilla</strong><p>Al menos 10–15 días antes. Es gratis en vacunatorios públicos y la pueden pedir en Tayrona.</p></div></li>
+<li><div><strong>Armar Splitwise por bloque</strong><p>Uno para Medellín, otro para la Costa y otro para San Andrés. Así el que se va antes cierra las cuentas limpio.</p></div></li>
+</ol>
+
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide ">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Tips</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    
+<p class="eyebrow">Para tener en cuenta</p>
+<h2>Tips del viaje</h2>
+<div class="tips">
+<div class="tip"><h3>Citas y tragos</h3><p>En Medellín hay robos con escopolamina, sobre todo por apps de citas. Primera cita en lugar público, nunca dejar el vaso solo y no llevar gente recién conocida al hostel sin avisar al grupo.</p></div>
+<div class="tip"><h3>Celular en la calle</h3><p>No usarlo en la vereda saliendo de boliches. Moverse en Uber, DiDi o InDrive.</p></div>
+<div class="tip"><h3>Efectivo</h3><p>Pesos colombianos para Tayrona, la Piedra del Peñol, Minca, mototaxis y Johnny Cay. Tarjeta para hostels y restaurantes.</p></div>
+<div class="tip"><h3>Clima</h3><p>Medellín es templado y fresco a la noche: llevar buzo. En la costa hace calor y hay brisa fuerte. Protector y repelente sí o sí.</p></div>
+<div class="tip"><h3>Equipaje</h3><p>Mochila chica para la noche en Tayrona. La grande se deja en el hostel de Palomino.</p></div>
+<div class="tip"><h3>Conocer gente</h3><p>Sumarse al grupo de WhatsApp de cada hostel el primer día y anotarse a los planes: pub crawls, salsa, tours.</p></div>
+</div>
+<p class="note small-print">Precios aproximados por persona en dólares, relevados a principios de octubre de 2026 con tarifas 2026. Para enero pueden subir un poco, sobre todo hostels y vuelos. Las fotos de cada parada se cargan desde la carpeta <code>fotos/</code> del repo; si falta alguna, se muestra una ilustración. Los botones "Ver fotos" llevan a más imágenes.</p>
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+</main>
+
+<main class="page" data-page="dias" hidden>
+<section class="slide  stopcard">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Parada 1 · Medellín</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    <div class="stop-grid"><div class="stop-left"><canvas aria-label="Ilustración: Medellín de noche entre montañas" class="scene" data-scene="medellin"></canvas><div class="stophead">
+<div><p class="nights">Parada 1 · 3 noches · sáb 9 → mar 12</p><h2>Medellín</h2></div>
+<div class="stopcost"><span class="lvl-name">por persona, medio</span><b data-costs='{"aj":200,"medio":400,"gustos":650}'>~USD 400</b></div>
+</div><p class="why"><strong>Por qué arrancamos acá:</strong> es la parada más fuerte de noche y donde se "arma" el grupo. Llegamos con energía, y el domingo 10 es víspera de feriado, así que salen los paisas también. De día no es solo ciudad: Guatapé y el parapente son de lo mejor del viaje.</p><div class="meters">
+<div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">5/5</span></div><div class="pips" data-v="5"></div></div>
+<div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
+<div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
+</div><div class="links">
+<a class="photo" href="https://www.google.com/search?tbm=isch&amp;q=Medell%C3%ADn+Provenza+noche" rel="noopener" target="_blank">Ver fotos de Medellín</a>
+<a href="https://www.google.com/search?tbm=isch&amp;q=Piedra+del+Pe%C3%B1ol+Guatap%C3%A9" rel="noopener" target="_blank">Fotos de Guatapé</a>
+<a href="https://www.google.com/search?tbm=isch&amp;q=parapente+San+F%C3%A9lix+Medell%C3%ADn" rel="noopener" target="_blank">Fotos del parapente</a>
+</div><div class="niveles">
+<div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 200</p><ul><li>Dorm en vez de privada</li><li>Guatapé en bus desde la Terminal Norte (~USD 10) en vez de tour</li><li>Sin parapente (−USD 76)</li><li>Previa en el hostel y bares sin cover</li></ul></div>
+<div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 650</p><ul><li>Parapente de 30 min (~USD 131)</li><li>Mesa con botella en un boliche de Provenza</li><li>Cena en restaurante en El Poblado</li><li>Privada con baño en Los Patios o Masaya</li></ul></div>
+</div><div class="stay">
+<p class="eyebrow">Dónde dormir · El Poblado</p>
+<ul>
+<li><a href="https://www.hostelworld.com/hostels/p/273991/los-patios-hostel/" rel="noopener" target="_blank">Los Patios</a>: 9,7 en Hostelworld, dos rooftops con pileta, clases de salsa. Social pero ordenado. <strong>Nuestra primera opción.</strong></li>
+<li><a href="https://www.hostelworld.com/hostels/south-america/colombia/medellin/" rel="noopener" target="_blank">Viajero Medellín o Masaya</a>: más fiesteros, rooftop con jacuzzis.</li>
+</ul>
+</div></div><div class="stop-right"><p class="eyebrow">Día por día</p><div class="days">
+<div class="day" data-n="1">
+<div class="date"><b>Sáb 9</b>Llegada</div>
+<div class="what"><h3>Aterrizamos y primera noche en Provenza</h3><p>Del aeropuerto a El Poblado (30–45 min). Check-in, rooftop del hostel y salida por Provenza, la zona de bares y boliches.</p><div class="chips"><span class="chip night">noche fuerte</span><span class="chip">traslado ~USD 8</span></div></div>
+</div>
+<div class="day" data-n="2">
+<div class="date"><b>Dom 10</b>Guatapé</div>
+<div class="what"><h3>Piedra del Peñol, lancha y pueblo de colores</h3><p>Salimos temprano (7 am) para ganarle a la gente. Subimos los 740 escalones de la Piedra, paseo en lancha por la represa y almuerzo en Guatapé. A la noche, la salida grande: víspera de feriado.</p><div class="chips"><span class="chip nat">naturaleza</span><span class="chip night">noche fuerte</span><span class="chip">tour ~USD 35–45 + Piedra ~USD 9</span></div><div class="links"><a href="https://touraguatape.com/" rel="noopener" target="_blank">Tours a Guatapé</a></div></div>
+</div>
+<div class="day fest" data-n="3">
+<div class="date"><b>Lun 11</b>San Félix</div>
+<div class="what"><h3>Parapente a la mañana, Comuna 13 a la tarde</h3><p>Vuelo en tándem con instructor sobre el valle (no hace falta experiencia; se vuela de mañana si el clima acompaña). A la tarde, Comuna 13 con free tour: grafitis, escaleras eléctricas e historia del barrio. Noche tranqui.</p><div class="chips"><span class="chip nat">al aire libre</span><span class="chip">parapente 15 min ~USD 66 + traslado ~10</span><span class="chip">free tour = propina</span></div><div class="links"><a href="https://parapentedragonfly.com/en/servicios/parapente-precio-vuelo-instructor/" rel="noopener" target="_blank">Precios de parapente</a></div></div>
+</div>
+</div></div></div>
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide slide--tint stopcard">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Parada 2 · Minca</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    <div class="stop-grid"><div class="stop-left"><canvas aria-label="Ilustración: sierra verde con niebla en Minca" class="scene" data-scene="minca"></canvas><div class="stophead">
+<div><p class="nights">Parada 2 · 2 noches · mar 12 → jue 14</p><h2>Minca</h2></div>
+<div class="stopcost"><span class="lvl-name">por persona, medio, con el vuelo</span><b data-costs='{"aj":160,"medio":250,"gustos":360}'>~USD 250</b></div>
+</div><p class="why"><strong>Por qué:</strong> el que hizo este viaje el año pasado dice que Minca y Tayrona fueron lo mejor. Es un pueblito en la Sierra Nevada, metido en la selva de montaña: cascadas, café y hamacas mirando el valle. Ojo, no tiene playa. Es la parada para bajar un cambio después de Medellín, y casi no hay masificación.</p><div class="meters">
+<div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">1/5</span></div><div class="pips" data-v="1"></div></div>
+<div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">5/5</span></div><div class="pips" data-v="5"></div></div>
+<div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
+</div><div class="links">
+<a class="photo" href="https://www.google.com/search?tbm=isch&amp;q=Minca+Colombia+hamaca+atardecer" rel="noopener" target="_blank">Ver fotos de Minca</a>
+<a href="https://www.google.com/search?tbm=isch&amp;q=Pozo+Azul+Minca" rel="noopener" target="_blank">Fotos de las cascadas</a>
+</div><div class="niveles">
+<div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 160</p><ul><li>Colectivo desde Santa Marta (~USD 3) en vez de taxi</li><li>Dorm</li><li>Cascadas a pie, sin moto</li></ul></div>
+<div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 360</p><ul><li>Cabaña privada con vista (Casa Loma o Mundo Nuevo)</li><li>Tour guiado de café</li><li>Moto con guía a las cascadas</li></ul></div>
+</div><div class="stay">
+<p class="eyebrow">Dónde dormir</p>
+<ul>
+<li><a href="https://www.hostelworld.com/hostels/south-america/colombia/minca/" rel="noopener" target="_blank">Masaya Casas Viejas</a>: el más social de Minca, con pileta.</li>
+<li><a href="https://casalomaminca.com/" rel="noopener" target="_blank">Casa Loma</a>: el clásico de los atardeceres, más chill. Ideal si queremos calma.</li>
+</ul>
+</div><p class="note">En Minca no hay cajero. Llevar efectivo en pesos colombianos.</p></div><div class="stop-right"><p class="eyebrow">Día por día</p><div class="days">
+<div class="day" data-n="4">
+<div class="date"><b>Mar 12</b>Vuelo</div>
+<div class="what"><h3>Medellín → Santa Marta → Minca</h3><p>Vuelo de 1,5 h a Santa Marta y subida a Minca (40–60 min en taxi o colectivo). Mototaxi hasta el hostel y atardecer desde la montaña.</p><div class="chips"><span class="chip">vuelo ~USD 63 + valija</span><span class="chip">taxi ~USD 25 por auto</span></div></div>
+</div>
+<div class="day" data-n="5">
+<div class="date"><b>Mié 13</b>Minca</div>
+<div class="what"><h3>Cascadas, finca de café y hamacas</h3><p>Pozo Azul y Marinka a pie o en moto, recorrido por una finca de café y atardecer en Casa Loma. Cena en el hostel con otros viajeros.</p><div class="chips"><span class="chip nat">naturaleza</span><span class="chip">~USD 10–25</span></div></div>
+</div>
+</div></div></div>
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide  stopcard">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Parada 3 · Tayrona</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    <div class="stop-grid"><div class="stop-left"><canvas aria-label="Ilustración: playa de Tayrona con piedras gigantes y selva" class="scene" data-scene="tayrona"></canvas><div class="stophead">
+<div><p class="nights">Parada 3 · 1 noche · jue 14 → vie 15</p><h2>Tayrona</h2></div>
+<div class="stopcost"><span class="lvl-name">por persona, medio</span><b data-costs='{"aj":55,"medio":90,"gustos":140}'>~USD 90</b></div>
+</div><p class="why"><strong>Por qué dormimos adentro:</strong> Tayrona es un parque nacional donde la selva termina en el mar, con playas entre piedras gigantes. De día se llena de excursiones, pero a la tarde se van y Cabo San Juan queda casi para nosotros. El atardecer y el amanecer ahí son de lo mejor del viaje.</p><div class="meters">
+<div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">0/5</span></div><div class="pips" data-v="0"></div></div>
+<div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">5/5</span></div><div class="pips" data-v="5"></div></div>
+<div class="meter m-gente"><div class="lab"><span>Gente (de día / de noche)</span><span class="mono">4 / 1</span></div><div class="pips" data-v="4"></div></div>
+</div><div class="links">
+<a class="photo" href="https://www.google.com/search?tbm=isch&amp;q=Cabo+San+Juan+Tayrona" rel="noopener" target="_blank">Ver fotos de Tayrona</a>
+<a href="https://www.parquesnacionales.gov.co/nuestros-parques/pnn-tayrona/" rel="noopener" target="_blank">Info oficial del parque</a>
+</div><div class="niveles">
+<div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 55</p><ul><li>Hamaca abajo (~USD 12)</li><li>Llevar comida y agua desde afuera</li></ul></div>
+<div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 140</p><ul><li>Hamaca del mirador o carpa (~USD 18–45)</li><li>Cabaña en el mirador (~USD 120 la cabaña)</li><li>Comer en los restaurantes del parque</li></ul></div>
+</div><p class="note">Hay cupo de 6.900 personas por día y no se reserva la entrada: se compra en la taquilla. Llegando temprano un jueves (después del finde largo de Reyes) entramos sin problema. Llevar mochila chica, efectivo y la vacuna de fiebre amarilla. La grande queda en Palomino.</p></div><div class="stop-right"><p class="eyebrow">Día por día</p><div class="days">
+<div class="day" data-n="6">
+<div class="date"><b>Jue 14</b>Tayrona</div>
+<div class="what"><h3>Caminata por la selva hasta Cabo San Juan</h3><p>Salimos de Minca a las 6 am para estar en la entrada (El Zaíno) cuando abre la taquilla. Caminata de unas 2 horas entre selva y playas, y noche en hamaca o carpa frente al mar.</p><div class="chips"><span class="chip nat">naturaleza</span><span class="chip">entrada ~USD 29</span><span class="chip">hamaca ~USD 12 · carpa ~USD 22</span></div><div class="links"><a href="https://reservatuglamping.com/en/listing/hamaca-cabo-san-juan/" rel="noopener" target="_blank">Hamacas en Cabo San Juan</a></div></div>
+</div>
+</div></div></div>
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide slide--tint stopcard">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Parada 4 · Palomino</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    <div class="stop-grid"><div class="stop-left"><canvas aria-label="Ilustración: río que desemboca en el mar en Palomino" class="scene" data-scene="palomino"></canvas><div class="stophead">
+<div><p class="nights">Parada 4 · 2 noches · vie 15 → dom 17</p><h2>Palomino</h2></div>
+<div class="stopcost"><span class="lvl-name">por persona, medio</span><b data-costs='{"aj":90,"medio":175,"gustos":290}'>~USD 175</b></div>
+</div><p class="why"><strong>Por qué:</strong> playa larga y salvaje con onda hippie-mochilera. El plan clásico es bajar el río en gomón con una cerveza hasta donde se junta con el mar. Hay fiesta de hostel hasta medianoche, sin boliche. Es el equilibrio justo entre descanso y joda, y el sábado queda libre para no hacer nada.</p><div class="meters">
+<div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">3/5</span></div><div class="pips" data-v="3"></div></div>
+<div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
+<div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
+</div><div class="links">
+<a class="photo" href="https://www.google.com/search?tbm=isch&amp;q=Palomino+Colombia+tubing+r%C3%ADo" rel="noopener" target="_blank">Ver fotos de Palomino</a>
+</div><div class="niveles">
+<div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 90</p><ul><li>Dorm</li><li>Menú del día o cocinar en el hostel</li><li>Tubing por cuenta propia, sin tour</li></ul></div>
+<div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 290</p><ul><li>Privada frente al mar</li><li>Pub crawl y tragos en la barra</li><li>Cena de mariscos en la playa</li></ul></div>
+</div><div class="stay">
+<p class="eyebrow">Dónde dormir</p>
+<ul>
+<li><a href="https://www.hostelworld.com/hostels/south-america/colombia/palomino/" rel="noopener" target="_blank">Dreamer Palomino</a>: sobre la playa, dos piletas y dos bares. Es el punto social del pueblo.</li>
+</ul>
+</div><p class="note">El mar en Palomino y en algunas playas de Tayrona tiene corriente fuerte. Nos metemos solo donde está permitido, y nunca de noche.</p></div><div class="stop-right"><p class="eyebrow">Día por día</p><div class="days">
+<div class="day" data-n="7">
+<div class="date"><b>Vie 15</b>Palomino</div>
+<div class="what"><h3>Salimos de Tayrona, tubing y fiesta en el hostel</h3><p>Amanecer en Cabo San Juan, caminata de vuelta y una hora hasta Palomino. A la tarde, tubing por el río hasta el mar. A la noche, pub crawl o fiesta en la pileta del hostel.</p><div class="chips"><span class="chip nat">río y playa</span><span class="chip night">fiesta de hostel</span><span class="chip">tubing ~USD 10–15</span><span class="chip">pub crawl ~USD 7</span></div></div>
+</div>
+<div class="day" data-n="8">
+<div class="date"><b>Sáb 16</b>Libre</div>
+<div class="what"><h3>Día de playa sin planes</h3><p>Playa, pileta y recuperar energía. Los que hacen el bloque de 7 días salen para el aeropuerto de Santa Marta (1,5–2 h).</p><div class="chips"><span class="chip nat">playa</span></div></div>
+</div>
+</div><div class="stub hl"><strong>✈ Acá vuelven los de 7 días</strong><span>Sáb 16 · Santa Marta → Buenos Aires · ~USD 400–500</span></div></div></div>
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide  stopcard">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Parada 5 · Cartagena</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    <div class="stop-grid"><div class="stop-left"><canvas aria-label="Ilustración: casas de colores y muralla de Cartagena al atardecer" class="scene" data-scene="cartagena"></canvas><div class="stophead">
+<div><p class="nights">Parada 5 · 3 noches · dom 17 → mié 20</p><h2>Cartagena</h2></div>
+<div class="stopcost"><span class="lvl-name">por persona, medio</span><b data-costs='{"aj":230,"medio":480,"gustos":800}'>~USD 480</b></div>
+</div><p class="why"><strong>Por qué:</strong> no es "de viejos", depende de dónde estés. La ciudad amurallada es linda y cara, pero Getsemaní, el barrio de los hostels, es joven: salsa, bares y música en la plaza. Con el barco a Cholón es la segunda parada más fiestera, y el cierre grupal ideal.</p><div class="meters">
+<div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
+<div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
+<div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
+</div><div class="links">
+<a class="photo" href="https://www.google.com/search?tbm=isch&amp;q=Getseman%C3%AD+Cartagena" rel="noopener" target="_blank">Ver fotos de Cartagena</a>
+<a href="https://www.google.com/search?tbm=isch&amp;q=Chol%C3%B3n+Cartagena+lanchas" rel="noopener" target="_blank">Fotos de Cholón</a>
+</div><div class="niveles">
+<div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 230</p><ul><li>Cholón en lancha barata (~USD 65) o saltearlo</li><li>Free tour por la ciudad amurallada</li><li>Menú del día en Getsemaní</li></ul></div>
+<div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 800</p><ul><li>Party boat premium con barra libre (~USD 130) o lancha privada para el grupo</li><li>Rooftop con pileta en KIM o boutique</li><li>Cena en la ciudad amurallada y atardecer en Café del Mar</li></ul></div>
+</div><div class="stay">
+<p class="eyebrow">Dónde dormir · Getsemaní</p>
+<ul>
+<li><a href="https://www.hostelworld.com/hostels/p/330492/viajero-cartagena-getsemani-hostel/" rel="noopener" target="_blank">Viajero Getsemaní</a>: rooftop con pileta y vista a la bahía, habitaciones privadas. Es party hostel: hay ruido.</li>
+<li><a href="https://www.hostelworld.com/hostels/south-america/colombia/cartagena/" rel="noopener" target="_blank">KIM o Masaya Cartagena</a>: alternativas sociales con pileta.</li>
+</ul>
+</div><p class="note">Opción a charlar: si queremos el Cholón más local (lanchas de colombianos, música a full), es el domingo. Para eso salimos de Palomino el sábado y perdemos el día libre de playa.</p></div><div class="stop-right"><p class="eyebrow">Día por día</p><div class="days">
+<div class="day" data-n="9">
+<div class="date"><b>Dom 17</b>Traslado</div>
+<div class="what"><h3>Palomino → Cartagena y noche en Getsemaní</h3><p>Bus a Santa Marta y combi puerta a puerta a Cartagena (unas 5 h). A la noche, Plaza de la Trinidad, salsa y bares.</p><div class="chips"><span class="chip night">salida</span><span class="chip">combi ~USD 27–31</span></div></div>
+</div>
+<div class="day" data-n="10">
+<div class="date"><b>Lun 18</b>Cholón</div>
+<div class="what"><h3>Barco de fiesta a Cholón</h3><p>Una hora de lancha a una laguna de agua turquesa donde se juntan barcos con música y todos están en el agua. Un lunes hay menos gente; conviene un party boat con DJ y barra a bordo. Ojo con los vendedores en bote: preguntar precio antes de pedir.</p><div class="chips"><span class="chip nat">islas</span><span class="chip night">fiesta en el agua</span><span class="chip">~USD 65–130</span></div><div class="links"><a href="https://www.getyourguide.com/rosario-islands-l114972/cholon-forever-boat-party-t509632/" rel="noopener" target="_blank">Party boat a Cholón</a></div></div>
+</div>
+<div class="day" data-n="11">
+<div class="date"><b>Mar 19</b>Ciudad</div>
+<div class="what"><h3>Ciudad amurallada y última noche grupal</h3><p>Free tour por el centro histórico, atardecer en la muralla y la gran despedida en Getsemaní antes de que se vuelva el bloque de 10 días.</p><div class="chips"><span class="chip night">noche fuerte</span><span class="chip">free tour = propina</span></div></div>
+</div>
+<div class="day" data-n="12">
+<div class="date"><b>Mié 20</b>Vuelos</div>
+<div class="what"><h3>Unos vuelven, otros siguen al Caribe</h3><p>El bloque de 10 días vuela a Buenos Aires. El resto, una hora de vuelo hasta San Andrés y tarde de playa.</p><div class="chips"><span class="chip">CTG → San Andrés ~USD 90</span></div></div>
+</div>
+</div><div class="stub hl"><strong>✈ Acá vuelven los de 10 días</strong><span>Mié 20 · Cartagena → Buenos Aires · ~USD 400–500 (hay directo nuevo de Aerolíneas)</span></div></div></div>
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide slide--tint stopcard">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Parada 6 · San Andrés</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    <div class="stop-grid"><div class="stop-left"><canvas aria-label="Ilustración: mar de siete colores y un cayo con palmeras" class="scene" data-scene="sanandres"></canvas><div class="stophead">
+<div><p class="nights">Parada 6 · 3 noches · mié 20 → sáb 23</p><h2>San Andrés</h2></div>
+<div class="stopcost"><span class="lvl-name">por persona, medio, con el vuelo</span><b data-costs='{"aj":330,"medio":540,"gustos":900}'>~USD 540</b></div>
+</div><p class="why"><strong>Por qué:</strong> el mar más lindo del viaje, por lejos: el famoso "mar de siete colores". En el mapa parece lejísimo, pero desde Cartagena es una hora de vuelo, y volver solo para esto sale mucho más caro. Es más turismo colombiano que joda: el cierre para relajar.</p><div class="meters">
+<div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
+<div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
+<div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
+</div><div class="links">
+<a class="photo" href="https://www.google.com/search?tbm=isch&amp;q=Johnny+Cay+San+Andr%C3%A9s" rel="noopener" target="_blank">Ver fotos de San Andrés</a>
+<a href="https://blog.sanandresisla.travel/tarjeta-de-turismo-san-andres-2026/" rel="noopener" target="_blank">Tarjeta de turismo</a>
+</div><div class="niveles">
+<div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 330</p><ul><li>Bus de la isla en vez de carrito de golf</li><li>Dorm</li><li>Johnny Cay en tour compartido</li></ul></div>
+<div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 900</p><ul><li>Lancha privada a los cayos</li><li>Bautismo de buceo</li><li>Dreamer Beach Club con pileta</li></ul></div>
+</div><div class="stay">
+<p class="eyebrow">Dónde dormir</p>
+<ul>
+<li><a href="https://www.viajerohostels.com/es/destinos-colombia/san-andres/" rel="noopener" target="_blank">Viajero San Andrés</a>: el más social de la isla, con rooftop y desayuno.</li>
+<li><a href="https://www.hostelworld.com/hostels/south-america/colombia/san-andres-island/" rel="noopener" target="_blank">Dreamer Beach Club</a>: más cheto, con pileta, cerca de la playa.</li>
+</ul>
+</div><p class="note">Al llegar se paga la tarjeta de turismo obligatoria: COP 153.000 en 2026 (unos USD 46).</p></div><div class="stop-right"><p class="eyebrow">Día por día</p><div class="days">
+<div class="day" data-n="13">
+<div class="date"><b>Jue 21</b>Cayos</div>
+<div class="what"><h3>Johnny Cay y el Acuario</h3><p>Primera lancha de la mañana para llegar a Johnny Cay antes de que se llene. Después, Haynes Cay, donde se camina en el agua entre mantarrayas.</p><div class="chips"><span class="chip nat">mar</span><span class="chip">tour ~USD 39–46</span></div><div class="links"><a href="https://islaventura.com.co/tour/tour-acuario-johnny-cay/" rel="noopener" target="_blank">Tour Acuario + Johnny Cay</a></div></div>
+</div>
+<div class="day" data-n="14">
+<div class="date"><b>Vie 22</b>Isla</div>
+<div class="what"><h3>Vuelta a la isla en carrito de golf</h3><p>Alquilamos "mulitas" y recorremos la isla. Snorkel en West View y La Piscinita, atardecer en el oeste y última noche.</p><div class="chips"><span class="chip nat">snorkel</span><span class="chip">carrito ~USD 25–35 c/u</span><span class="chip">entradas ~USD 5</span></div></div>
+</div>
+<div class="day" data-n="15">
+<div class="date"><b>Sáb 23</b>Vuelta</div>
+<div class="what"><h3>San Andrés → Buenos Aires</h3><p>Fin del viaje completo.</p><div class="chips"><span class="chip">~USD 400–600 con escala</span></div></div>
+</div>
+</div><div class="stub hl"><strong>✈ Vuelta del bloque completo</strong><span>Sáb 23 · San Andrés → Buenos Aires</span></div></div></div>
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+<section class="slide slide--tint slide--short">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Extra opcional</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    <div class="prov">
+<div class="stub"><strong>Extra opcional · Providencia</strong><span>+3 noches · ~USD 400–600 por persona</span></div>
+<p class="prose">Para el que quiera estirar: la isla vecina de San Andrés, mucho más virgen y tranquila, sin joda y con un agua increíble. Se llega en avioneta (20 min) o catamarán (unas 3 h, con mar movido en enero). La tarjeta de turismo de San Andrés ya la cubre.</p>
+<div class="links"><a class="photo" href="https://www.google.com/search?tbm=isch&amp;q=Providencia+isla+Colombia+Crab+Cay" rel="noopener" target="_blank">Ver fotos de Providencia</a></div>
+</div>
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+</main>
+
+<main class="page" data-page="calendario" hidden>
+<section class="slide ">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Calendario</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    <div class="cal-head"><div><p class="eyebrow">Calendario</p><h2>Enero 2027</h2></div><p class="prose">Tocá un día para ver el detalle. Los días fuera de tu bloque se ven más claros.</p></div>
+    <div class="cal" id="cal" role="grid" aria-label="Calendario de enero 2027"></div>
+    <div class="cal-legend" id="calLegend"></div>
+  </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
+</section>
+</main>
+
+<main class="page page-map" data-page="mapa" hidden>
+<div class="map-layout">
+  <aside class="map-list" aria-label="Paradas">
+    <p class="eyebrow">Mapa de la ruta</p>
+    <h2>6 paradas, 2 vuelos internos</h2>
+    <ol id="mapList" class="map-stops"></ol>
+    <div class="maplegend"><span><i class="lg-fly"></i>Vuelo</span><span><i class="lg-road"></i>Por tierra</span><span><i class="lg-ret"></i>Vuelta de cada bloque</span></div>
+  </aside>
+  <div id="map" role="region" aria-label="Mapa de la ruta"></div>
+</div>
+</main>
+
+<main class="page" data-page="decisiones" hidden>
+<section class="slide ">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Decisiones</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    <div class="dec-head">
+      <div><p class="eyebrow">Proceso de decisión</p><h2>¿Quién se sube al avión?</h2></div>
+      <p class="prose">Cada update es una foto de cómo quedó el grupo después de charlarlo. Durante la llamada podés arrastrar las caras entre Argentina, el check-in y el avión para jugar en vivo: no se guarda nada, al recargar vuelve a la foto del día.</p>
+    </div>
     <div class="stage-bar">
       <div class="stage-title"><span class="eyebrow" id="snapLabel">Foto del día</span><strong id="snapCount"></strong></div>
       <button type="button" class="btn" id="resetSnap">Volver a la foto del día</button>
     </div>
-
     <div class="stage" id="stage">
+      <div class="zone zone-ar" data-zone="afuera">
+        <svg class="zone-art" viewBox="0 0 400 210" aria-hidden="true">
+  <rect x="58" y="16" width="7" height="190" rx="3" class="pl-pole"/>
+  <circle cx="61" cy="14" r="7" class="pl-dot"/>
+  <path d="M65 26 C120 14 160 40 230 26 L230 136 C160 150 120 124 65 136 Z" fill="#74ACDF"/>
+  <path d="M65 62 C120 50 160 76 230 62 L230 100 C160 114 120 88 65 100 Z" fill="#FFFFFF"/>
+  <circle cx="148" cy="80" r="11" fill="#F6B40E"/>
+  <path d="M65 26 C120 14 160 40 230 26 L230 136 C160 150 120 124 65 136 Z" class="pl-line" style="stroke-width:2"/>
+  <rect x="250" y="120" width="130" height="40" rx="6" class="pl-sign"/>
+  <text x="315" y="146" text-anchor="middle" class="pl-sign-t">BUENOS AIRES</text>
+  <rect x="312" y="160" width="6" height="46" class="pl-pole"/>
+</svg>
+        <p class="zlabel">En Argentina, por ahora</p>
+        <div class="slots"></div>
+      </div>
+      <div class="zone zone-check" data-zone="pensando">
+        <svg class="zone-art" viewBox="0 0 400 210" aria-hidden="true">
+  <rect x="18" y="14" width="168" height="44" rx="8" class="pl-sign"/>
+  <text x="102" y="43" text-anchor="middle" class="pl-sign-t">CHECK-IN · MDE</text>
+  <rect x="52" y="58" width="6" height="40" class="pl-pole"/><rect x="146" y="58" width="6" height="40" class="pl-pole"/>
+  <rect x="24" y="96" width="160" height="70" rx="6" class="pl-counter"/>
+  <rect x="24" y="96" width="160" height="12" rx="4" class="pl-counter-top"/>
+  <rect x="206" y="180" width="24" height="6" rx="2" class="pl-step"/><rect x="227" y="163" width="24" height="6" rx="2" class="pl-step"/><rect x="248" y="146" width="24" height="6" rx="2" class="pl-step"/><rect x="269" y="129" width="24" height="6" rx="2" class="pl-step"/><rect x="290" y="112" width="24" height="6" rx="2" class="pl-step"/><rect x="311" y="95" width="24" height="6" rx="2" class="pl-step"/><rect x="332" y="78" width="24" height="6" rx="2" class="pl-step"/><rect x="353" y="61" width="24" height="6" rx="2" class="pl-step"/>
+  <path d="M206 186 L372 52" class="pl-rail"/><path d="M206 150 L372 18" class="pl-rail"/>
+  <path d="M206 150 L206 186 M372 18 L372 52" class="pl-rail"/>
+  <rect x="190" y="186" width="200" height="16" rx="6" class="pl-truck"/>
+  <circle cx="222" cy="204" r="6" class="pl-dot"/><circle cx="362" cy="204" r="6" class="pl-dot"/>
+</svg>
+        <p class="zlabel">Haciendo el check-in</p>
+        <p class="zsub">Ya casi: le falta definir algo</p>
+        <div class="slots"></div>
+      </div>
       <div class="zone zone-plane" data-zone="adentro">
-        <div class="fuselage" aria-hidden="true"><span class="tail"></span><span class="wing"></span><span class="nose"></span></div>
-        <p class="zlabel">Adentro del avión</p>
+        <svg class="plane-art" viewBox="0 0 1600 900" aria-hidden="true">
+  <defs>
+    <clipPath id="clipFin"><path d="M190 300 L330 300 L262 80 L150 80 Z"/></clipPath>
+    <clipPath id="clipBody"><path d="M240 280 H1300 C1450 280 1545 380 1555 480 C1545 580 1450 680 1300 680 H240 C200 680 180 650 180 610 V350 C180 310 200 280 240 280 Z"/></clipPath>
+  </defs>
+  <ellipse cx="860" cy="868" rx="640" ry="20" class="pl-shadow"/>
+  <path d="M920 290 L1040 290 L880 140 L790 140 Z" class="pl-wing2"/>
+  <path d="M170 450 L330 450 L250 400 L120 400 Z" class="pl-wing2"/>
+  <g clip-path="url(#clipFin)"><rect x="120" y="80" width="240" height="110" fill="#FCD116"/><rect x="120" y="190" width="240" height="55" fill="#003893"/><rect x="120" y="245" width="240" height="60" fill="#CE1126"/></g>
+  <path d="M190 300 L330 300 L262 80 L150 80 Z" class="pl-line"/>
+  <path d="M240 280 H1300 C1450 280 1545 380 1555 480 C1545 580 1450 680 1300 680 H240 C200 680 180 650 180 610 V350 C180 310 200 280 240 280 Z" class="pl-body"/>
+  <g clip-path="url(#clipBody)"><rect x="170" y="636" width="1400" height="14" fill="#FCD116"/><rect x="170" y="650" width="1400" height="8" fill="#003893"/><rect x="170" y="658" width="1400" height="9" fill="#CE1126"/></g>
+  <path d="M1440 352 C1492 372 1528 412 1543 452 L1455 452 Z" class="pl-glass"/>
+  <rect x="290" y="298" width="44" height="34" rx="13" class="pl-win"/><rect x="374" y="298" width="44" height="34" rx="13" class="pl-win"/><rect x="458" y="298" width="44" height="34" rx="13" class="pl-win"/><rect x="542" y="298" width="44" height="34" rx="13" class="pl-win"/><rect x="626" y="298" width="44" height="34" rx="13" class="pl-win"/><rect x="710" y="298" width="44" height="34" rx="13" class="pl-win"/><rect x="794" y="298" width="44" height="34" rx="13" class="pl-win"/><rect x="878" y="298" width="44" height="34" rx="13" class="pl-win"/><rect x="962" y="298" width="44" height="34" rx="13" class="pl-win"/><rect x="1046" y="298" width="44" height="34" rx="13" class="pl-win"/><rect x="1130" y="298" width="44" height="34" rx="13" class="pl-win"/><rect x="1214" y="298" width="44" height="34" rx="13" class="pl-win"/><rect x="1298" y="298" width="44" height="34" rx="13" class="pl-win"/>
+  <rect x="1338" y="372" width="72" height="210" rx="16" class="pl-door"/>
+  <circle cx="1394" cy="480" r="6" class="pl-dot"/>
+  <path d="M240 280 H1300 C1450 280 1545 380 1555 480 C1545 580 1450 680 1300 680 H240 C200 680 180 650 180 610 V350 C180 310 200 280 240 280 Z" class="pl-line"/>
+  <path d="M790 660 L990 660 L780 880 L620 880 Z" class="pl-wing"/>
+  <rect x="660" y="740" width="220" height="92" rx="46" class="pl-engine"/>
+  <ellipse cx="872" cy="786" rx="14" ry="40" class="pl-dot"/>
+</svg>
+        <p class="zlabel">Arriba del avión · rumbo a Colombia</p>
         <div class="slots"></div>
       </div>
-      <div class="zone zone-stairs" data-zone="pensando">
-        <p class="zlabel">En la escalera · pensando</p>
-        <div class="slots"></div>
-      </div>
-      <div class="zone zone-tarmac" data-zone="afuera">
-        <p class="zlabel">En la pista · por ahora no</p>
-        <div class="slots"></div>
-      </div>
     </div>
-
-    <section class="dec-updates">
-      <p class="eyebrow">Updates</p>
-      <div id="updates" class="updates"></div>
-    </section>
   </div>
-</main>
-
-<main id="tab-viaje" class="panel">
-<div class="wrap">
-
-<header class="hero">
-  <div class="chiva" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-  <p class="eyebrow">Propuesta para el grupo · enero 2027</p>
-  <h1>Gira<br>Colombia <span>’27</span></h1>
-  <p class="lead">Dos semanas de ciudad, selva, Caribe e isla. Arrancamos todos juntos el sábado 9 de enero en Medellín y cada uno se queda 7, 10 o 15 días según su plata y sus vacaciones.</p>
-  <div class="jump" aria-label="Ver la ruta">
-    <a href="#itinerario">Día por día</a><a href="#calendario">Calendario</a><a href="#mapa">Mapa</a><a href="#decisiones">¿Quién viene?</a>
-  </div>
-  <div class="route" aria-label="Ruta">
-    <b>Medellín</b><em>→</em><b>Minca</b><em>→</em><b>Tayrona</b><em>→</em><b>Palomino</b><em>→</em><b>Cartagena</b><em>→</em><b>San Andrés</b>
-  </div>
-  <div class="facts">
-    <div class="fact"><strong>9 → 23 ene</strong><span>Sábado a sábado, con 3 puntos de vuelta</span></div>
-    <div class="fact"><strong>6 paradas</strong><span>Ciudad, montaña, selva, playa, Caribe, isla</span></div>
-    <div class="fact"><strong>desde ~USD 1.200</strong><span>Todo incluido, versión ajustada de 7 días</span></div>
-    <div class="fact"><strong>31 oct</strong><span>Fecha límite para comprar el vuelo de ida</span></div>
-  </div>
-</header>
-
-<section id="porque">
-  <p class="eyebrow">Por qué Colombia</p>
-  <h2>Lo que nos da cada opción por la misma plata</h2>
-  <p class="prose">Miramos las alternativas para dos semanas entre amigos. Colombia es la única que junta ciudad, naturaleza, playa y noche en un solo viaje, con vuelo corto y sin barrera de idioma.</p>
-  <div class="tablebox">
-    <table>
-      <thead><tr><th>Destino</th><th>Por persona, ~2 semanas</th><th>Lo bueno</th><th>Lo que no cierra</th></tr></thead>
-      <tbody>
-        <tr><td>Europa</td><td class="num">USD 3.500–5.000</td><td>Ciudades, historia, fiesta</td><td>Vuelo de 1.200–1.600 y 80–120 € por día. No llega la mitad del grupo.</td></tr>
-        <tr><td>Sudeste asiático</td><td class="num">USD 2.500–3.500</td><td>Barato allá, playas increíbles</td><td>Vuelo de 1.500–2.000, más de 30 h de viaje. Para que valga, necesitás 3 semanas.</td></tr>
-        <tr><td>Costa Rica</td><td class="num">USD 2.500–3.500</td><td>Naturaleza top</td><td>Precios tipo Estados Unidos y poca noche.</td></tr>
-        <tr><td>Nordeste de Brasil</td><td class="num">USD 1.500–2.300</td><td>Playas lindas (Pipa, Jeri)</td><td>Vibe más tranquila, y Brasil ya lo hicimos.</td></tr>
-        <tr class="win"><td>Colombia <span class="tag">elegido</span></td><td class="num">USD 1.200–2.900</td><td>Ciudad + selva + Caribe + isla, en español</td><td>Enero es temporada alta: hay que comprar ya.</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="note">Valores aproximados, armados por nosotros para comparar. El de Colombia sale del presupuesto detallado más abajo.</p>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
 </section>
-
-<section id="ahora">
-  <p class="eyebrow">Por qué ahora</p>
-  <h2>Tenemos 28. Es el viaje para hacer antes de los 30.</h2>
-  <div class="reasons">
-    <div class="reason"><h3>Edad y momento</h3><p>Estamos en una etapa de salir, conocer gente y sumar experiencias. En unos años este viaje ya no se arma igual.</p></div>
-    <div class="reason"><h3>La ruta te junta con gente</h3><p>Medellín → Costa → Cartagena es el circuito mochilero clásico. Te cruzás a los mismos grupos en varias paradas y los hostels arman planes todos los días.</p></div>
-    <div class="reason"><h3>Joda sana, no solo joda</h3><p>De día hay selva, cascadas, parapente, ríos e islas. La noche es un condimento, no el viaje entero.</p></div>
-    <div class="reason"><h3>Cada uno arma el suyo</h3><p>Arrancamos todos juntos. El que tiene una semana se vuelve el 16, el que tiene más sigue. Nadie condiciona a nadie.</p></div>
-    <div class="reason"><h3>Mismo idioma</h3><p>Hablás con cualquiera desde el minuto uno, y eso cambia todo cuando la idea es conocer gente.</p></div>
-    <div class="reason"><h3>Cerca y con vuelos nuevos</h3><p>Desde noviembre hay directo Buenos Aires–Medellín (JetSMART) y desde enero, Cartagena–Buenos Aires (Aerolíneas).</p></div>
+<section class="slide slide--tint">
+  <div class="slide-inner">
+    <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Updates</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+    <div><p class="eyebrow">Updates</p><h2>Cómo venimos</h2></div>
+    <div id="updates" class="updates"></div>
   </div>
+  <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
 </section>
-
-
-<section id="enero">
-  <p class="eyebrow">¿Por qué enero?</p>
-  <h2>La fecha donde entramos la mayoría, con buen clima</h2>
-  <div class="reasons">
-    <div class="reason"><h3>Temporada seca</h3><p>De diciembre a marzo casi no llueve en el Caribe ni en Medellín. Es la mejor época del año para playa, Tayrona y San Andrés.</p></div>
-    <div class="reason"><h3>Nuestro verano</h3><p>Es cuando la mayoría tiene las vacaciones largas y es más fácil pedir días en el laburo.</p></div>
-    <div class="reason"><h3>Tayrona abierto</h3><p>El parque cierra del 1 al 15 de febrero y del 1 al 15 de junio. En enero está abierto.</p></div>
-    <div class="reason"><h3>Esquivamos el pico</h3><p>Lo más caro y lleno es del 20 de diciembre al finde de Reyes (9–11 ene). Después la temporada alta va bajando hasta que los colombianos vuelven a clases, alrededor del 19 de enero.</p></div>
-  </div>
-  <div class="tablebox">
-    <table>
-      <thead><tr><th>Alternativa</th><th>Lo bueno</th><th>Por qué no</th></tr></thead>
-      <tbody>
-        <tr><td>Fines de febrero / principios de marzo</td><td>Sigue seco, más barato y más vacío</td><td>Reja no puede en febrero y Lucas tiene un casamiento en marzo. Del 21 al 28 de marzo es Semana Santa, temporada alta otra vez. El ahorro sería de unos USD 150–300 por persona, casi todo en vuelos.</td></tr>
-        <tr><td>Mitad de año</td><td>Clima aceptable en la costa</td><td>Son las vacaciones de mitad de año en Colombia, Tayrona cierra la primera quincena de junio y acá es invierno, con vacaciones cortas. Patearlo seis meses arriesga que se bajen varios.</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section id="balance">
-  <p class="eyebrow">¿Es solo un viaje de joda?</p>
-  <h2>No. Es una curva: sube, baja, vuelve a subir y cierra tranqui.</h2>
-  <div class="curve">
-    <svg viewBox="0 0 640 210" role="img" aria-label="Nivel de joda por día del 9 al 23 de enero, con los días de naturaleza marcados">
-      <g id="curveg"></g>
-    </svg>
-    <div class="legend"><span><i style="background:var(--coral)"></i>Nivel de salida/fiesta esa noche</span><span><i style="background:var(--sea);opacity:.5"></i>Día con plan de naturaleza</span></div>
-  </div>
-  <div class="split">
-    <div class="stat"><strong>10 de 15</strong><span>días con un plan de naturaleza o al aire libre</span></div>
-    <div class="stat"><strong>5</strong><span>noches de salida fuerte (Medellín y Cartagena)</span></div>
-    <div class="stat"><strong>5</strong><span>noches tranqui: Minca, hamaca en Tayrona, isla</span></div>
-  </div>
-  <p class="prose">Si no te copa salir todas las noches, no pasa nada: en Minca y Tayrona la noche es hamaca, estrellas y cerveza en el hostel. Y en cada parada hay plan de día para todos.</p>
-</section>
-
-<section id="bloques">
-  <p class="eyebrow">Elegí tu bloque</p>
-  <h2>Tres formas de hacer el viaje</h2>
-  <p class="prose">Precios por persona, todo incluido (vuelos, alojamiento, comida, salidas, actividades y seguro). "Medio" es habitación privada para el grupo en hostel social y todas las actividades del plan.</p>
-</section>
-
-<div class="picker" role="group" aria-label="Elegir bloque y nivel de gasto">
-  <div class="pickrow">
-    <div class="seg" id="segBlock">
-      <button type="button" data-b="7" aria-pressed="false">7 días</button>
-      <button type="button" data-b="10" aria-pressed="false">10 días</button>
-      <button type="button" data-b="15" aria-pressed="true">Completo · 15</button>
-    </div>
-    <div class="total" id="totalOut" aria-live="polite">Total aprox. <b>USD 2.870</b></div>
-  </div>
-  <div class="seg small" id="segLevel">
-    <button type="button" data-l="aj" aria-pressed="false">Ajustado</button>
-    <button type="button" data-l="medio" aria-pressed="true">Medio</button>
-    <button type="button" data-l="gustos" aria-pressed="false">Con gustos</button>
-  </div>
-</div>
-
-<div class="blocks" style="margin-top:16px">
-  <article class="blk" data-blk="7">
-    <p class="eyebrow">Bloque corto</p>
-    <h3>7 días</h3>
-    <div class="price" data-price="7">USD 1.730 <small>aprox.</small></div>
-    <ul><li>Medellín, Minca, Tayrona y Palomino</li><li>Noche, montaña, selva y playa</li></ul>
-    <span class="ret">Vuelta sáb 16 desde Santa Marta</span>
-    <div class="breakdown" data-bd="7"></div>
-  </article>
-  <article class="blk" data-blk="10">
-    <p class="eyebrow">Bloque medio</p>
-    <h3>10 días</h3>
-    <div class="price" data-price="10">USD 2.270 <small>aprox.</small></div>
-    <ul><li>Todo lo anterior + Cartagena</li><li>Barco a Cholón y última noche grupal</li></ul>
-    <span class="ret">Vuelta mié 20 desde Cartagena</span>
-    <div class="breakdown" data-bd="10"></div>
-  </article>
-  <article class="blk on" data-blk="15">
-    <p class="eyebrow">Bloque completo</p>
-    <h3>15 días</h3>
-    <div class="price" data-price="15">USD 2.870 <small>aprox.</small></div>
-    <ul><li>Todo lo anterior + San Andrés</li><li>Cierre en el mar de siete colores</li></ul>
-    <span class="ret">Vuelta sáb 23 desde San Andrés</span>
-    <div class="breakdown" data-bd="15"></div>
-  </article>
-</div>
-
-<section id="ruta" style="padding-top:36px">
-  <p class="eyebrow">El itinerario</p>
-  <h2>La ruta</h2>
-  <div class="seg" id="segView" role="tablist" aria-label="Vista">
-    <button type="button" data-v="lista" aria-pressed="true">Día por día</button>
-    <button type="button" data-v="cal" aria-pressed="false">Calendario</button>
-    <button type="button" data-v="mapa" aria-pressed="false">Mapa</button>
-  </div>
-  <p class="prose" id="viewHint">Los días que quedan fuera del bloque que elegiste arriba se ven más claros. Cada parada tiene su link de fotos, dónde dormir y cuánto sale.</p>
-</section>
-
-<div id="calView" hidden>
-  <div class="cal" id="cal" role="grid" aria-label="Calendario de enero 2027"></div>
-  <div class="cal-legend" id="calLegend"></div>
-</div>
-
-<div id="mapaView" hidden>
-  <div id="map" role="region" aria-label="Mapa de la ruta"></div>
-  <div class="maplegend"><span><i class="lg-fly"></i>Vuelo</span><span><i class="lg-road"></i>Por tierra</span><span><i class="lg-ret"></i>Punto de vuelta de cada bloque</span></div>
-</div>
-
-<div class="timeline" id="listaView">
-
-  <!-- MEDELLIN -->
-  <article class="stopcard">
-    <canvas class="scene" data-scene="medellin" aria-label="Ilustración: Medellín de noche entre montañas"></canvas>
-    <div class="stophead">
-      <div><p class="nights">Parada 1 · 3 noches · sáb 9 → mar 12</p><h2>Medellín</h2></div>
-      <div class="stopcost"><span class="lvl-name">por persona, medio</span><b data-costs='{"aj":200,"medio":400,"gustos":650}'>~USD 400</b></div>
-    </div>
-    <p class="why"><strong>Por qué arrancamos acá:</strong> es la parada más fuerte de noche y donde se "arma" el grupo. Llegamos con energía, y el domingo 10 es víspera de feriado, así que salen los paisas también. De día no es solo ciudad: Guatapé y el parapente son de lo mejor del viaje.</p>
-    <div class="meters">
-      <div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">5/5</span></div><div class="pips" data-v="5"></div></div>
-      <div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
-      <div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
-    </div>
-    <div class="links">
-      <a class="photo" href="https://www.google.com/search?tbm=isch&q=Medell%C3%ADn+Provenza+noche" target="_blank" rel="noopener">Ver fotos de Medellín</a>
-      <a href="https://www.google.com/search?tbm=isch&q=Piedra+del+Pe%C3%B1ol+Guatap%C3%A9" target="_blank" rel="noopener">Fotos de Guatapé</a>
-      <a href="https://www.google.com/search?tbm=isch&q=parapente+San+F%C3%A9lix+Medell%C3%ADn" target="_blank" rel="noopener">Fotos del parapente</a>
-    </div>
-    <div class="days">
-      <div class="day" data-n="1">
-        <div class="date"><b>Sáb 9</b>Llegada</div>
-        <div class="what"><h3>Aterrizamos y primera noche en Provenza</h3><p>Del aeropuerto a El Poblado (30–45 min). Check-in, rooftop del hostel y salida por Provenza, la zona de bares y boliches.</p><div class="chips"><span class="chip night">noche fuerte</span><span class="chip">traslado ~USD 8</span></div></div>
-      </div>
-      <div class="day" data-n="2">
-        <div class="date"><b>Dom 10</b>Guatapé</div>
-        <div class="what"><h3>Piedra del Peñol, lancha y pueblo de colores</h3><p>Salimos temprano (7 am) para ganarle a la gente. Subimos los 740 escalones de la Piedra, paseo en lancha por la represa y almuerzo en Guatapé. A la noche, la salida grande: víspera de feriado.</p><div class="chips"><span class="chip nat">naturaleza</span><span class="chip night">noche fuerte</span><span class="chip">tour ~USD 35–45 + Piedra ~USD 9</span></div><div class="links"><a href="https://touraguatape.com/" target="_blank" rel="noopener">Tours a Guatapé</a></div></div>
-      </div>
-      <div class="day fest" data-n="3">
-        <div class="date"><b>Lun 11</b>San Félix</div>
-        <div class="what"><h3>Parapente a la mañana, Comuna 13 a la tarde</h3><p>Vuelo en tándem con instructor sobre el valle (no hace falta experiencia; se vuela de mañana si el clima acompaña). A la tarde, Comuna 13 con free tour: grafitis, escaleras eléctricas e historia del barrio. Noche tranqui.</p><div class="chips"><span class="chip nat">al aire libre</span><span class="chip">parapente 15 min ~USD 66 + traslado ~10</span><span class="chip">free tour = propina</span></div><div class="links"><a href="https://parapentedragonfly.com/en/servicios/parapente-precio-vuelo-instructor/" target="_blank" rel="noopener">Precios de parapente</a></div></div>
-      </div>
-    </div>
-    <div class="niveles">
-      <div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 200</p><ul><li>Dorm en vez de privada</li><li>Guatapé en bus desde la Terminal Norte (~USD 10) en vez de tour</li><li>Sin parapente (−USD 76)</li><li>Previa en el hostel y bares sin cover</li></ul></div>
-      <div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 650</p><ul><li>Parapente de 30 min (~USD 131)</li><li>Mesa con botella en un boliche de Provenza</li><li>Cena en restaurante en El Poblado</li><li>Privada con baño en Los Patios o Masaya</li></ul></div>
-    </div>
-    <div class="stay">
-      <p class="eyebrow">Dónde dormir · El Poblado</p>
-      <ul>
-        <li><a href="https://www.hostelworld.com/hostels/p/273991/los-patios-hostel/" target="_blank" rel="noopener">Los Patios</a>: 9,7 en Hostelworld, dos rooftops con pileta, clases de salsa. Social pero ordenado. <strong>Nuestra primera opción.</strong></li>
-        <li><a href="https://www.hostelworld.com/hostels/south-america/colombia/medellin/" target="_blank" rel="noopener">Viajero Medellín o Masaya</a>: más fiesteros, rooftop con jacuzzis.</li>
-      </ul>
-    </div>
-  </article>
-
-  <!-- MINCA -->
-  <article class="stopcard">
-    <canvas class="scene" data-scene="minca" aria-label="Ilustración: sierra verde con niebla en Minca"></canvas>
-    <div class="stophead">
-      <div><p class="nights">Parada 2 · 2 noches · mar 12 → jue 14</p><h2>Minca</h2></div>
-      <div class="stopcost"><span class="lvl-name">por persona, medio, con el vuelo</span><b data-costs='{"aj":160,"medio":250,"gustos":360}'>~USD 250</b></div>
-    </div>
-    <p class="why"><strong>Por qué:</strong> el que hizo este viaje el año pasado dice que Minca y Tayrona fueron lo mejor. Es un pueblito en la Sierra Nevada, metido en la selva de montaña: cascadas, café y hamacas mirando el valle. Ojo, no tiene playa. Es la parada para bajar un cambio después de Medellín, y casi no hay masificación.</p>
-    <div class="meters">
-      <div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">1/5</span></div><div class="pips" data-v="1"></div></div>
-      <div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">5/5</span></div><div class="pips" data-v="5"></div></div>
-      <div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
-    </div>
-    <div class="links">
-      <a class="photo" href="https://www.google.com/search?tbm=isch&q=Minca+Colombia+hamaca+atardecer" target="_blank" rel="noopener">Ver fotos de Minca</a>
-      <a href="https://www.google.com/search?tbm=isch&q=Pozo+Azul+Minca" target="_blank" rel="noopener">Fotos de las cascadas</a>
-    </div>
-    <div class="days">
-      <div class="day" data-n="4">
-        <div class="date"><b>Mar 12</b>Vuelo</div>
-        <div class="what"><h3>Medellín → Santa Marta → Minca</h3><p>Vuelo de 1,5 h a Santa Marta y subida a Minca (40–60 min en taxi o colectivo). Mototaxi hasta el hostel y atardecer desde la montaña.</p><div class="chips"><span class="chip">vuelo ~USD 63 + valija</span><span class="chip">taxi ~USD 25 por auto</span></div></div>
-      </div>
-      <div class="day" data-n="5">
-        <div class="date"><b>Mié 13</b>Minca</div>
-        <div class="what"><h3>Cascadas, finca de café y hamacas</h3><p>Pozo Azul y Marinka a pie o en moto, recorrido por una finca de café y atardecer en Casa Loma. Cena en el hostel con otros viajeros.</p><div class="chips"><span class="chip nat">naturaleza</span><span class="chip">~USD 10–25</span></div></div>
-      </div>
-    </div>
-    <div class="niveles">
-      <div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 160</p><ul><li>Colectivo desde Santa Marta (~USD 3) en vez de taxi</li><li>Dorm</li><li>Cascadas a pie, sin moto</li></ul></div>
-      <div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 360</p><ul><li>Cabaña privada con vista (Casa Loma o Mundo Nuevo)</li><li>Tour guiado de café</li><li>Moto con guía a las cascadas</li></ul></div>
-    </div>
-    <div class="stay">
-      <p class="eyebrow">Dónde dormir</p>
-      <ul>
-        <li><a href="https://www.hostelworld.com/hostels/south-america/colombia/minca/" target="_blank" rel="noopener">Masaya Casas Viejas</a>: el más social de Minca, con pileta.</li>
-        <li><a href="https://casalomaminca.com/" target="_blank" rel="noopener">Casa Loma</a>: el clásico de los atardeceres, más chill. Ideal si queremos calma.</li>
-      </ul>
-    </div>
-    <p class="note">En Minca no hay cajero. Llevar efectivo en pesos colombianos.</p>
-  </article>
-
-  <!-- TAYRONA -->
-  <article class="stopcard">
-    <canvas class="scene" data-scene="tayrona" aria-label="Ilustración: playa de Tayrona con piedras gigantes y selva"></canvas>
-    <div class="stophead">
-      <div><p class="nights">Parada 3 · 1 noche · jue 14 → vie 15</p><h2>Tayrona</h2></div>
-      <div class="stopcost"><span class="lvl-name">por persona, medio</span><b data-costs='{"aj":55,"medio":90,"gustos":140}'>~USD 90</b></div>
-    </div>
-    <p class="why"><strong>Por qué dormimos adentro:</strong> Tayrona es un parque nacional donde la selva termina en el mar, con playas entre piedras gigantes. De día se llena de excursiones, pero a la tarde se van y Cabo San Juan queda casi para nosotros. El atardecer y el amanecer ahí son de lo mejor del viaje.</p>
-    <div class="meters">
-      <div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">0/5</span></div><div class="pips" data-v="0"></div></div>
-      <div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">5/5</span></div><div class="pips" data-v="5"></div></div>
-      <div class="meter m-gente"><div class="lab"><span>Gente (de día / de noche)</span><span class="mono">4 / 1</span></div><div class="pips" data-v="4"></div></div>
-    </div>
-    <div class="links">
-      <a class="photo" href="https://www.google.com/search?tbm=isch&q=Cabo+San+Juan+Tayrona" target="_blank" rel="noopener">Ver fotos de Tayrona</a>
-      <a href="https://www.parquesnacionales.gov.co/nuestros-parques/pnn-tayrona/" target="_blank" rel="noopener">Info oficial del parque</a>
-    </div>
-    <div class="days">
-      <div class="day" data-n="6">
-        <div class="date"><b>Jue 14</b>Tayrona</div>
-        <div class="what"><h3>Caminata por la selva hasta Cabo San Juan</h3><p>Salimos de Minca a las 6 am para estar en la entrada (El Zaíno) cuando abre la taquilla. Caminata de unas 2 horas entre selva y playas, y noche en hamaca o carpa frente al mar.</p><div class="chips"><span class="chip nat">naturaleza</span><span class="chip">entrada ~USD 29</span><span class="chip">hamaca ~USD 12 · carpa ~USD 22</span></div><div class="links"><a href="https://reservatuglamping.com/en/listing/hamaca-cabo-san-juan/" target="_blank" rel="noopener">Hamacas en Cabo San Juan</a></div></div>
-      </div>
-    </div>
-    <div class="niveles">
-      <div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 55</p><ul><li>Hamaca abajo (~USD 12)</li><li>Llevar comida y agua desde afuera</li></ul></div>
-      <div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 140</p><ul><li>Hamaca del mirador o carpa (~USD 18–45)</li><li>Cabaña en el mirador (~USD 120 la cabaña)</li><li>Comer en los restaurantes del parque</li></ul></div>
-    </div>
-    <p class="note">Hay cupo de 6.900 personas por día y no se reserva la entrada: se compra en la taquilla. Llegando temprano un jueves (después del finde largo de Reyes) entramos sin problema. Llevar mochila chica, efectivo y la vacuna de fiebre amarilla. La grande queda en Palomino.</p>
-  </article>
-
-  <!-- PALOMINO -->
-  <article class="stopcard">
-    <canvas class="scene" data-scene="palomino" aria-label="Ilustración: río que desemboca en el mar en Palomino"></canvas>
-    <div class="stophead">
-      <div><p class="nights">Parada 4 · 2 noches · vie 15 → dom 17</p><h2>Palomino</h2></div>
-      <div class="stopcost"><span class="lvl-name">por persona, medio</span><b data-costs='{"aj":90,"medio":175,"gustos":290}'>~USD 175</b></div>
-    </div>
-    <p class="why"><strong>Por qué:</strong> playa larga y salvaje con onda hippie-mochilera. El plan clásico es bajar el río en gomón con una cerveza hasta donde se junta con el mar. Hay fiesta de hostel hasta medianoche, sin boliche. Es el equilibrio justo entre descanso y joda, y el sábado queda libre para no hacer nada.</p>
-    <div class="meters">
-      <div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">3/5</span></div><div class="pips" data-v="3"></div></div>
-      <div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
-      <div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
-    </div>
-    <div class="links">
-      <a class="photo" href="https://www.google.com/search?tbm=isch&q=Palomino+Colombia+tubing+r%C3%ADo" target="_blank" rel="noopener">Ver fotos de Palomino</a>
-    </div>
-    <div class="days">
-      <div class="day" data-n="7">
-        <div class="date"><b>Vie 15</b>Palomino</div>
-        <div class="what"><h3>Salimos de Tayrona, tubing y fiesta en el hostel</h3><p>Amanecer en Cabo San Juan, caminata de vuelta y una hora hasta Palomino. A la tarde, tubing por el río hasta el mar. A la noche, pub crawl o fiesta en la pileta del hostel.</p><div class="chips"><span class="chip nat">río y playa</span><span class="chip night">fiesta de hostel</span><span class="chip">tubing ~USD 10–15</span><span class="chip">pub crawl ~USD 7</span></div></div>
-      </div>
-      <div class="day" data-n="8">
-        <div class="date"><b>Sáb 16</b>Libre</div>
-        <div class="what"><h3>Día de playa sin planes</h3><p>Playa, pileta y recuperar energía. Los que hacen el bloque de 7 días salen para el aeropuerto de Santa Marta (1,5–2 h).</p><div class="chips"><span class="chip nat">playa</span></div></div>
-      </div>
-    </div>
-    <div class="stub hl"><strong>✈ Acá vuelven los de 7 días</strong><span>Sáb 16 · Santa Marta → Buenos Aires · ~USD 400–500</span></div>
-    <div class="niveles">
-      <div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 90</p><ul><li>Dorm</li><li>Menú del día o cocinar en el hostel</li><li>Tubing por cuenta propia, sin tour</li></ul></div>
-      <div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 290</p><ul><li>Privada frente al mar</li><li>Pub crawl y tragos en la barra</li><li>Cena de mariscos en la playa</li></ul></div>
-    </div>
-    <div class="stay">
-      <p class="eyebrow">Dónde dormir</p>
-      <ul>
-        <li><a href="https://www.hostelworld.com/hostels/south-america/colombia/palomino/" target="_blank" rel="noopener">Dreamer Palomino</a>: sobre la playa, dos piletas y dos bares. Es el punto social del pueblo.</li>
-      </ul>
-    </div>
-    <p class="note">El mar en Palomino y en algunas playas de Tayrona tiene corriente fuerte. Nos metemos solo donde está permitido, y nunca de noche.</p>
-  </article>
-
-  <!-- CARTAGENA -->
-  <article class="stopcard">
-    <canvas class="scene" data-scene="cartagena" aria-label="Ilustración: casas de colores y muralla de Cartagena al atardecer"></canvas>
-    <div class="stophead">
-      <div><p class="nights">Parada 5 · 3 noches · dom 17 → mié 20</p><h2>Cartagena</h2></div>
-      <div class="stopcost"><span class="lvl-name">por persona, medio</span><b data-costs='{"aj":230,"medio":480,"gustos":800}'>~USD 480</b></div>
-    </div>
-    <p class="why"><strong>Por qué:</strong> no es "de viejos", depende de dónde estés. La ciudad amurallada es linda y cara, pero Getsemaní, el barrio de los hostels, es joven: salsa, bares y música en la plaza. Con el barco a Cholón es la segunda parada más fiestera, y el cierre grupal ideal.</p>
-    <div class="meters">
-      <div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
-      <div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
-      <div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
-    </div>
-    <div class="links">
-      <a class="photo" href="https://www.google.com/search?tbm=isch&q=Getseman%C3%AD+Cartagena" target="_blank" rel="noopener">Ver fotos de Cartagena</a>
-      <a href="https://www.google.com/search?tbm=isch&q=Chol%C3%B3n+Cartagena+lanchas" target="_blank" rel="noopener">Fotos de Cholón</a>
-    </div>
-    <div class="days">
-      <div class="day" data-n="9">
-        <div class="date"><b>Dom 17</b>Traslado</div>
-        <div class="what"><h3>Palomino → Cartagena y noche en Getsemaní</h3><p>Bus a Santa Marta y combi puerta a puerta a Cartagena (unas 5 h). A la noche, Plaza de la Trinidad, salsa y bares.</p><div class="chips"><span class="chip night">salida</span><span class="chip">combi ~USD 27–31</span></div></div>
-      </div>
-      <div class="day" data-n="10">
-        <div class="date"><b>Lun 18</b>Cholón</div>
-        <div class="what"><h3>Barco de fiesta a Cholón</h3><p>Una hora de lancha a una laguna de agua turquesa donde se juntan barcos con música y todos están en el agua. Un lunes hay menos gente; conviene un party boat con DJ y barra a bordo. Ojo con los vendedores en bote: preguntar precio antes de pedir.</p><div class="chips"><span class="chip nat">islas</span><span class="chip night">fiesta en el agua</span><span class="chip">~USD 65–130</span></div><div class="links"><a href="https://www.getyourguide.com/rosario-islands-l114972/cholon-forever-boat-party-t509632/" target="_blank" rel="noopener">Party boat a Cholón</a></div></div>
-      </div>
-      <div class="day" data-n="11">
-        <div class="date"><b>Mar 19</b>Ciudad</div>
-        <div class="what"><h3>Ciudad amurallada y última noche grupal</h3><p>Free tour por el centro histórico, atardecer en la muralla y la gran despedida en Getsemaní antes de que se vuelva el bloque de 10 días.</p><div class="chips"><span class="chip night">noche fuerte</span><span class="chip">free tour = propina</span></div></div>
-      </div>
-      <div class="day" data-n="12">
-        <div class="date"><b>Mié 20</b>Vuelos</div>
-        <div class="what"><h3>Unos vuelven, otros siguen al Caribe</h3><p>El bloque de 10 días vuela a Buenos Aires. El resto, una hora de vuelo hasta San Andrés y tarde de playa.</p><div class="chips"><span class="chip">CTG → San Andrés ~USD 90</span></div></div>
-      </div>
-    </div>
-    <div class="stub hl"><strong>✈ Acá vuelven los de 10 días</strong><span>Mié 20 · Cartagena → Buenos Aires · ~USD 400–500 (hay directo nuevo de Aerolíneas)</span></div>
-    <div class="niveles">
-      <div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 230</p><ul><li>Cholón en lancha barata (~USD 65) o saltearlo</li><li>Free tour por la ciudad amurallada</li><li>Menú del día en Getsemaní</li></ul></div>
-      <div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 800</p><ul><li>Party boat premium con barra libre (~USD 130) o lancha privada para el grupo</li><li>Rooftop con pileta en KIM o boutique</li><li>Cena en la ciudad amurallada y atardecer en Café del Mar</li></ul></div>
-    </div>
-    <div class="stay">
-      <p class="eyebrow">Dónde dormir · Getsemaní</p>
-      <ul>
-        <li><a href="https://www.hostelworld.com/hostels/p/330492/viajero-cartagena-getsemani-hostel/" target="_blank" rel="noopener">Viajero Getsemaní</a>: rooftop con pileta y vista a la bahía, habitaciones privadas. Es party hostel: hay ruido.</li>
-        <li><a href="https://www.hostelworld.com/hostels/south-america/colombia/cartagena/" target="_blank" rel="noopener">KIM o Masaya Cartagena</a>: alternativas sociales con pileta.</li>
-      </ul>
-    </div>
-    <p class="note">Opción a charlar: si queremos el Cholón más local (lanchas de colombianos, música a full), es el domingo. Para eso salimos de Palomino el sábado y perdemos el día libre de playa.</p>
-  </article>
-
-  <!-- SAN ANDRES -->
-  <article class="stopcard">
-    <canvas class="scene" data-scene="sanandres" aria-label="Ilustración: mar de siete colores y un cayo con palmeras"></canvas>
-    <div class="stophead">
-      <div><p class="nights">Parada 6 · 3 noches · mié 20 → sáb 23</p><h2>San Andrés</h2></div>
-      <div class="stopcost"><span class="lvl-name">por persona, medio, con el vuelo</span><b data-costs='{"aj":330,"medio":540,"gustos":900}'>~USD 540</b></div>
-    </div>
-    <p class="why"><strong>Por qué:</strong> el mar más lindo del viaje, por lejos: el famoso "mar de siete colores". En el mapa parece lejísimo, pero desde Cartagena es una hora de vuelo, y volver solo para esto sale mucho más caro. Es más turismo colombiano que joda: el cierre para relajar.</p>
-    <div class="meters">
-      <div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
-      <div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
-      <div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
-    </div>
-    <div class="links">
-      <a class="photo" href="https://www.google.com/search?tbm=isch&q=Johnny+Cay+San+Andr%C3%A9s" target="_blank" rel="noopener">Ver fotos de San Andrés</a>
-      <a href="https://blog.sanandresisla.travel/tarjeta-de-turismo-san-andres-2026/" target="_blank" rel="noopener">Tarjeta de turismo</a>
-    </div>
-    <div class="days">
-      <div class="day" data-n="13">
-        <div class="date"><b>Jue 21</b>Cayos</div>
-        <div class="what"><h3>Johnny Cay y el Acuario</h3><p>Primera lancha de la mañana para llegar a Johnny Cay antes de que se llene. Después, Haynes Cay, donde se camina en el agua entre mantarrayas.</p><div class="chips"><span class="chip nat">mar</span><span class="chip">tour ~USD 39–46</span></div><div class="links"><a href="https://islaventura.com.co/tour/tour-acuario-johnny-cay/" target="_blank" rel="noopener">Tour Acuario + Johnny Cay</a></div></div>
-      </div>
-      <div class="day" data-n="14">
-        <div class="date"><b>Vie 22</b>Isla</div>
-        <div class="what"><h3>Vuelta a la isla en carrito de golf</h3><p>Alquilamos "mulitas" y recorremos la isla. Snorkel en West View y La Piscinita, atardecer en el oeste y última noche.</p><div class="chips"><span class="chip nat">snorkel</span><span class="chip">carrito ~USD 25–35 c/u</span><span class="chip">entradas ~USD 5</span></div></div>
-      </div>
-      <div class="day" data-n="15">
-        <div class="date"><b>Sáb 23</b>Vuelta</div>
-        <div class="what"><h3>San Andrés → Buenos Aires</h3><p>Fin del viaje completo.</p><div class="chips"><span class="chip">~USD 400–600 con escala</span></div></div>
-      </div>
-    </div>
-    <div class="stub hl"><strong>✈ Vuelta del bloque completo</strong><span>Sáb 23 · San Andrés → Buenos Aires</span></div>
-    <div class="niveles">
-      <div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 330</p><ul><li>Bus de la isla en vez de carrito de golf</li><li>Dorm</li><li>Johnny Cay en tour compartido</li></ul></div>
-      <div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 900</p><ul><li>Lancha privada a los cayos</li><li>Bautismo de buceo</li><li>Dreamer Beach Club con pileta</li></ul></div>
-    </div>
-    <div class="stay">
-      <p class="eyebrow">Dónde dormir</p>
-      <ul>
-        <li><a href="https://www.viajerohostels.com/es/destinos-colombia/san-andres/" target="_blank" rel="noopener">Viajero San Andrés</a>: el más social de la isla, con rooftop y desayuno.</li>
-        <li><a href="https://www.hostelworld.com/hostels/south-america/colombia/san-andres-island/" target="_blank" rel="noopener">Dreamer Beach Club</a>: más cheto, con pileta, cerca de la playa.</li>
-      </ul>
-    </div>
-    <p class="note">Al llegar se paga la tarjeta de turismo obligatoria: COP 153.000 en 2026 (unos USD 46).</p>
-  </article>
-
-  <!-- PROVIDENCIA -->
-  <article class="stopcard">
-    <div class="stub"><strong>Extra opcional · Providencia</strong><span>+3 noches · ~USD 400–600 por persona</span></div>
-    <p class="prose">Para el que quiera estirar: la isla vecina de San Andrés, mucho más virgen y tranquila, sin joda y con un agua increíble. Se llega en avioneta (20 min) o catamarán (unas 3 h, con mar movido en enero). La tarjeta de turismo de San Andrés ya la cubre.</p>
-    <div class="links"><a class="photo" href="https://www.google.com/search?tbm=isch&q=Providencia+isla+Colombia+Crab+Cay" target="_blank" rel="noopener">Ver fotos de Providencia</a></div>
-  </article>
-
-</div>
-
-<section id="vuelos">
-  <p class="eyebrow">Vuelos</p>
-  <h2>Qué hay y cuánto sale</h2>
-  <p class="prose">Cada uno compra la ida a Medellín y la vuelta desde donde termina su bloque. Precios por persona, solo ida, buscados en octubre 2026.</p>
-  <div class="flist">
-    <div class="fl"><span class="route2">BUE → MDE · sáb 9</span><strong>desde ~USD 270</strong><p>JetSMART directo desde Ezeiza (arranca en noviembre, tarifa sin valija). Con escala ~USD 300; Avianca directo ~USD 600.</p><a href="https://jetsmart.com/" target="_blank" rel="noopener">JetSMART</a></div>
-    <div class="fl"><span class="route2">MDE → SMR · mar 12</span><strong>~USD 63</strong><p>Vuelo interno de 1,5 h. Las low cost cobran la valija aparte: comprarla al reservar.</p></div>
-    <div class="fl"><span class="route2">SMR → BUE · sáb 16</span><strong>~USD 400–500</strong><p>Vuelta del bloque de 7 días, con escala.</p></div>
-    <div class="fl"><span class="route2">CTG → BUE · mié 20</span><strong>~USD 400–500</strong><p>Vuelta del bloque de 10 días. Desde enero hay directo de Aerolíneas a Aeroparque.</p><a href="https://www.aerolineas.com.ar/" target="_blank" rel="noopener">Aerolíneas</a></div>
-    <div class="fl"><span class="route2">CTG → ADZ · mié 20</span><strong>~USD 90</strong><p>Cartagena → San Andrés, una hora.</p></div>
-    <div class="fl"><span class="route2">ADZ → BUE · sáb 23</span><strong>~USD 400–600</strong><p>Vuelta del bloque completo, vía Medellín, Bogotá o Panamá.</p></div>
-  </div>
-  <p class="note">Colombia pide pasaje de salida para entrar: hay que tener la vuelta comprada antes de viajar.</p>
-</section>
-
-<section id="pasos">
-  <p class="eyebrow">Qué tenemos que hacer</p>
-  <h2>Próximos pasos</h2>
-  <ol class="steps">
-    <li><div><strong>Cada uno elige su bloque</strong><p>7, 10 o 15 días. Con eso sabemos cuántas camas reservar en cada parada.</p></div></li>
-    <li><div><strong>Comprar el vuelo de ida antes del 31 de octubre</strong><p>Las tarifas de los vuelos nuevos son las primeras que se agotan, y enero es temporada alta.</p></div></li>
-    <li><div><strong>Reservar hostels con cancelación gratis</strong><p>Habitaciones privadas para el grupo, que son pocas y se van primero. Así podemos sumar o restar gente.</p></div></li>
-    <li><div><strong>Vacuna de fiebre amarilla</strong><p>Al menos 10–15 días antes. Es gratis en vacunatorios públicos y la pueden pedir en Tayrona.</p></div></li>
-    <li><div><strong>Armar Splitwise por bloque</strong><p>Uno para Medellín, otro para la Costa y otro para San Andrés. Así el que se va antes cierra las cuentas limpio.</p></div></li>
-  </ol>
-</section>
-
-<section id="tips">
-  <p class="eyebrow">Para tener en cuenta</p>
-  <h2>Tips del viaje</h2>
-  <div class="tips">
-    <div class="tip"><h3>Citas y tragos</h3><p>En Medellín hay robos con escopolamina, sobre todo por apps de citas. Primera cita en lugar público, nunca dejar el vaso solo y no llevar gente recién conocida al hostel sin avisar al grupo.</p></div>
-    <div class="tip"><h3>Celular en la calle</h3><p>No usarlo en la vereda saliendo de boliches. Moverse en Uber, DiDi o InDrive.</p></div>
-    <div class="tip"><h3>Efectivo</h3><p>Pesos colombianos para Tayrona, la Piedra del Peñol, Minca, mototaxis y Johnny Cay. Tarjeta para hostels y restaurantes.</p></div>
-    <div class="tip"><h3>Clima</h3><p>Medellín es templado y fresco a la noche: llevar buzo. En la costa hace calor y hay brisa fuerte. Protector y repelente sí o sí.</p></div>
-    <div class="tip"><h3>Equipaje</h3><p>Mochila chica para la noche en Tayrona. La grande se deja en el hostel de Palomino.</p></div>
-    <div class="tip"><h3>Conocer gente</h3><p>Sumarse al grupo de WhatsApp de cada hostel el primer día y anotarse a los planes: pub crawls, salsa, tours.</p></div>
-  </div>
-</section>
-
-<footer>
-  <div class="chiva" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-  <p>Precios aproximados por persona en dólares, relevados a principios de octubre de 2026 con tarifas 2026. Para enero pueden subir un poco, sobre todo hostels y vuelos. Las fotos de cada parada se cargan desde la carpeta <code>fotos/</code> del repo; si falta alguna, se muestra una ilustración. Los botones "Ver fotos" llevan a más imágenes.</p>
-</footer>
-
-</div>
-
 </main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-<script src="data/updates.js?v=6"></script>
-<script src="js/app.js?v=6"></script>
-<script src="js/decisiones.js?v=6"></script>
-<script src="js/mapa.js?v=6"></script>
+<script src="data/updates.js?v=7"></script>
+<script src="js/scenes.js?v=7"></script>
+<script src="js/app.js?v=7"></script>
+<script src="js/decisiones.js?v=7"></script>
+<script src="js/mapa.js?v=7"></script>
 </body>
 </html>

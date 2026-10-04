@@ -54,6 +54,7 @@
       var el = tokens[p.id];
       el.classList.remove("moved");
       el.querySelector(".pax-note").textContent = info.nota || "";
+      el.title = info.nota ? p.nombre + ": " + info.nota : p.nombre;
       el.dataset.orig = info.estado;
       (zones[info.estado] || zones.pensando).appendChild(el);
     });
