@@ -53,13 +53,11 @@
   function iniciar(){
     if(map){ map.invalidateSize(); return; }
     map = L.map("map", {scrollWheelZoom:false, zoomControl:true});
-    var url = oscuro()
-      ? "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-      : "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png";
-    L.tileLayer(url, {
-      maxZoom: 18, subdomains: "abcd",
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+    if(oscuro()) document.getElementById("map").classList.add("map-dark");
 
     TRAMOS.forEach(function(t){
       var linea = t.tipo === "vuelo"

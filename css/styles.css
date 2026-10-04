@@ -323,3 +323,5 @@ code{font-family:var(--mono);font-size:.92em}
 .jump{display:flex;flex-wrap:wrap;gap:8px}
 .jump a{font:600 14px var(--body);text-decoration:none;color:var(--bg);background:var(--ink);padding:8px 14px;border-radius:99px}
 .jump a:hover{background:var(--coral)}
+.pin{background:#10292D}
+.map-dark .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.9) contrast(.9)}
