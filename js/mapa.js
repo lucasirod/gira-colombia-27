@@ -138,7 +138,7 @@
 
   document.addEventListener("mapa:show", function(){ setTimeout(iniciar, 30); });
   /* si la página abrió directo en el mapa (#mapa), el aviso llegó antes de que cargara este archivo */
-  var mv = document.getElementById("mapaView");
+  var mv = document.querySelector('.page[data-page="mapa"]');
   if(mv && !mv.hidden) setTimeout(iniciar, 30);
   document.addEventListener("bloque:change", function(e){ aplicarBloque(e.detail.b); });
 })();
