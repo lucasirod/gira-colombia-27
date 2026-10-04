@@ -320,3 +320,6 @@ code{font-family:var(--mono);font-size:.92em}
 }
 .cal-ret{overflow-wrap:anywhere}
 @media (max-width:640px){.cal-ret .long,.cal-stop{display:none}.cal-ret{align-self:flex-start;font-size:11px}}
+.jump{display:flex;flex-wrap:wrap;gap:8px}
+.jump a{font:600 14px var(--body);text-decoration:none;color:var(--bg);background:var(--ink);padding:8px 14px;border-radius:99px}
+.jump a:hover{background:var(--coral)}

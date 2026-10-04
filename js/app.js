@@ -233,9 +233,16 @@
     try{history.replaceState(null,"","#"+b.dataset.tab);}catch(err){}
     window.scrollTo(0,0);
   });
-  var h=(location.hash||"").replace("#","");
-  if(h==="decisiones") setTab("decisiones");
-  else if(h==="mapa"){ setTab("viaje"); setView("mapa"); }
-  else if(h==="calendario"){ setTab("viaje"); setView("cal"); }
+  function irAHash(scroll){
+    var h=(location.hash||"").replace("#","");
+    if(h==="decisiones") setTab("decisiones");
+    else if(h==="mapa"||h==="calendario"||h==="itinerario"){
+      setTab("viaje"); setView(h==="mapa"?"mapa":h==="calendario"?"cal":"lista");
+      if(scroll) setTimeout(function(){document.getElementById("ruta").scrollIntoView({behavior:"smooth"});},60);
+    }
+    else if(h==="viaje") setTab("viaje");
+  }
+  irAHash(false);
+  window.addEventListener("hashchange",function(){irAHash(true);});
   document.querySelector(".brand").addEventListener("click",function(e){e.preventDefault();document.querySelector('.tabs [data-tab="viaje"]').click();});
 })();
