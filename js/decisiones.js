@@ -34,7 +34,7 @@
     face.textContent = iniciales(p.nombre);
     el.querySelector(".nm").textContent = p.nombre;
     var img = new Image();
-    img.onload = function(){ face.textContent = ""; face.style.backgroundImage = "url('" + img.src + "')"; };
+    img.onload = function(){ face.textContent = ""; face.style.backgroundImage = "url('" + img.src + "')"; face.style.backgroundSize = "cover"; face.style.backgroundPosition = "center"; };
     img.src = "fotos/personas/" + p.id + ".jpg";
     tokens[p.id] = el;
   });

@@ -180,6 +180,35 @@
     target.scrollIntoView({behavior:"smooth",block:"start"});
   });
 
+  /* ---------- galería de fotos por parada + visor ---------- */
+  (function(){
+    var G=window.GALERIA||{};
+    var box=document.createElement("div");
+    box.className="lightbox"; box.hidden=true;
+    box.innerHTML='<button type="button" class="lb-close" aria-label="Cerrar">×</button><figure><img alt=""><figcaption></figcaption></figure>';
+    document.body.appendChild(box);
+    var bImg=box.querySelector("img"), bCap=box.querySelector("figcaption");
+    function abrir(src,cap){ bImg.src=src; bImg.alt=cap; bCap.textContent=cap; box.hidden=false; box.querySelector(".lb-close").focus(); }
+    function cerrar(){ box.hidden=true; bImg.removeAttribute("src"); }
+    box.addEventListener("click",function(e){ if(e.target===box||e.target.closest(".lb-close")) cerrar(); });
+    document.addEventListener("keydown",function(e){ if(e.key==="Escape"&&!box.hidden) cerrar(); });
+    document.querySelectorAll("canvas.scene").forEach(function(cv){
+      var fotos=G[cv.dataset.scene]; if(!fotos||!fotos.length) return;
+      var row=document.createElement("div"); row.className="gallery";
+      fotos.forEach(function(f){
+        var b=document.createElement("button"); b.type="button"; b.className="g-item";
+        b.innerHTML='<img loading="lazy" alt=""><span></span>';
+        b.querySelector("img").src=f.src; b.querySelector("img").alt=f.cap; b.querySelector("span").textContent=f.cap;
+        b.addEventListener("click",function(){ abrir(f.src,f.cap); });
+        row.appendChild(b);
+      });
+      cv.parentNode.insertBefore(row,cv.nextSibling);
+    });
+    document.addEventListener("click",function(e){
+      var ph=e.target.closest(".scene-photo"); if(ph) abrir(ph.src,ph.alt.replace("Foto: ",""));
+    });
+  })();
+
   render();
   fromHash();
   if(window.GIRA_PAINT){ window.GIRA_PAINT(); var t; window.addEventListener("resize",function(){clearTimeout(t);t=setTimeout(window.GIRA_PAINT,150);}); }

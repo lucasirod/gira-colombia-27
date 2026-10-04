@@ -14,13 +14,12 @@ Publicada con GitHub Pages en https://lucasirod.github.io/gira-colombia-27/ (ram
 
 ## Cómo se trabaja
 - **Update del grupo:** agregar un objeto al principio de `UPDATES` en `data/updates.js`.
-- **Fotos:** `fotos/<parada>.jpg` (medellin, minca, tayrona, palomino, cartagena, sanandres) reemplazan la ilustración; `fotos/personas/<id>.jpg` reemplazan las iniciales. Horizontales 16:8 y livianas (<500 KB); caras cuadradas.
+- **Fotos:** ya están cargadas (las pasó Lucas el 4/10). `fotos/portada.jpg` es el fondo de la portada; `fotos/galeria/` + `data/galeria.js` son las fotos extra por parada (se abren en un visor). `fotos/<parada>.jpg` (medellin, minca, tayrona, palomino, cartagena, sanandres) reemplazan la ilustración; `fotos/personas/<id>.jpg` reemplazan las iniciales. Horizontales 16:8 y livianas (<500 KB); caras cuadradas.
 - **Caché:** después de tocar un `.js` o el `.css`, subir el `?v=` en `index.html`.
 - **Accesos directos:** `#inicio`, `#dias`, `#calendario`, `#mapa`, `#decisiones`.
 - El repo es público: nada sensible (plata de cada uno) va acá.
 
 ## Pendientes
-- Subir fotos de los lugares y de las caras.
 - Cargar precios reales de hostels cuando Lucas los pase.
 - Sumar updates a medida que el grupo decida.
 - Opcional: contraseña simple (sería solo cosmética en GitHub Pages).

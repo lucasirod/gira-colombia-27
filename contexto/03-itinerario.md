@@ -30,3 +30,8 @@
 - **Palomino:** Dreamer Palomino (sobre la playa, dos piletas, punto social del pueblo).
 - **Cartagena (Getsemaní):** Viajero Getsemaní (rooftop con pileta, party, ruido), KIM (ex Selina) o Masaya Cartagena.
 - **San Andrés:** Viajero San Andrés (el más social) o Dreamer Beach Club (más cheto, con pileta).
+
+## Equipaje y Tayrona
+- Adentro del parque no hay hostels: solo campings con hamacas y carpas (Cabo San Juan, Arrecifes) y los Ecohabs de Cañaveral, que son caros.
+- Viajero Tayrona Hostel & Ecohabs está afuera del parque, sobre la ruta a Riohacha (km 45), en la playa, a unos 10 km pasando la entrada de El Zaíno.
+- Mochilas grandes el jueves 14: lo más simple es un taxi o van privada desde Minca que deje al grupo en El Zaíno y siga con las mochilas hasta el hostel de Palomino (coordinarlo antes con el hostel, que reciba el equipaje aunque la reserva arranque el viernes). Alternativas: guardarlas en un hostel cerca de la entrada (preguntar costo), o reservar Palomino desde el jueves y pasar primero por ahí (suma ~2 h y llegan más tarde a la taquilla).
