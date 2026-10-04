@@ -10,14 +10,14 @@
 
 | Bloque | Vuelta | Desde | Total aprox. por persona (medio) |
 |---|---|---|---|
-| 7 días | Sáb 16 | Santa Marta | ~USD 1.730 |
-| 10 días | Mié 20 | Cartagena | ~USD 2.270 |
-| Completo (15) | Sáb 23 | San Andrés | ~USD 2.870 |
+| 7 días | Sáb 16 | Santa Marta | ~USD 1.960 |
+| 10 días | Mié 20 | Cartagena | ~USD 2.500 |
+| Completo (15) | Sáb 23 | San Andrés | ~USD 3.180 |
 
 Providencia se evaluó (+3 noches, ~USD 400–600) y se descartó.
 
 ## Por qué Colombia
-Junta ciudad, naturaleza, playa e isla en un viaje, en español (clave para conocer gente), con vuelo corto. Comparación por persona, ~2 semanas: Europa USD 3.500–5.000; Sudeste asiático 2.500–3.500 (vuelo caro y 30+ h, necesita 3 semanas); Costa Rica 2.500–3.500; Nordeste de Brasil 1.500–2.300 (más tranquilo, y Brasil ya lo hicieron: Río en Año Nuevo, y Mendoza); Colombia 1.200–2.900 según bloque.
+Junta ciudad, naturaleza, playa e isla en un viaje, en español (clave para conocer gente), con vuelo corto. Comparación por persona, ~2 semanas: Europa USD 3.500–5.000; Sudeste asiático 2.500–3.500 (vuelo caro y 30+ h, necesita 3 semanas); Costa Rica 2.500–3.500; Nordeste de Brasil 1.500–2.300 (más tranquilo, y Brasil ya lo hicieron: Río en Año Nuevo, y Mendoza); Colombia 1.470–3.180 según bloque.
 
 ## Por qué enero
 Temporada seca en el Caribe y Medellín (dic–mar), vacaciones de verano en Argentina, Tayrona abierto (cierra 1–15 feb, 1–15 jun y 19 oct–2 nov) y vuelos directos nuevos. Fines de febrero/marzo sería más barato (~USD 150–300 menos, casi todo vuelos) pero Reja no puede en febrero, Lucas tiene un casamiento en Venezuela en marzo y del 21 al 28 de marzo es Semana Santa. Mitad de año: vacaciones colombianas, Tayrona cerrado 1–15 jun, invierno acá.

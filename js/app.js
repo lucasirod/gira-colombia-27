@@ -2,9 +2,9 @@
 (function(){
   /* ---------- precios por bloque y nivel: [vuelos internacionales, en Colombia] ---------- */
   var P={
-    "7":{aj:[670,500],medio:[750,980],gustos:[1100,1600]},
-    "10":{aj:[670,795],medio:[750,1520],gustos:[1100,2580]},
-    "15":{aj:[720,1125],medio:[800,2070],gustos:[1200,3480]}
+    "7":{aj:[670,800],medio:[770,1190],gustos:[1150,2010]},
+    "10":{aj:[670,1130],medio:[770,1730],gustos:[1150,3050]},
+    "15":{aj:[670,1560],medio:[820,2360],gustos:[1200,4030]}
   };
   var LAST_DAY={"7":8,"10":12,"15":15};
   var NIVEL_TXT={aj:"ajustado",medio:"medio",gustos:"con gustos"};
@@ -21,7 +21,7 @@
     Object.keys(P).forEach(function(b){
       var w=P[b][state.l];
       var pe=document.querySelector('[data-price="'+b+'"]'); if(pe) pe.innerHTML=fmt(w[0]+w[1])+' <small>aprox.</small>';
-      var bd=document.querySelector('[data-bd="'+b+'"]'); if(bd) bd.innerHTML='<div><span>Vuelos internacionales</span><span>'+fmt(w[0])+'</span></div><div><span>En Colombia</span><span>'+fmt(w[1])+'</span></div>';
+      var bd=document.querySelector('[data-bd="'+b+'"]'); if(bd) bd.innerHTML='<div><span>Vuelos internacionales</span><span>'+fmt(w[0])+'</span></div><div><span>En Colombia y seguro</span><span>'+fmt(w[1])+'</span></div>';
       var card=document.querySelector('[data-blk="'+b+'"]'); if(card) card.classList.toggle("on",b===state.b);
     });
     document.querySelectorAll(".day").forEach(function(d){d.classList.toggle("out",+d.dataset.n>LAST_DAY[state.b]);});
