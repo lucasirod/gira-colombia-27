@@ -389,3 +389,4 @@ tr.win td:first-child{font-weight:600}
   .chip{font-size:10px;padding:3px 9px}
   .rombo{width:26px;height:26px}
 }
+@media (max-width:979px){#map{order:-1}.map-list{border-bottom:0;border-top:1px solid var(--line)}}
