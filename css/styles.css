@@ -420,3 +420,60 @@ tr.win td:first-child{font-weight:600}
 .lightbox figcaption{color:#E7F0EE;font-family:var(--display);font-size:18px}
 .lb-close{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:18px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:28px;line-height:1;cursor:pointer}
 @media (prefers-reduced-motion:reduce){.g-item img{transition:none}}
+
+/* ---------- parada: foto + info arriba, días abajo con columnas ajustado / con gustos ---------- */
+:root{--minus:#C73E3E;--plus:#23845A}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--minus:#F07C7C;--plus:#5CC791}}
+:root[data-theme="dark"]{--minus:#F07C7C;--plus:#5CC791}
+.stop-top{display:grid;grid-template-columns:1fr;gap:clamp(20px,3vw,44px);align-items:start}
+.stop-media,.stop-info{display:flex;flex-direction:column;gap:14px;min-width:0}
+@media (min-width:1080px){.stop-top{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}}
+.calc-t{min-width:480px;font-size:14px}
+.calc-t th,.calc-t td{padding:9px 12px}
+.calc-t tbody th{font-family:var(--body);font-size:14px;letter-spacing:0;text-transform:none;color:var(--ink);font-weight:600}
+.calc-t tr.on td,.calc-t tr.on th{background:var(--tint)}
+.calc-t tr.on th{box-shadow:inset 3px 0 0 var(--ink)}
+
+.stop-days{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.days-head{display:none}
+.stop-days .days{border-left:0;margin-left:0;gap:0}
+.stop-days .day{grid-template-columns:1fr;gap:10px;padding:16px 0;border-top:1px solid var(--line);border-radius:0}
+.stop-days .day::before{display:none}
+.day-aj,.day-gu{border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:3px;font-size:14px;transition:box-shadow .2s,background .2s}
+.day-aj{background:color-mix(in srgb,var(--minus) 9%,var(--surface));border:1px solid color-mix(in srgb,var(--minus) 30%,transparent)}
+.day-gu{background:color-mix(in srgb,var(--plus) 9%,var(--surface));border:1px solid color-mix(in srgb,var(--plus) 30%,transparent)}
+.day-aj .amt{font-family:var(--mono);font-weight:500;color:var(--minus)}
+.day-gu .amt{font-family:var(--mono);font-weight:500;color:var(--plus)}
+.day-aj p,.day-gu p{color:var(--ink);line-height:1.35}
+.day-aj.empty,.day-gu.empty{background:transparent;border-style:dashed;color:var(--muted)}
+.day-aj.on{box-shadow:0 0 0 2px var(--minus)}
+.day-gu.on{box-shadow:0 0 0 2px var(--plus)}
+.day-photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-top:4px}
+.day-photos figure{margin:0;position:relative;border-radius:10px;overflow:hidden;aspect-ratio:4/3;background:var(--tint)}
+.day-photos img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform .3s}
+.day-photos figure:hover img{transform:scale(1.04)}
+.day-photos figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 10px 7px;font-size:12px;font-weight:600;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+@media (min-width:900px){
+  .days-head{display:grid;grid-template-columns:110px minmax(0,1.6fr) minmax(0,.8fr) minmax(0,.8fr);gap:18px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:6px}
+  .days-head .h-aj{color:var(--minus)}
+  .days-head .h-gu{color:var(--plus)}
+  .stop-days .day{grid-template-columns:110px minmax(0,1.6fr) minmax(0,.8fr) minmax(0,.8fr);gap:18px;align-items:start}
+}
+@media (max-width:899px){
+  .stop-days .day{padding-left:0}
+  .day-aj::before{content:"Ajustado";font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--minus)}
+  .day-gu::before{content:"Con gustos";font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--plus)}
+}
+@media (prefers-reduced-motion:reduce){.day-photos img{transition:none}}
+.seg-level button[data-l="aj"][aria-pressed="true"]{background:var(--minus);border-color:var(--minus);color:#fff}
+.seg-level button[data-l="gustos"][aria-pressed="true"]{background:var(--plus);border-color:var(--plus);color:#fff}
+@media (max-width:760px){
+  body[data-page="dias"],body[data-page="calendario"],body[data-page="mapa"]{--sub-h:56px}
+  .subbar{padding-block:0}
+  .subbar .selector{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:10px}
+  .subbar .selector::-webkit-scrollbar{display:none}
+  .subbar .seg{flex-wrap:nowrap}
+  .subbar .total b{font-size:18px}
+  .day-photos{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .day-photos figure:only-child{grid-column:1 / -1}
+}

@@ -46,3 +46,31 @@ Estimaciones de octubre 2026 con precios 2026 (TRM ~3.341 COP/USD al 30/9/2026).
 
 ## Fines de febrero / marzo vs enero
 Ahorro estimado USD 150–300 por persona (5–10%) en el viaje completo, casi todo en vuelos. En el bloque de 7 días, USD 100–200.
+
+## Cómo se calcula cada parada (por persona)
+| Parada | Ajustado: alojamiento / noche · comida / día | Medio | Con gustos |
+|---|---|---|---|
+| Medellín | Dorm en hostel social ~14 · ~15 | Privada 4–6 en hostel social ~25 · ~30 | Privada con baño o boutique ~45 · ~50 |
+| Minca | Dorm ~15 · ~15 | Privada en Casas Viejas o Casa Loma ~25 · ~28 | Cabaña con vista ~45 · ~45 |
+| Tayrona | Hamaca abajo ~12 · ~15 | Carpa ~22 · ~25 | Hamaca del mirador o cabaña ~40 · ~40 |
+| Palomino | Dorm ~12 · ~15 | Privada en Dreamer ~22 · ~30 | Privada frente al mar ~40 · ~50 |
+| Cartagena | Dorm en Getsemaní ~18 · ~18 | Privada en Viajero o KIM ~35 · ~35 | Boutique con rooftop ~70 · ~60 |
+| San Andrés | Dorm ~20 · ~20 | Privada en Viajero ~30 · ~35 | Hotel con pileta ~60 · ~60 |
+
+## Qué se ajusta o se suma cada día (USD por persona, aprox.)
+| Día | Ajustado (−) | Con gustos (+) |
+|---|---|---|
+| Sáb 9 | Previa y bares sin cover (−20) | Cena de cumple en restaurante y mesa en boliche (+60) |
+| Dom 10 | Guatapé en bus (−25) | Lancha privada y almuerzo en restaurante (+20) |
+| Lun 11 | Sin parapente (−76) | Parapente de 30 min (+65) |
+| Mar 12 | Colectivo a Minca, solo mochila (−30) | Transfer privado a Minca (+15) |
+| Mié 13 | Cascadas a pie (−10) | Moto con guía y tour de café (+30) |
+| Jue 14 | Hamaca abajo y comida llevada (−20) | Hamaca del mirador o cabaña, restaurante (+40) |
+| Vie 15 | Tubing por cuenta propia, previa (−15) | Pub crawl y barra (+30) |
+| Sáb 16 | Playa sin gastos (−10) | Cena de mariscos (+30) |
+| Dom 17 | Menú del día y previa (−15) | Transfer privado a Cartagena (+40) |
+| Lun 18 | Lancha barata a Cholón o saltearlo (−65) | Party boat premium o lancha privada (+40) |
+| Mar 19 | Free tour y salsa en la plaza (−20) | Cena en la ciudad amurallada y Café del Mar (+60) |
+| Mié 20 | Solo mochila en el vuelo (−20) | Hotel con pileta (+40 por noche) |
+| Jue 21 | Tour compartido básico (−10) | Lancha privada a los cayos (+40) |
+| Vie 22 | Bus de la isla (−25) | Bautismo de buceo (+80, sin verificar) |

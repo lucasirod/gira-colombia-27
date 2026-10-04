@@ -18,7 +18,7 @@ window.PERSONAS = [
   { id: "mati",   nombre: "Mati" },
   { id: "reja",   nombre: "Reja" },
   { id: "seba",   nombre: "Seba" },
-  { id: "monty",  nombre: "Monty" },
+  { id: "monti",  nombre: "Monti" },
   { id: "pancho", nombre: "Pancho" },
   { id: "ivan",   nombre: "Iván" },
   { id: "jose",   nombre: "José" }
@@ -39,7 +39,7 @@ window.UPDATES = [
       mati:   { estado: "adentro" },
       reja:   { estado: "adentro", nota: "Quiere evitar lugares explotados de gente" },
       seba:   { estado: "adentro" },
-      monty:  { estado: "adentro" },
+      monti:  { estado: "adentro" },
       pancho: { estado: "pensando", nota: "Le gusta el plan; quiere que no sea solo joda" },
       ivan:   { estado: "pensando", nota: "Todavía no está convencido" },
       jose:   { estado: "pensando", nota: "Fechas: le sirve más después de abril" }
@@ -58,7 +58,7 @@ window.UPDATES = [
       mati:   { estado: "adentro" },
       reja:   { estado: "adentro" },
       seba:   { estado: "adentro" },
-      monty:  { estado: "pensando" },
+      monti:  { estado: "pensando" },
       pancho: { estado: "pensando", nota: "En diciembre está en Miami" },
       ivan:   { estado: "pensando" },
       jose:   { estado: "pensando" }

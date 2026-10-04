@@ -13,10 +13,10 @@ Si existe la foto, reemplaza a la ilustración de esa parada. Formato `.jpg`, id
 ## Caras (carpeta `personas/`)
 Cuadradas, `.jpg`. Si no hay, se muestran las iniciales.
 
-`lucas.jpg`, `mati.jpg`, `reja.jpg`, `seba.jpg`, `monty.jpg`, `pancho.jpg`, `ivan.jpg`, `jose.jpg`
+`lucas.jpg`, `mati.jpg`, `reja.jpg`, `seba.jpg`, `monti.jpg`, `pancho.jpg`, `ivan.jpg`, `jose.jpg`
 
 ## Galería (`galeria/`)
-Fotos extra de cada parada (`<parada>-<n>.jpg`, 4:3). Se listan con su pie de foto en `data/galeria.js`.
+Fotos de cada actividad (`<parada>-<n>.jpg`, 4:3). Se ponen directo en `index.html`, dentro del día que corresponde (`.day-photos`).
 
 ## Portada
 `portada.jpg` es el fondo de la primera slide de Inicio.

@@ -33,7 +33,8 @@
       b.textContent="~USD "+JSON.parse(b.dataset.costs)[state.l].toLocaleString("es-AR");
       n.textContent=n.dataset.orig.replace("medio",NIVEL_TXT[state.l]);
     });
-    document.querySelectorAll(".niv").forEach(function(x){x.classList.toggle("on",x.dataset.l===state.l);});
+    document.querySelectorAll(".day-aj,.day-gu,.calc-t tr[data-l]").forEach(function(x){x.classList.toggle("on",x.dataset.l===state.l);});
+    document.body.dataset.nivel=state.l;
     try{localStorage.setItem("gira27",JSON.stringify(state));}catch(e){}
     window.GIRA_BLOQUE=state.b;
     document.dispatchEvent(new CustomEvent("bloque:change",{detail:{b:state.b,l:state.l,last:LAST_DAY[state.b]}}));
@@ -182,7 +183,6 @@
 
   /* ---------- galería de fotos por parada + visor ---------- */
   (function(){
-    var G=window.GALERIA||{};
     var box=document.createElement("div");
     box.className="lightbox"; box.hidden=true;
     box.innerHTML='<button type="button" class="lb-close" aria-label="Cerrar">×</button><figure><img alt=""><figcaption></figcaption></figure>';
@@ -192,20 +192,8 @@
     function cerrar(){ box.hidden=true; bImg.removeAttribute("src"); }
     box.addEventListener("click",function(e){ if(e.target===box||e.target.closest(".lb-close")) cerrar(); });
     document.addEventListener("keydown",function(e){ if(e.key==="Escape"&&!box.hidden) cerrar(); });
-    document.querySelectorAll("canvas.scene").forEach(function(cv){
-      var fotos=G[cv.dataset.scene]; if(!fotos||!fotos.length) return;
-      var row=document.createElement("div"); row.className="gallery";
-      fotos.forEach(function(f){
-        var b=document.createElement("button"); b.type="button"; b.className="g-item";
-        b.innerHTML='<img loading="lazy" alt=""><span></span>';
-        b.querySelector("img").src=f.src; b.querySelector("img").alt=f.cap; b.querySelector("span").textContent=f.cap;
-        b.addEventListener("click",function(){ abrir(f.src,f.cap); });
-        row.appendChild(b);
-      });
-      cv.parentNode.insertBefore(row,cv.nextSibling);
-    });
     document.addEventListener("click",function(e){
-      var ph=e.target.closest(".scene-photo"); if(ph) abrir(ph.src,ph.alt.replace("Foto: ",""));
+      var ph=e.target.closest(".scene-photo, .day-photos img"); if(ph) abrir(ph.src,ph.alt.replace("Foto: ",""));
     });
   })();
 
