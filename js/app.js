@@ -24,7 +24,7 @@
     document.querySelectorAll(".day").forEach(function(d){d.classList.toggle("out",+d.dataset.n>lastDay[state.b]);});
     try{localStorage.setItem("gira27",JSON.stringify(state));}catch(e){}
     window.GIRA_BLOQUE=state.b;
-    document.dispatchEvent(new CustomEvent("bloque:change",{detail:{b:state.b,last:lastDay[state.b]}}));
+    document.dispatchEvent(new CustomEvent("bloque:change",{detail:{b:state.b,l:state.l,last:lastDay[state.b]}}));
   }
   document.getElementById("segBlock").addEventListener("click",function(e){var b=e.target.closest("button");if(b){state.b=b.dataset.b;render();}});
   document.getElementById("segLevel").addEventListener("click",function(e){var b=e.target.closest("button");if(b){state.l=b.dataset.l;render();}});
@@ -161,15 +161,64 @@
   var lista=document.getElementById("listaView"), mapa=document.getElementById("mapaView"), hint=document.getElementById("viewHint");
   function setView(v){
     document.querySelectorAll("#segView button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.v===v);});
-    lista.hidden=v!=="lista"; mapa.hidden=v!=="mapa";
-    hint.textContent=v==="mapa"?"Tocá cada parada para ver los días, el costo y abrirla en Google Maps. Las paradas que quedan fuera de tu bloque se ven más claras.":"Los días que quedan fuera del bloque que elegiste arriba se ven más claros. Cada parada tiene su link de fotos, dónde dormir y cuánto sale.";
+    lista.hidden=v!=="lista"; mapa.hidden=v!=="mapa"; document.getElementById("calView").hidden=v!=="cal";
+    hint.textContent=v==="cal"?"Tocá un día para ir al detalle. Los días fuera de tu bloque se ven más claros.":v==="mapa"?"Tocá cada parada para ver los días, el costo y abrirla en Google Maps. Las paradas que quedan fuera de tu bloque se ven más claras.":"Los días que quedan fuera del bloque que elegiste arriba se ven más claros. Cada parada tiene su link de fotos, dónde dormir y cuánto sale.";
     if(v==="mapa") document.dispatchEvent(new CustomEvent("mapa:show"));
   }
   document.getElementById("segView").addEventListener("click",function(e){var b=e.target.closest("button");if(b)setView(b.dataset.v);});
+  window.GIRA_VER_DIA=function(n){
+    setView("lista");
+    var el=document.querySelector('.day[data-n="'+n+'"]'); if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.classList.add("flash");setTimeout(function(){el.classList.remove("flash");},1600);}
+  };
   window.GIRA_VER_PARADA=function(slug){
     setView("lista");
     var el=document.getElementById("parada-"+slug); if(el) el.scrollIntoView({behavior:"smooth",block:"start"});
   };
+
+  /* ---------- costo por parada según el nivel ---------- */
+  var NIVEL_TXT={aj:"ajustado",medio:"medio",gustos:"con gustos"};
+  function aplicarNivel(l){
+    document.querySelectorAll(".stopcost").forEach(function(sc){
+      var b=sc.querySelector("b[data-costs]"), n=sc.querySelector(".lvl-name"); if(!b||!n) return;
+      if(!n.dataset.orig) n.dataset.orig=n.textContent;
+      var c=JSON.parse(b.dataset.costs);
+      b.textContent="~USD "+c[l].toLocaleString("es-AR");
+      n.textContent=n.dataset.orig.replace("medio",NIVEL_TXT[l]);
+    });
+    document.querySelectorAll(".niv").forEach(function(x){x.classList.toggle("on",x.dataset.l===l);});
+  }
+  document.addEventListener("bloque:change",function(e){aplicarNivel(e.detail.l);});
+  aplicarNivel(state.l);
+
+  /* ---------- vista calendario ---------- */
+  (function(){
+    var cal=document.getElementById("cal"); if(!cal) return;
+    var COLOR={medellin:"var(--coral)",minca:"var(--sea)",tayrona:"#2E7D4F",palomino:"var(--sun)",cartagena:"#C4547A",sanandres:"var(--deep)"};
+    var NOMBRE={medellin:"Medellín",minca:"Minca",tayrona:"Tayrona",palomino:"Palomino",cartagena:"Cartagena",sanandres:"San Andrés"};
+    var dias={};
+    document.querySelectorAll(".day").forEach(function(d){
+      var card=d.closest(".stopcard"), cv=card&&card.querySelector("canvas.scene");
+      dias[+d.dataset.n]={n:+d.dataset.n,slug:cv?cv.dataset.scene:"",titulo:(d.querySelector("h3")||{}).textContent||""};
+    });
+    var VUELTA={8:"7",12:"10",15:"15"};
+    var html=["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"].map(function(x){return '<div class="cal-h">'+x+'</div>';}).join("");
+    for(var fecha=4; fecha<=24; fecha++){
+      var n=fecha-8, d=dias[n];
+      if(!d){ html+='<div class="cal-d cal-empty"><span class="cal-num">'+fecha+'</span></div>'; continue; }
+      html+='<button type="button" class="cal-d" data-n="'+n+'" style="--c:'+COLOR[d.slug]+'">'+
+        '<span class="cal-num">'+fecha+(fecha===11?' <em>feriado</em>':'')+'</span>'+
+        '<span class="cal-stop">'+NOMBRE[d.slug]+'</span>'+
+        '<span class="cal-t">'+d.titulo+'</span>'+
+        (VUELTA[n]?'<span class="cal-ret">✈ <span class="long">vuelven los de </span>'+VUELTA[n]+'<span class="long"> días</span></span>':'')+
+      '</button>';
+    }
+    cal.innerHTML=html;
+    cal.addEventListener("click",function(e){var b=e.target.closest(".cal-d[data-n]"); if(b) window.GIRA_VER_DIA(+b.dataset.n);});
+    document.getElementById("calLegend").innerHTML=Object.keys(NOMBRE).map(function(k){return '<span><i style="background:'+COLOR[k]+'"></i>'+NOMBRE[k]+'</span>';}).join("");
+    function dim(last){ cal.querySelectorAll(".cal-d[data-n]").forEach(function(b){b.classList.toggle("out",+b.dataset.n>last);}); }
+    document.addEventListener("bloque:change",function(e){dim(e.detail.last);});
+    dim(lastDay[state.b]);
+  })();
 
   /* ---------- pestañas: el viaje / decisiones ---------- */
   function setTab(t){
@@ -187,5 +236,6 @@
   var h=(location.hash||"").replace("#","");
   if(h==="decisiones") setTab("decisiones");
   else if(h==="mapa"){ setTab("viaje"); setView("mapa"); }
+  else if(h==="calendario"){ setTab("viaje"); setView("cal"); }
   document.querySelector(".brand").addEventListener("click",function(e){e.preventDefault();document.querySelector('.tabs [data-tab="viaje"]').click();});
 })();

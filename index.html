@@ -201,10 +201,16 @@
   <h2>La ruta</h2>
   <div class="seg" id="segView" role="tablist" aria-label="Vista">
     <button type="button" data-v="lista" aria-pressed="true">Día por día</button>
+    <button type="button" data-v="cal" aria-pressed="false">Calendario</button>
     <button type="button" data-v="mapa" aria-pressed="false">Mapa</button>
   </div>
   <p class="prose" id="viewHint">Los días que quedan fuera del bloque que elegiste arriba se ven más claros. Cada parada tiene su link de fotos, dónde dormir y cuánto sale.</p>
 </section>
+
+<div id="calView" hidden>
+  <div class="cal" id="cal" role="grid" aria-label="Calendario de enero 2027"></div>
+  <div class="cal-legend" id="calLegend"></div>
+</div>
 
 <div id="mapaView" hidden>
   <div id="map" role="region" aria-label="Mapa de la ruta"></div>
@@ -218,7 +224,7 @@
     <canvas class="scene" data-scene="medellin" aria-label="Ilustración: Medellín de noche entre montañas"></canvas>
     <div class="stophead">
       <div><p class="nights">Parada 1 · 3 noches · sáb 9 → mar 12</p><h2>Medellín</h2></div>
-      <div class="stopcost">por persona, medio<b>~USD 400</b></div>
+      <div class="stopcost"><span class="lvl-name">por persona, medio</span><b data-costs='{"aj":200,"medio":400,"gustos":650}'>~USD 400</b></div>
     </div>
     <p class="why"><strong>Por qué arrancamos acá:</strong> es la parada más fuerte de noche y donde se "arma" el grupo. Llegamos con energía, y el domingo 10 es víspera de feriado, así que salen los paisas también. De día no es solo ciudad: Guatapé y el parapente son de lo mejor del viaje.</p>
     <div class="meters">
@@ -245,6 +251,10 @@
         <div class="what"><h3>Parapente a la mañana, Comuna 13 a la tarde</h3><p>Vuelo en tándem con instructor sobre el valle (no hace falta experiencia; se vuela de mañana si el clima acompaña). A la tarde, Comuna 13 con free tour: grafitis, escaleras eléctricas e historia del barrio. Noche tranqui.</p><div class="chips"><span class="chip nat">al aire libre</span><span class="chip">parapente 15 min ~USD 66 + traslado ~10</span><span class="chip">free tour = propina</span></div><div class="links"><a href="https://parapentedragonfly.com/en/servicios/parapente-precio-vuelo-instructor/" target="_blank" rel="noopener">Precios de parapente</a></div></div>
       </div>
     </div>
+    <div class="niveles">
+      <div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 200</p><ul><li>Dorm en vez de privada</li><li>Guatapé en bus desde la Terminal Norte (~USD 10) en vez de tour</li><li>Sin parapente (−USD 76)</li><li>Previa en el hostel y bares sin cover</li></ul></div>
+      <div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 650</p><ul><li>Parapente de 30 min (~USD 131)</li><li>Mesa con botella en un boliche de Provenza</li><li>Cena en restaurante en El Poblado</li><li>Privada con baño en Los Patios o Masaya</li></ul></div>
+    </div>
     <div class="stay">
       <p class="eyebrow">Dónde dormir · El Poblado</p>
       <ul>
@@ -259,7 +269,7 @@
     <canvas class="scene" data-scene="minca" aria-label="Ilustración: sierra verde con niebla en Minca"></canvas>
     <div class="stophead">
       <div><p class="nights">Parada 2 · 2 noches · mar 12 → jue 14</p><h2>Minca</h2></div>
-      <div class="stopcost">por persona, medio, con el vuelo<b>~USD 250</b></div>
+      <div class="stopcost"><span class="lvl-name">por persona, medio, con el vuelo</span><b data-costs='{"aj":160,"medio":250,"gustos":360}'>~USD 250</b></div>
     </div>
     <p class="why"><strong>Por qué:</strong> el que hizo este viaje el año pasado dice que Minca y Tayrona fueron lo mejor. Es un pueblito en la Sierra Nevada, metido en la selva de montaña: cascadas, café y hamacas mirando el valle. Ojo, no tiene playa. Es la parada para bajar un cambio después de Medellín, y casi no hay masificación.</p>
     <div class="meters">
@@ -281,6 +291,10 @@
         <div class="what"><h3>Cascadas, finca de café y hamacas</h3><p>Pozo Azul y Marinka a pie o en moto, recorrido por una finca de café y atardecer en Casa Loma. Cena en el hostel con otros viajeros.</p><div class="chips"><span class="chip nat">naturaleza</span><span class="chip">~USD 10–25</span></div></div>
       </div>
     </div>
+    <div class="niveles">
+      <div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 160</p><ul><li>Colectivo desde Santa Marta (~USD 3) en vez de taxi</li><li>Dorm</li><li>Cascadas a pie, sin moto</li></ul></div>
+      <div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 360</p><ul><li>Cabaña privada con vista (Casa Loma o Mundo Nuevo)</li><li>Tour guiado de café</li><li>Moto con guía a las cascadas</li></ul></div>
+    </div>
     <div class="stay">
       <p class="eyebrow">Dónde dormir</p>
       <ul>
@@ -296,7 +310,7 @@
     <canvas class="scene" data-scene="tayrona" aria-label="Ilustración: playa de Tayrona con piedras gigantes y selva"></canvas>
     <div class="stophead">
       <div><p class="nights">Parada 3 · 1 noche · jue 14 → vie 15</p><h2>Tayrona</h2></div>
-      <div class="stopcost">por persona, medio<b>~USD 90</b></div>
+      <div class="stopcost"><span class="lvl-name">por persona, medio</span><b data-costs='{"aj":55,"medio":90,"gustos":140}'>~USD 90</b></div>
     </div>
     <p class="why"><strong>Por qué dormimos adentro:</strong> Tayrona es un parque nacional donde la selva termina en el mar, con playas entre piedras gigantes. De día se llena de excursiones, pero a la tarde se van y Cabo San Juan queda casi para nosotros. El atardecer y el amanecer ahí son de lo mejor del viaje.</p>
     <div class="meters">
@@ -314,6 +328,10 @@
         <div class="what"><h3>Caminata por la selva hasta Cabo San Juan</h3><p>Salimos de Minca a las 6 am para estar en la entrada (El Zaíno) cuando abre la taquilla. Caminata de unas 2 horas entre selva y playas, y noche en hamaca o carpa frente al mar.</p><div class="chips"><span class="chip nat">naturaleza</span><span class="chip">entrada ~USD 29</span><span class="chip">hamaca ~USD 12 · carpa ~USD 22</span></div><div class="links"><a href="https://reservatuglamping.com/en/listing/hamaca-cabo-san-juan/" target="_blank" rel="noopener">Hamacas en Cabo San Juan</a></div></div>
       </div>
     </div>
+    <div class="niveles">
+      <div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 55</p><ul><li>Hamaca abajo (~USD 12)</li><li>Llevar comida y agua desde afuera</li></ul></div>
+      <div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 140</p><ul><li>Hamaca del mirador o carpa (~USD 18–45)</li><li>Cabaña en el mirador (~USD 120 la cabaña)</li><li>Comer en los restaurantes del parque</li></ul></div>
+    </div>
     <p class="note">Hay cupo de 6.900 personas por día y no se reserva la entrada: se compra en la taquilla. Llegando temprano un jueves (después del finde largo de Reyes) entramos sin problema. Llevar mochila chica, efectivo y la vacuna de fiebre amarilla. La grande queda en Palomino.</p>
   </article>
 
@@ -322,7 +340,7 @@
     <canvas class="scene" data-scene="palomino" aria-label="Ilustración: río que desemboca en el mar en Palomino"></canvas>
     <div class="stophead">
       <div><p class="nights">Parada 4 · 2 noches · vie 15 → dom 17</p><h2>Palomino</h2></div>
-      <div class="stopcost">por persona, medio<b>~USD 175</b></div>
+      <div class="stopcost"><span class="lvl-name">por persona, medio</span><b data-costs='{"aj":90,"medio":175,"gustos":290}'>~USD 175</b></div>
     </div>
     <p class="why"><strong>Por qué:</strong> playa larga y salvaje con onda hippie-mochilera. El plan clásico es bajar el río en gomón con una cerveza hasta donde se junta con el mar. Hay fiesta de hostel hasta medianoche, sin boliche. Es el equilibrio justo entre descanso y joda, y el sábado queda libre para no hacer nada.</p>
     <div class="meters">
@@ -344,6 +362,10 @@
       </div>
     </div>
     <div class="stub hl"><strong>✈ Acá vuelven los de 7 días</strong><span>Sáb 16 · Santa Marta → Buenos Aires · ~USD 400–500</span></div>
+    <div class="niveles">
+      <div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 90</p><ul><li>Dorm</li><li>Menú del día o cocinar en el hostel</li><li>Tubing por cuenta propia, sin tour</li></ul></div>
+      <div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 290</p><ul><li>Privada frente al mar</li><li>Pub crawl y tragos en la barra</li><li>Cena de mariscos en la playa</li></ul></div>
+    </div>
     <div class="stay">
       <p class="eyebrow">Dónde dormir</p>
       <ul>
@@ -358,7 +380,7 @@
     <canvas class="scene" data-scene="cartagena" aria-label="Ilustración: casas de colores y muralla de Cartagena al atardecer"></canvas>
     <div class="stophead">
       <div><p class="nights">Parada 5 · 3 noches · dom 17 → mié 20</p><h2>Cartagena</h2></div>
-      <div class="stopcost">por persona, medio<b>~USD 480</b></div>
+      <div class="stopcost"><span class="lvl-name">por persona, medio</span><b data-costs='{"aj":230,"medio":480,"gustos":800}'>~USD 480</b></div>
     </div>
     <p class="why"><strong>Por qué:</strong> no es "de viejos", depende de dónde estés. La ciudad amurallada es linda y cara, pero Getsemaní, el barrio de los hostels, es joven: salsa, bares y música en la plaza. Con el barco a Cholón es la segunda parada más fiestera, y el cierre grupal ideal.</p>
     <div class="meters">
@@ -389,6 +411,10 @@
       </div>
     </div>
     <div class="stub hl"><strong>✈ Acá vuelven los de 10 días</strong><span>Mié 20 · Cartagena → Buenos Aires · ~USD 400–500 (hay directo nuevo de Aerolíneas)</span></div>
+    <div class="niveles">
+      <div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 230</p><ul><li>Cholón en lancha barata (~USD 65) o saltearlo</li><li>Free tour por la ciudad amurallada</li><li>Menú del día en Getsemaní</li></ul></div>
+      <div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 800</p><ul><li>Party boat premium con barra libre (~USD 130) o lancha privada para el grupo</li><li>Rooftop con pileta en KIM o boutique</li><li>Cena en la ciudad amurallada y atardecer en Café del Mar</li></ul></div>
+    </div>
     <div class="stay">
       <p class="eyebrow">Dónde dormir · Getsemaní</p>
       <ul>
@@ -404,7 +430,7 @@
     <canvas class="scene" data-scene="sanandres" aria-label="Ilustración: mar de siete colores y un cayo con palmeras"></canvas>
     <div class="stophead">
       <div><p class="nights">Parada 6 · 3 noches · mié 20 → sáb 23</p><h2>San Andrés</h2></div>
-      <div class="stopcost">por persona, medio, con el vuelo<b>~USD 540</b></div>
+      <div class="stopcost"><span class="lvl-name">por persona, medio, con el vuelo</span><b data-costs='{"aj":330,"medio":540,"gustos":900}'>~USD 540</b></div>
     </div>
     <p class="why"><strong>Por qué:</strong> el mar más lindo del viaje, por lejos: el famoso "mar de siete colores". En el mapa parece lejísimo, pero desde Cartagena es una hora de vuelo, y volver solo para esto sale mucho más caro. Es más turismo colombiano que joda: el cierre para relajar.</p>
     <div class="meters">
@@ -431,6 +457,10 @@
       </div>
     </div>
     <div class="stub hl"><strong>✈ Vuelta del bloque completo</strong><span>Sáb 23 · San Andrés → Buenos Aires</span></div>
+    <div class="niveles">
+      <div class="niv niv-aj" data-l="aj"><p class="eyebrow">Ajustado · ~USD 330</p><ul><li>Bus de la isla en vez de carrito de golf</li><li>Dorm</li><li>Johnny Cay en tour compartido</li></ul></div>
+      <div class="niv niv-gu" data-l="gustos"><p class="eyebrow">Con gustos · ~USD 900</p><ul><li>Lancha privada a los cayos</li><li>Bautismo de buceo</li><li>Dreamer Beach Club con pileta</li></ul></div>
+    </div>
     <div class="stay">
       <p class="eyebrow">Dónde dormir</p>
       <ul>
