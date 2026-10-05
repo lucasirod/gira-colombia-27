@@ -514,3 +514,7 @@ body[data-mix="on"] .calc-t .c-aloj,body[data-mix="on"] .calc-t .c-com{text-deco
 body[data-mix="on"] .seg-level button{opacity:.75}
 .mix-hint{font-size:14px;background:var(--surface);border:1px dashed var(--ink);border-radius:10px;padding:10px 14px;max-width:80ch}
 @media (prefers-reduced-motion:reduce){.mix-track,.mix-track::after{transition:none}}
+.route-box{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--sea);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;max-width:980px}
+.route-box p{font-size:15px}
+.route-steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.route-steps b{font-family:var(--mono);font-weight:500;margin-right:6px}

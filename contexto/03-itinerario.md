@@ -31,7 +31,12 @@
 - **Cartagena (Getsemaní):** Viajero Getsemaní (rooftop con pileta, party, ruido), KIM (ex Selina) o Masaya Cartagena.
 - **San Andrés:** Viajero San Andrés (el más social) o Dreamer Beach Club (más cheto, con pileta).
 
-## Equipaje y Tayrona
+## Geografía y equipaje (Santa Marta, Minca, Tayrona, Palomino)
+- Minca, Tayrona y Palomino quedan alrededor de Santa Marta, que solo se usa como aeropuerto y terminal. Minca: montaña, 40–60 min. Entrada de Tayrona (El Zaíno): ~1 h por la costa. Palomino: ~1 h más adelante.
+- Plan de equipaje acordado: el mar 12 suben a Minca con todo; el jue 14 una van desde Minca los deja en Tayrona y sigue con las valijas al hostel de Palomino; el vie 15 salen de Tayrona y recuperan las valijas en Palomino.
+- Comuna 13: por cuenta propia en metro (estación San Javier), free tour a la gorra. El "ajustado" del lun 11 solo saca el parapente.
+
+## Equipaje y Tayrona (detalle)
 - Adentro del parque no hay hostels: solo campings con hamacas y carpas (Cabo San Juan, Arrecifes) y los Ecohabs de Cañaveral, que son caros.
 - Viajero Tayrona Hostel & Ecohabs está afuera del parque, sobre la ruta a Riohacha (km 45), en la playa, a unos 10 km pasando la entrada de El Zaíno.
 - Mochilas grandes el jueves 14: lo más simple es un taxi o van privada desde Minca que deje al grupo en El Zaíno y siga con las mochilas hasta el hostel de Palomino (coordinarlo antes con el hostel, que reciba el equipaje aunque la reserva arranque el viernes). Alternativas: guardarlas en un hostel cerca de la entrada (preguntar costo), o reservar Palomino desde el jueves y pasar primero por ahí (suma ~2 h y llegan más tarde a la taquilla).
