@@ -10,7 +10,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
-<link href="css/styles.css?v=22" rel="stylesheet"/>
+<link href="css/styles.css?v=23" rel="stylesheet"/>
 </head>
 <body>
 <nav aria-label="Secciones" class="topbar">
@@ -187,7 +187,8 @@
 <div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Levers de precio</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
 <p class="eyebrow">Levers de precio</p>
 <h2>Qué mueve el precio</h2>
-<p class="prose">El número final no es fijo: hay cosas que decidimos entre todos y otras que elige cada uno. Las grupales se arreglan una vez; las individuales se tocan en el modo mix del día por día. Montos aproximados por persona.</p>
+<div class="lever-intro"><p class="lever-intro-k">Antes de mirar los números</p><p>El presupuesto se armó <b>haciendo todo, todos los días</b>: cada excursión, cada tour y cada salida de cada lugar. Es el techo, no lo que vamos a gastar seguro. Seguro hay cosas que a alguno no le interesan tanto: en vez de contratar la excursión, quedarse en la playa o en la pileta del hostel. Eso es gratis, y cada cosa que no hacés es plata que no gastás. Saltear solo el parapente y el barco a Cholón ya baja ~USD 140.</p></div>
+<p class="prose">Hay palancas que decidimos entre todos y otras que elige cada uno. Las grupales se arreglan una vez; las individuales se tocan en el modo mix del día por día. Montos aproximados por persona.</p>
 <div class="levers">
 <div class="lever-col"><p class="lever-h"><span class="lever-tag">Grupales</span> Las decidimos juntos</p><div class="lever"><h3>Nivel del hostel</h3><p>Hostel social de los buenos o boutique y hotel de playa. Lo elegimos juntos porque define dónde estamos todos.</p><span class="lever-amt">hasta ~USD 570 más en el viaje completo</span></div><div class="lever"><h3>Cómo nos movemos</h3><p>Combis compartidas, buses y taxis entre 4, o transfers privados puerta a puerta.</p><span class="lever-amt">~USD 50–100 en el viaje</span></div><div class="lever"><h3>Tours armados o por cuenta propia</h3><p>Guatapé en bus, tubing sin agencia, cayos en tour compartido, bus de la isla en vez de carrito.</p><span class="lever-amt">~USD 75 menos en el viaje</span></div><div class="lever"><h3>Ritmo del viaje</h3><p>Más días de playa y hostel sin actividades pagas. Se descansa y casi no se gasta.</p><span class="lever-amt">un día libre cuesta ~USD 30–60 menos</span></div><div class="lever"><h3>Cuándo compramos</h3><p>Vuelos antes del 31 de octubre y hostels con cancelación gratis, antes de que se llenen las privadas.</p><span class="lever-amt">la promo de ida ahorra ~USD 80</span></div><div class="lever"><h3>Super y previa en el hostel</h3><p>Desayunos, previa y alguna cena cocinando juntos en vez de todo afuera.</p><span class="lever-amt">~USD 10–15 por día</span></div></div>
 <div class="lever-col"><p class="lever-h"><span class="lever-tag lever-tag--me">Individuales</span> Las elige cada uno</p><div class="lever"><h3>Cuántos días vengo</h3><p>7, 10 o 15 días. Es la palanca más grande y la elige cada uno.</p><span class="lever-amt">~USD 1.200 entre 7 días y el completo</span></div><div class="lever"><h3>Dónde duermo en el hostel</h3><p>Mismo hostel que el grupo, pero cama en dorm en vez de la privada. Se comparte todo menos la pieza.</p><span class="lever-amt">~USD 200 menos en 14 noches</span></div><div class="lever"><h3>Mi vuelo internacional</h3><p>Promo directa sin valija o con escala, contra directo con valija.</p><span class="lever-amt">~USD 150 de diferencia</span></div><div class="lever"><h3>Valija o solo mochila</h3><p>En los vuelos internos (Medellín–Santa Marta y Cartagena–San Andrés) la valija se paga aparte.</p><span class="lever-amt">~USD 50 menos</span></div><div class="lever"><h3>Actividades que salteo</h3><p>Parapente, barco a Cholón, tour de Guatapé: cada uno puede bajarse de alguna y quedarse en el hostel o la playa.</p><span class="lever-amt">parapente ~USD 76 · Cholón ~USD 65</span></div><div class="lever"><h3>Comida</h3><p>Menú del día, puestos y super contra restaurante en cada comida.</p><span class="lever-amt">~USD 240 en el viaje</span></div><div class="lever"><h3>La noche</h3><p>Previa en el hostel y bares sin cover, o barra libre y mesa en boliche.</p><span class="lever-amt">~USD 20–60 por salida</span></div><div class="lever"><h3>Gustos</h3><p>Parapente de 30 min, lancha privada, cena de cumple en restaurante: se suman uno por uno.</p><span class="lever-amt">de ~USD 15 a ~USD 65 cada uno</span></div></div>
@@ -546,11 +547,11 @@
 </section>
 </main>
 <script crossorigin="" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="data/updates.js?v=22"></script>
-<script src="js/scenes.js?v=22"></script>
-<script src="js/app.js?v=22"></script>
-<script src="js/decisiones.js?v=22"></script>
-<script src="js/mapa.js?v=22"></script>
-<script src="js/montos.js?v=22"></script>
+<script src="data/updates.js?v=23"></script>
+<script src="js/scenes.js?v=23"></script>
+<script src="js/app.js?v=23"></script>
+<script src="js/decisiones.js?v=23"></script>
+<script src="js/mapa.js?v=23"></script>
+<script src="js/montos.js?v=23"></script>
 </body>
 </html>

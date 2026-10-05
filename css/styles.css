@@ -542,3 +542,6 @@ body[data-mix="on"] .seg-level button{opacity:.75}
 .reveal-flash .total-out,.reveal-flash .price,.reveal-flash .lever-amt{animation:revealPop .9s ease}
 @keyframes revealPop{0%{opacity:0;transform:scale(.85)}60%{opacity:1;transform:scale(1.06)}100%{transform:none}}
 @media (max-width:760px){.brand-wrap{justify-content:space-between}}
+.lever-intro{border-left:4px solid var(--sun);background:color-mix(in srgb,var(--sun) 12%,transparent);border-radius:10px;padding:14px 18px;max-width:900px;display:flex;flex-direction:column;gap:6px}
+.lever-intro p{font-size:16px;line-height:1.5}
+.lever-intro .lever-intro-k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
