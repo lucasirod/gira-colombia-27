@@ -9,7 +9,7 @@ Publicada con GitHub Pages en https://lucasirod.github.io/gira-colombia-27/ (ram
   - **Calendario:** grilla de enero 2027, colores por parada, vueltas marcadas.
   - **Mapa:** Leaflet + tiles de OpenStreetMap (CARTO pide API key, por eso no se usa), lista de paradas al costado.
   - **Decisiones:** escena de aeropuerto (Argentina / check-in / avión con bandera de Colombia). Las caras se arrastran en vivo sin guardar; los estados salen de `data/updates.js`.
-- Selector compartido: bloque (7/10/15) y nivel (ajustado/medio/con gustos), guardado en el navegador de cada uno.
+- Selector compartido: bloque (7/10/15), nivel (ajustado/medio/con gustos) y switch de **modo mix** (elegir nivel por día y alojamiento/comida por parada), guardado en el navegador de cada uno. El modelo de costos está explicado en `04-presupuesto.md`.
 - `js/app.js` (navegación, selector, calendario), `js/scenes.js` (ilustraciones), `js/decisiones.js` (avión), `js/mapa.js` (mapa), `css/styles.css`.
 
 ## Cómo se trabaja

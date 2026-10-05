@@ -4,24 +4,21 @@ Relevado el 4/10/2026. Vuelos: búsquedas de Lucas (datos chequeados). Tarifas o
 
 Se decidió mantener enero. Como referencia interna (no va en la página): ir en temporada media (sáb 6 de marzo) saldría ~16–25% menos, casi todo por vuelos y alojamiento; marzo igual no le sirve a Lucas.
 
-## Totales por bloque (vuelos internacionales + Colombia y seguro)
+## Totales por bloque (los calcula la página)
 | Bloque | Ajustado | Medio | Con gustos |
 |---|---|---|---|
-| 7 días (vuelta sáb 16, SMR) | 670 + 800 = **1.470** | 770 + 1.190 = **1.960** | 1.150 + 2.010 = **3.160** |
-| 10 días (vuelta mié 20, CTG) | 670 + 1.130 = **1.800** | 770 + 1.730 = **2.500** | 1.150 + 3.050 = **4.200** |
-| Completo (vuelta sáb 23, ADZ) | 670 + 1.560 = **2.230** | 820 + 2.360 = **3.180** | 1.200 + 4.030 = **5.230** |
+| 7 días (vuelta sáb 16, SMR) | **1.440** | **1.970** | **3.130** |
+| 10 días (vuelta mié 20, CTG) | **1.760** | **2.550** | **4.190** |
+| Completo (vuelta sáb 23, ADZ) | **2.160** | **3.140** | **5.140** |
+
+**Cómo se calcula (en `js/app.js`):** vuelos internacionales + seguro según el nivel elegido; alojamiento por noche y comida y salidas por día según la tabla "Cómo lo calculamos" de cada parada (en `index.html`); actividades y traslados de cada día según `data-m` de cada `.day` (nivel medio), menos lo que recorta "ajustado" y más lo que suma "con gustos". Los de 7 días duermen hasta la noche del 15; los de 10, hasta la del 19.
+
+**Modo mix:** un switch en la barra de Día por día. Con el switch prendido, cada día se elige ajustado / medio / con gustos tocando la caja, y en cada parada se elige por separado el nivel de alojamiento y el de comida. El total se actualiza al instante. Tocar cualquier caja prende el modo mix solo.
 
 Vuelos internacionales por nivel: ida BUE→MDE 270 (JetSMART directo sin valija) / 320 (con valija) / 600 (Avianca directo); vueltas SMR o CTG 400 / 450 / 550; ADZ 400 / 500 / 600. Seguro: 7 días 35/50/80, 10 días 45/65/100, 15 días 60/85/130.
 
-## Por parada (sin vuelos internacionales; incluye vuelos internos y tasas)
-| Parada | Ajustado | Medio | Con gustos |
-|---|---|---|---|
-| Medellín (3 noches) | 340 | 530 | 890 |
-| Minca (2 noches, con vuelo MDE–SMR) | 225 | 320 | 490 |
-| Tayrona (1 noche) | 100 | 140 | 250 |
-| Palomino (2 noches) | 125 | 185 | 380 |
-| Cartagena (3 noches) | 285 | 465 | 880 |
-| San Andrés (3 noches, con vuelo CTG–ADZ y tarjeta) | 425 | 640 | 1.010 |
+## Medio de cada día (actividades y traslados, sin alojamiento ni comida)
+Sáb 9: 86 · Dom 10: 62 · Lun 11: 130 · Mar 12: 114 (vuelo con valija) · Mié 13: 44 · Jue 14: 61 · Vie 15: 36 · Sáb 16: 10 · Dom 17: 31 · Lun 18: 96 · Mar 19: 21 · Mié 20: 162 (vuelo con valija + tarjeta) · Jue 21: 42 · Vie 22: 49 · Sáb 23: 31.
 
 ## Alojamiento por noche y comida por día (enero, por persona)
 | Parada | Ajustado | Medio | Con gustos |
@@ -74,7 +71,7 @@ Cumpleaños del sáb 9 (cena + salida): sumar ~40 / 70 / 120.
 | Mar 19 | Free tour y salsa en la plaza (−20) | Cena en la ciudad amurallada y Café del Mar (+60) |
 | Mié 20 | Solo mochila en el vuelo (−20) | Hotel con pileta (+40 por noche) |
 | Jue 21 | Tour compartido básico (−10) | Lancha privada a los cayos (+40) |
-| Vie 22 | Bus de la isla (−25) | Bautismo de buceo (+50) |
+| Vie 22 | Bus de la isla (−25) | Bautismo de buceo (+55) |
 
 ## Pendiente de confirmar
 Hostels con las fechas exactas (Hostelworld/Booking, para 4–6); tarifas 2027 de Tayrona (~+5%) y tarjeta de San Andrés (~COP 158.000–162.000); calendario de cierres 2027 de Tayrona; precios de Cabo San Juan; días de operación de JetSMART y Aerolíneas; tipo de cambio la semana del viaje.

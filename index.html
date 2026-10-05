@@ -10,7 +10,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=Instrument+Sans:wght@400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
 <link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
-<link href="css/styles.css?v=17" rel="stylesheet"/>
+<link href="css/styles.css?v=19" rel="stylesheet"/>
 </head>
 <body>
 <nav aria-label="Secciones" class="topbar">
@@ -34,7 +34,7 @@
 <button data-l="aj" type="button">Ajustado</button>
 <button data-l="medio" type="button">Medio</button>
 <button data-l="gustos" type="button">Con gustos</button>
-</div>
+</div><label class="mix-switch" for="mixToggle"><input id="mixToggle" role="switch" type="checkbox"/><span aria-hidden="true" class="mix-track"></span><span>Modo mix</span></label>
 <div class="total"><span>Total aprox.</span> <b class="total-out">USD 3.180</b></div>
 </div></div>
 </nav>
@@ -55,7 +55,7 @@
 <div class="facts">
 <div class="fact"><strong>9 → 23 ene</strong><span>Sábado a sábado, con 3 puntos de vuelta</span></div>
 <div class="fact"><strong>6 paradas</strong><span>Ciudad, montaña, selva, playa, Caribe, isla</span></div>
-<div class="fact"><strong>desde ~USD 1.470</strong><span>Todo incluido, versión ajustada de 7 días</span></div>
+<div class="fact"><strong>desde ~USD 1.440</strong><span>Todo incluido, versión ajustada de 7 días</span></div>
 <div class="fact"><strong>31 oct</strong><span>Fecha límite para comprar el vuelo de ida</span></div>
 </div>
 <p class="hint-keys">Bajá o usá las flechas ↓ ↑ para pasar de slide.</p>
@@ -73,7 +73,7 @@
 <tr><td>Sudeste asiático</td><td class="num">USD 2.500–3.500</td><td>Barato allá, playas increíbles</td><td>Vuelo de 1.500–2.000, más de 30 h de viaje. Para que valga, necesitás 3 semanas.</td></tr>
 <tr><td>Costa Rica</td><td class="num">USD 2.500–3.500</td><td>Naturaleza top</td><td>Precios tipo Estados Unidos y poca noche.</td></tr>
 <tr><td>Nordeste de Brasil</td><td class="num">USD 1.500–2.300</td><td>Playas lindas (Pipa, Jeri)</td><td>Vibe más tranquila, y Brasil ya lo hicimos.</td></tr>
-<tr class="win"><td>Colombia <span class="tag">elegido</span></td><td class="num">USD 1.470–3.180</td><td>Ciudad + selva + Caribe + isla, en español</td><td>Enero es temporada alta: hay que comprar ya.</td></tr>
+<tr class="win"><td>Colombia <span class="tag">elegido</span></td><td class="num">USD 1.440–3.140</td><td>Ciudad + selva + Caribe + isla, en español</td><td>Enero es temporada alta: hay que comprar ya.</td></tr>
 </tbody>
 </table>
 </div></div></div>
@@ -237,7 +237,7 @@
 <main class="page" data-page="dias" hidden="">
 <section class="slide stopcard">
 <div class="slide-inner">
-<div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Parada 1 · Medellín</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
+<p class="mix-hint" hidden="">Modo mix: tocá en cada día la opción que quieras (ajustado, medio o con gustos) y en la tabla de cada parada el alojamiento y la comida. El total de arriba se actualiza al instante. Los vuelos internacionales y el seguro siguen el nivel que elegiste arriba.</p><div class="slide-top"><div class="crumbs"><span class="chip">Gira Colombia ’27</span><span class="chip chip-on">Parada 1 · Medellín</span></div><span class="rombo"><span class="rombo-n"></span></span></div>
 <header class="stop-title"><p class="eyebrow">Parada 1 · 3 noches · sáb 9 → mar 12</p><h2>Medellín</h2><p class="vibe">Noche, ciudad y gente: la parada para arrancar a full.</p></header><div class="stop-top"><div class="stop-media"><canvas aria-label="Ilustración: Medellín de noche entre montañas" class="scene" data-scene="medellin"></canvas><div class="links">
 <a class="photo" href="https://www.google.com/search?tbm=isch&amp;q=Medell%C3%ADn+Provenza+noche" rel="noopener" target="_blank">Ver fotos de Medellín</a>
 <a href="https://www.google.com/search?tbm=isch&amp;q=Piedra+del+Pe%C3%B1ol+Guatap%C3%A9" rel="noopener" target="_blank">Fotos de Guatapé</a>
@@ -248,25 +248,25 @@
 <div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">5/5</span></div><div class="pips" data-v="5"></div></div>
 <div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
 <div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
-</div><div class="calc"><p class="eyebrow">Cómo lo calculamos · por persona · enero</p><div class="tablebox"><table class="calc-t"><thead><tr><th>Nivel</th><th>Alojamiento</th><th>Por noche</th><th>Comida por día</th></tr></thead><tbody><tr data-l="aj"><th>Ajustado</th><td>Dorm en Viajero o Masaya</td><td class="num">~USD 30</td><td class="num">~USD 25</td></tr><tr data-l="medio"><th>Medio</th><td>Privada para 4–6 en Los Patios, Viajero o Masaya</td><td class="num">~USD 45</td><td class="num">~USD 40</td></tr><tr data-l="gustos"><th>Con gustos</th><td>Privada con baño o boutique</td><td class="num">~USD 75</td><td class="num">~USD 70</td></tr></tbody></table></div></div><div class="stay">
+</div><div class="calc"><p class="eyebrow">Cómo lo calculamos · por persona · enero</p><div class="tablebox"><table class="calc-t"><thead><tr><th>Nivel</th><th>Alojamiento</th><th>Por noche</th><th>Comida y salidas por día</th></tr></thead><tbody><tr data-l="aj"><th>Ajustado</th><td>Dorm en Viajero o Masaya</td><td class="num c-aloj">~USD 30</td><td class="num c-com">~USD 25</td></tr><tr data-l="medio"><th>Medio</th><td>Privada para 4–6 en Los Patios, Viajero o Masaya</td><td class="num c-aloj">~USD 45</td><td class="num c-com">~USD 40</td></tr><tr data-l="gustos"><th>Con gustos</th><td>Privada con baño o boutique</td><td class="num c-aloj">~USD 75</td><td class="num c-com">~USD 70</td></tr></tbody></table></div></div><div class="stay">
 <p class="eyebrow">Dónde dormir · El Poblado</p>
 <ul>
 <li><a href="https://www.hostelworld.com/hostels/p/273991/los-patios-hostel/" rel="noopener" target="_blank">Los Patios</a>: 9,7 en Hostelworld, dos rooftops con pileta, clases de salsa. Social pero ordenado. <strong>Nuestra primera opción.</strong></li>
 <li><a href="https://www.hostelworld.com/hostels/south-america/colombia/medellin/" rel="noopener" target="_blank">Viajero Medellín o Masaya</a>: más fiesteros, rooftop con jacuzzis.</li>
 </ul>
-</div></div></div><div class="stop-days"><div aria-hidden="true" class="days-head"><span>Día</span><span>Plan</span><span class="h-aj">Ajustado · qué recortás</span><span class="h-gu">Con gustos · qué sumás</span></div><div class="days">
-<div class="day" data-n="1">
+</div></div></div><div class="stop-days"><div aria-hidden="true" class="days-head"><span>Día</span><span>Plan</span><span class="h-aj">Ajustado · qué recortás</span><span class="h-me">Medio · plan base</span><span class="h-gu">Con gustos · qué sumás</span></div><div class="days">
+<div class="day" data-m="86" data-n="1">
 <div class="date"><b>Sáb 9</b>Llegada<span class="sleep">Noche en Medellín · El Poblado</span></div>
 <div class="what"><h3>Aterrizamos y festejamos el cumple de Pancho</h3><p>Del aeropuerto a El Poblado (30–45 min) y check-in. El 9 de enero es el cumpleaños de Pancho: cena de cumple todos juntos y después rooftop del hostel o Provenza para el que quiera seguir.</p><div class="chips"><span class="chip bday">cumple de Pancho</span><span class="chip night">primera noche</span><span class="chip">traslado ~USD 8</span></div><div class="day-photos"><figure><img alt="El Poblado de noche" loading="lazy" src="fotos/galeria/medellin-1.jpg"/><figcaption>El Poblado de noche</figcaption></figure><figure><img alt="Provenza" loading="lazy" src="fotos/galeria/medellin-2.jpg"/><figcaption>Provenza</figcaption></figure></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 20</span><p>Previa en el hostel y bares sin cover en Provenza</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 60</span><p>Cena de cumple en restaurante y mesa en un boliche de Provenza</p></div></div>
-<div class="day" data-n="2">
+<div class="day-aj" data-l="aj"><span class="amt">−USD 20</span><p>Previa en el hostel y bares sin cover en Provenza</p></div><div class="day-me" data-l="medio"><span class="amt">USD 86</span><p>Traslado, cena de cumple y salida por Provenza</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 60</span><p>Cena de cumple en restaurante y mesa en un boliche de Provenza</p></div></div>
+<div class="day" data-m="62" data-n="2">
 <div class="date"><b>Dom 10</b>Guatapé<span class="sleep">Noche en Medellín · El Poblado</span></div>
 <div class="what"><h3>Piedra del Peñol, lancha y pueblo de colores</h3><p>Salimos temprano (7 am) para ganarle a la gente. Subimos los 740 escalones de la Piedra, paseo en lancha por la represa y almuerzo en Guatapé. A la noche, la salida grande: víspera de feriado.</p><div class="chips"><span class="chip nat">naturaleza</span><span class="chip night">noche fuerte</span><span class="chip">tour ~USD 40–55 o bus ~USD 12 + Piedra ~USD 11</span></div><div class="links"><a href="https://touraguatape.com/" rel="noopener" target="_blank">Tours a Guatapé</a></div><div class="day-photos"><figure><img alt="Guatapé" loading="lazy" src="fotos/galeria/medellin-3.jpg"/><figcaption>Guatapé</figcaption></figure><figure><img alt="Piedra del Peñol" loading="lazy" src="fotos/galeria/medellin-4.jpg"/><figcaption>Piedra del Peñol</figcaption></figure></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 25</span><p>Guatapé en bus desde la Terminal Norte en vez de tour</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 20</span><p>Lancha privada en la represa y almuerzo en restaurante</p></div></div>
-<div class="day fest" data-n="3">
+<div class="day-aj" data-l="aj"><span class="amt">−USD 25</span><p>Guatapé en bus desde la Terminal Norte en vez de tour</p></div><div class="day-me" data-l="medio"><span class="amt">USD 62</span><p>Tour a Guatapé, Piedra del Peñol y lancha</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 20</span><p>Lancha privada en la represa y almuerzo en restaurante</p></div></div>
+<div class="day fest" data-m="130" data-n="3">
 <div class="date"><b>Lun 11</b>San Félix<span class="sleep">Noche en Medellín · El Poblado</span></div>
 <div class="what"><h3>Parapente a la mañana, Comuna 13 a la tarde</h3><p>Vuelo en tándem con instructor sobre el valle (no hace falta experiencia; se vuela de mañana si el clima acompaña). A la tarde, Comuna 13 con free tour: grafitis, escaleras eléctricas e historia del barrio. Noche tranqui.</p><div class="chips"><span class="chip nat">al aire libre</span><span class="chip">parapente 15 min ~USD 67 + traslado ~USD 10–15</span><span class="chip">free tour = propina</span></div><div class="links"><a href="https://parapentedragonfly.com/en/servicios/parapente-precio-vuelo-instructor/" rel="noopener" target="_blank">Precios de parapente</a></div><div class="day-photos"><figure><img alt="Comuna 13" loading="lazy" src="fotos/galeria/medellin-5.jpg"/><figcaption>Comuna 13</figcaption></figure></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 76</span><p>Sin parapente (la Comuna 13 se hace igual)</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 65</span><p>Parapente de 30 minutos en vez de 15</p></div></div>
+<div class="day-aj" data-l="aj"><span class="amt">−USD 76</span><p>Sin parapente (la Comuna 13 se hace igual)</p></div><div class="day-me" data-l="medio"><span class="amt">USD 130</span><p>Parapente 15 min con traslado y Comuna 13</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 65</span><p>Parapente de 30 minutos en vez de 15</p></div></div>
 </div></div>
 </div>
 <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
@@ -283,21 +283,21 @@
 <div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">1/5</span></div><div class="pips" data-v="1"></div></div>
 <div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">5/5</span></div><div class="pips" data-v="5"></div></div>
 <div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
-</div><div class="calc"><p class="eyebrow">Cómo lo calculamos · por persona · enero</p><div class="tablebox"><table class="calc-t"><thead><tr><th>Nivel</th><th>Alojamiento</th><th>Por noche</th><th>Comida por día</th></tr></thead><tbody><tr data-l="aj"><th>Ajustado</th><td>Dorm</td><td class="num">~USD 28</td><td class="num">~USD 25</td></tr><tr data-l="medio"><th>Medio</th><td>Privada en Casas Viejas o Mundo Nuevo</td><td class="num">~USD 40</td><td class="num">~USD 40</td></tr><tr data-l="gustos"><th>Con gustos</th><td>Ecolodge o cabaña con vista</td><td class="num">~USD 70</td><td class="num">~USD 65</td></tr></tbody></table></div></div><div class="stay">
+</div><div class="calc"><p class="eyebrow">Cómo lo calculamos · por persona · enero</p><div class="tablebox"><table class="calc-t"><thead><tr><th>Nivel</th><th>Alojamiento</th><th>Por noche</th><th>Comida y salidas por día</th></tr></thead><tbody><tr data-l="aj"><th>Ajustado</th><td>Dorm</td><td class="num c-aloj">~USD 28</td><td class="num c-com">~USD 25</td></tr><tr data-l="medio"><th>Medio</th><td>Privada en Casas Viejas o Mundo Nuevo</td><td class="num c-aloj">~USD 40</td><td class="num c-com">~USD 40</td></tr><tr data-l="gustos"><th>Con gustos</th><td>Ecolodge o cabaña con vista</td><td class="num c-aloj">~USD 70</td><td class="num c-com">~USD 65</td></tr></tbody></table></div></div><div class="stay">
 <p class="eyebrow">Dónde dormir</p>
 <ul>
 <li><a href="https://www.hostelworld.com/hostels/south-america/colombia/minca/" rel="noopener" target="_blank">Masaya Casas Viejas</a>: el más social de Minca, con pileta.</li>
 <li><a href="https://casalomaminca.com/" rel="noopener" target="_blank">Casa Loma</a> (hoy El Bosque Minca): el clásico de los atardeceres, más chill. Ideal si queremos calma.</li>
 </ul>
-</div><p class="note">En Minca no hay cajero: llevar efectivo en pesos colombianos. Casas Viejas queda arriba del pueblo y se sube en 4x4 (~USD 20 por persona).</p></div></div><div class="stop-days"><div aria-hidden="true" class="days-head"><span>Día</span><span>Plan</span><span class="h-aj">Ajustado · qué recortás</span><span class="h-gu">Con gustos · qué sumás</span></div><div class="days">
-<div class="day" data-n="4">
+</div><p class="note">En Minca no hay cajero: llevar efectivo en pesos colombianos. Casas Viejas queda arriba del pueblo y se sube en 4x4 (~USD 20 por persona).</p></div></div><div class="stop-days"><div aria-hidden="true" class="days-head"><span>Día</span><span>Plan</span><span class="h-aj">Ajustado · qué recortás</span><span class="h-me">Medio · plan base</span><span class="h-gu">Con gustos · qué sumás</span></div><div class="days">
+<div class="day" data-m="114" data-n="4">
 <div class="date"><b>Mar 12</b>Vuelo<span class="sleep">Noche en Minca</span></div>
 <div class="what"><h3>Medellín → Santa Marta → Minca</h3><p>Vuelo de 1,5 h a Santa Marta y subida a Minca (40–60 min en taxi o colectivo). Mototaxi hasta el hostel y atardecer desde la montaña.</p><div class="chips"><span class="chip">vuelo ~USD 63 + valija</span><span class="chip">taxi ~USD 25 por auto</span></div><div class="day-photos"><figure><img alt="Minca" loading="lazy" src="fotos/galeria/minca-1.jpg"/><figcaption>Minca</figcaption></figure></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 30</span><p>Colectivo a Minca en vez de taxi y solo mochila en el vuelo</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 15</span><p>Transfer privado del aeropuerto a Minca</p></div></div>
-<div class="day" data-n="5">
+<div class="day-aj" data-l="aj"><span class="amt">−USD 30</span><p>Colectivo a Minca en vez de taxi y solo mochila en el vuelo</p></div><div class="day-me" data-l="medio"><span class="amt">USD 114</span><p>Vuelo con valija, taxi a Minca y mototaxi</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 15</span><p>Transfer privado del aeropuerto a Minca</p></div></div>
+<div class="day" data-m="44" data-n="5">
 <div class="date"><b>Mié 13</b>Minca<span class="sleep">Noche en Minca</span></div>
 <div class="what"><h3>Cascadas, finca de café y hamacas</h3><p>Pozo Azul y Marinka a pie o en moto, recorrido por una finca de café y atardecer en Casa Loma. Cena en el hostel con otros viajeros.</p><div class="chips"><span class="chip nat">naturaleza</span><span class="chip">~USD 10–25</span></div><div class="day-photos"><figure><img alt="Pozo Azul" loading="lazy" src="fotos/galeria/minca-2.jpg"/><figcaption>Pozo Azul</figcaption></figure><figure><img alt="Cascada Marinka" loading="lazy" src="fotos/galeria/minca-3.jpg"/><figcaption>Cascada Marinka</figcaption></figure><figure><img alt="Cascadas de Minca" loading="lazy" src="fotos/galeria/minca-4.jpg"/><figcaption>Cascadas de Minca</figcaption></figure></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 10</span><p>Cascadas a pie, sin moto</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 30</span><p>Moto con guía a las cascadas y tour de café</p></div></div>
+<div class="day-aj" data-l="aj"><span class="amt">−USD 10</span><p>Cascadas a pie, sin moto</p></div><div class="day-me" data-l="medio"><span class="amt">USD 44</span><p>Cascadas y finca de café</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 30</span><p>Moto con guía a las cascadas y tour de café</p></div></div>
 </div></div>
 </div>
 <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
@@ -314,11 +314,11 @@
 <div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">0/5</span></div><div class="pips" data-v="0"></div></div>
 <div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">5/5</span></div><div class="pips" data-v="5"></div></div>
 <div class="meter m-gente"><div class="lab"><span>Gente (de día / de noche)</span><span class="mono">4 / 1</span></div><div class="pips" data-v="4"></div></div>
-</div><div class="calc"><p class="eyebrow">Cómo lo calculamos · por persona · enero</p><div class="tablebox"><table class="calc-t"><thead><tr><th>Nivel</th><th>Alojamiento</th><th>Por noche</th><th>Comida por día</th></tr></thead><tbody><tr data-l="aj"><th>Ajustado</th><td>Hamaca</td><td class="num">~USD 21</td><td class="num">~USD 30</td></tr><tr data-l="medio"><th>Medio</th><td>Carpa</td><td class="num">~USD 33</td><td class="num">~USD 45</td></tr><tr data-l="gustos"><th>Con gustos</th><td>Cabaña del mirador</td><td class="num">~USD 76</td><td class="num">~USD 70</td></tr></tbody></table></div></div><p class="note">Hay cupo de 6.900 personas por día y no se reserva la entrada: se compra en la taquilla. Llegando temprano un jueves (después del finde largo de Reyes) entramos sin problema. Llevar mochila chica, efectivo y la vacuna de fiebre amarilla. Las mochilas grandes siguen en el taxi hasta el hostel de Palomino (coordinado con el hostel) o quedan guardadas cerca de la entrada.</p></div></div><div class="stop-days"><div aria-hidden="true" class="days-head"><span>Día</span><span>Plan</span><span class="h-aj">Ajustado · qué recortás</span><span class="h-gu">Con gustos · qué sumás</span></div><div class="days">
-<div class="day" data-n="6">
+</div><div class="calc"><p class="eyebrow">Cómo lo calculamos · por persona · enero</p><div class="tablebox"><table class="calc-t"><thead><tr><th>Nivel</th><th>Alojamiento</th><th>Por noche</th><th>Comida y salidas por día</th></tr></thead><tbody><tr data-l="aj"><th>Ajustado</th><td>Hamaca</td><td class="num c-aloj">~USD 21</td><td class="num c-com">~USD 30</td></tr><tr data-l="medio"><th>Medio</th><td>Carpa</td><td class="num c-aloj">~USD 33</td><td class="num c-com">~USD 45</td></tr><tr data-l="gustos"><th>Con gustos</th><td>Cabaña del mirador</td><td class="num c-aloj">~USD 76</td><td class="num c-com">~USD 70</td></tr></tbody></table></div></div><p class="note">Hay cupo de 6.900 personas por día y no se reserva la entrada: se compra en la taquilla. Llegando temprano un jueves (después del finde largo de Reyes) entramos sin problema. Llevar mochila chica, efectivo y la vacuna de fiebre amarilla. Las mochilas grandes siguen en el taxi hasta el hostel de Palomino (coordinado con el hostel) o quedan guardadas cerca de la entrada.</p></div></div><div class="stop-days"><div aria-hidden="true" class="days-head"><span>Día</span><span>Plan</span><span class="h-aj">Ajustado · qué recortás</span><span class="h-me">Medio · plan base</span><span class="h-gu">Con gustos · qué sumás</span></div><div class="days">
+<div class="day" data-m="61" data-n="6">
 <div class="date"><b>Jue 14</b>Tayrona<span class="sleep">Noche en Tayrona · Cabo San Juan</span></div>
 <div class="what"><h3>Caminata por la selva hasta Cabo San Juan</h3><p>Salimos de Minca a las 6 am para estar en la entrada (El Zaíno) cuando abre la taquilla. Caminata de unas 2 horas entre selva y playas, y noche en hamaca o carpa frente al mar.</p><div class="chips"><span class="chip nat">naturaleza</span><span class="chip">entrada ~USD 29 + seguro ~USD 2</span><span class="chip">hamaca ~USD 12–26 · carpa ~USD 33</span></div><div class="links"><a href="https://reservatuglamping.com/en/listing/hamaca-cabo-san-juan/" rel="noopener" target="_blank">Hamacas en Cabo San Juan</a></div><div class="day-photos"><figure><img alt="Cabo San Juan" loading="lazy" src="fotos/galeria/tayrona-1.jpg"/><figcaption>Cabo San Juan</figcaption></figure><figure><img alt="Hamacas en Cabo San Juan" loading="lazy" src="fotos/galeria/tayrona-2.jpg"/><figcaption>Hamacas en Cabo San Juan</figcaption></figure><figure><img alt="Carpas en Tayrona" loading="lazy" src="fotos/galeria/tayrona-3.jpg"/><figcaption>Carpas en Tayrona</figcaption></figure></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 20</span><p>Hamaca abajo en vez de carpa y comida llevada desde afuera</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 40</span><p>Hamaca del mirador o cabaña, y comer en el restaurante del parque</p></div></div>
+<div class="day-aj" data-l="aj"><span class="amt">−USD 20</span><p>Hamaca abajo en vez de carpa y comida llevada desde afuera</p></div><div class="day-me" data-l="medio"><span class="amt">USD 61</span><p>Traslado, entrada a Tayrona y seguro</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 40</span><p>Hamaca del mirador o cabaña, y comer en el restaurante del parque</p></div></div>
 </div></div>
 </div>
 <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
@@ -334,20 +334,20 @@
 <div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">3/5</span></div><div class="pips" data-v="3"></div></div>
 <div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
 <div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
-</div><div class="calc"><p class="eyebrow">Cómo lo calculamos · por persona · enero</p><div class="tablebox"><table class="calc-t"><thead><tr><th>Nivel</th><th>Alojamiento</th><th>Por noche</th><th>Comida por día</th></tr></thead><tbody><tr data-l="aj"><th>Ajustado</th><td>Dorm en Dreamer</td><td class="num">~USD 25</td><td class="num">~USD 25</td></tr><tr data-l="medio"><th>Medio</th><td>Privada en Dreamer</td><td class="num">~USD 35</td><td class="num">~USD 40</td></tr><tr data-l="gustos"><th>Con gustos</th><td>Hotel de playa</td><td class="num">~USD 80</td><td class="num">~USD 70</td></tr></tbody></table></div></div><div class="stay">
+</div><div class="calc"><p class="eyebrow">Cómo lo calculamos · por persona · enero</p><div class="tablebox"><table class="calc-t"><thead><tr><th>Nivel</th><th>Alojamiento</th><th>Por noche</th><th>Comida y salidas por día</th></tr></thead><tbody><tr data-l="aj"><th>Ajustado</th><td>Dorm en Dreamer</td><td class="num c-aloj">~USD 25</td><td class="num c-com">~USD 25</td></tr><tr data-l="medio"><th>Medio</th><td>Privada en Dreamer</td><td class="num c-aloj">~USD 35</td><td class="num c-com">~USD 40</td></tr><tr data-l="gustos"><th>Con gustos</th><td>Hotel de playa</td><td class="num c-aloj">~USD 80</td><td class="num c-com">~USD 70</td></tr></tbody></table></div></div><div class="stay">
 <p class="eyebrow">Dónde dormir</p>
 <ul>
 <li><a href="https://www.hostelworld.com/hostels/south-america/colombia/palomino/" rel="noopener" target="_blank">Dreamer Palomino</a>: sobre la playa, dos piletas y dos bares. Es el punto social del pueblo.</li>
 </ul>
-</div><p class="note">El mar en Palomino y en algunas playas de Tayrona tiene corriente fuerte. Nos metemos solo donde está permitido, y nunca de noche.</p></div></div><div class="stop-days"><div aria-hidden="true" class="days-head"><span>Día</span><span>Plan</span><span class="h-aj">Ajustado · qué recortás</span><span class="h-gu">Con gustos · qué sumás</span></div><div class="days">
-<div class="day" data-n="7">
+</div><p class="note">El mar en Palomino y en algunas playas de Tayrona tiene corriente fuerte. Nos metemos solo donde está permitido, y nunca de noche.</p></div></div><div class="stop-days"><div aria-hidden="true" class="days-head"><span>Día</span><span>Plan</span><span class="h-aj">Ajustado · qué recortás</span><span class="h-me">Medio · plan base</span><span class="h-gu">Con gustos · qué sumás</span></div><div class="days">
+<div class="day" data-m="36" data-n="7">
 <div class="date"><b>Vie 15</b>Palomino<span class="sleep">Noche en Palomino</span></div>
 <div class="what"><h3>Salimos de Tayrona, tubing y fiesta en el hostel</h3><p>Amanecer en Cabo San Juan, caminata de vuelta y una hora hasta Palomino. A la tarde, tubing por el río hasta el mar. A la noche, pub crawl o fiesta en la pileta del hostel.</p><div class="chips"><span class="chip nat">río y playa</span><span class="chip night">fiesta de hostel</span><span class="chip">tubing ~USD 15–18</span><span class="chip">pub crawl ~USD 7</span></div><div class="day-photos"><figure><img alt="Tubing por el río Palomino" loading="lazy" src="fotos/galeria/palomino-1.jpg"/><figcaption>Tubing por el río Palomino</figcaption></figure></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 15</span><p>Tubing por cuenta propia y previa en vez de barra</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 30</span><p>Pub crawl y tragos en la barra</p></div></div>
-<div class="day" data-n="8">
+<div class="day-aj" data-l="aj"><span class="amt">−USD 15</span><p>Tubing por cuenta propia y previa en vez de barra</p></div><div class="day-me" data-l="medio"><span class="amt">USD 36</span><p>Traslado a Palomino y tubing</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 30</span><p>Pub crawl y tragos en la barra</p></div></div>
+<div class="day" data-m="10" data-n="8">
 <div class="date"><b>Sáb 16</b>Libre<span class="sleep">Noche en Palomino</span><span class="sleep sleep-alt">Los de 7 días: vuelo a casa</span></div>
 <div class="what"><h3>Día de playa sin planes</h3><p>Playa, pileta y recuperar energía. Los que hacen el bloque de 7 días salen para el aeropuerto de Santa Marta (1,5–2 h).</p><div class="chips"><span class="chip nat">playa</span></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 10</span><p>Día de playa sin gastos</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 30</span><p>Cena de mariscos en la playa</p></div></div>
+<div class="day-aj" data-l="aj"><span class="amt">−USD 10</span><p>Día de playa sin gastos</p></div><div class="day-me" data-l="medio"><span class="amt">USD 10</span><p>Día de playa</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 30</span><p>Cena de mariscos en la playa</p></div></div>
 </div><div class="stub hl"><strong>✈ Acá vuelven los de 7 días</strong><span>Sáb 16 · Santa Marta → Buenos Aires · ~USD 400–500</span></div></div>
 </div>
 <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
@@ -364,29 +364,29 @@
 <div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
 <div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
 <div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
-</div><div class="calc"><p class="eyebrow">Cómo lo calculamos · por persona · enero</p><div class="tablebox"><table class="calc-t"><thead><tr><th>Nivel</th><th>Alojamiento</th><th>Por noche</th><th>Comida por día</th></tr></thead><tbody><tr data-l="aj"><th>Ajustado</th><td>Dorm en Viajero Getsemaní</td><td class="num">~USD 30</td><td class="num">~USD 35</td></tr><tr data-l="medio"><th>Medio</th><td>Privada en Viajero, KIM o Masaya</td><td class="num">~USD 50</td><td class="num">~USD 55</td></tr><tr data-l="gustos"><th>Con gustos</th><td>Boutique con rooftop</td><td class="num">~USD 100</td><td class="num">~USD 90</td></tr></tbody></table></div></div><div class="stay">
+</div><div class="calc"><p class="eyebrow">Cómo lo calculamos · por persona · enero</p><div class="tablebox"><table class="calc-t"><thead><tr><th>Nivel</th><th>Alojamiento</th><th>Por noche</th><th>Comida y salidas por día</th></tr></thead><tbody><tr data-l="aj"><th>Ajustado</th><td>Dorm en Viajero Getsemaní</td><td class="num c-aloj">~USD 30</td><td class="num c-com">~USD 35</td></tr><tr data-l="medio"><th>Medio</th><td>Privada en Viajero, KIM o Masaya</td><td class="num c-aloj">~USD 50</td><td class="num c-com">~USD 55</td></tr><tr data-l="gustos"><th>Con gustos</th><td>Boutique con rooftop</td><td class="num c-aloj">~USD 100</td><td class="num c-com">~USD 90</td></tr></tbody></table></div></div><div class="stay">
 <p class="eyebrow">Dónde dormir · Getsemaní</p>
 <ul>
 <li><a href="https://www.hostelworld.com/hostels/p/330492/viajero-cartagena-getsemani-hostel/" rel="noopener" target="_blank">Viajero Getsemaní</a>: rooftop con pileta y vista a la bahía, habitaciones privadas. Es party hostel: hay ruido.</li>
 <li><a href="https://www.hostelworld.com/hostels/south-america/colombia/cartagena/" rel="noopener" target="_blank">KIM o Masaya Cartagena</a>: alternativas sociales con pileta.</li>
 </ul>
-</div><p class="note">Opción a charlar: si queremos el Cholón más local (lanchas de colombianos, música a full), es el domingo. Para eso salimos de Palomino el sábado y perdemos el día libre de playa.</p></div></div><div class="stop-days"><div aria-hidden="true" class="days-head"><span>Día</span><span>Plan</span><span class="h-aj">Ajustado · qué recortás</span><span class="h-gu">Con gustos · qué sumás</span></div><div class="days">
-<div class="day" data-n="9">
+</div><p class="note">Opción a charlar: si queremos el Cholón más local (lanchas de colombianos, música a full), es el domingo. Para eso salimos de Palomino el sábado y perdemos el día libre de playa.</p></div></div><div class="stop-days"><div aria-hidden="true" class="days-head"><span>Día</span><span>Plan</span><span class="h-aj">Ajustado · qué recortás</span><span class="h-me">Medio · plan base</span><span class="h-gu">Con gustos · qué sumás</span></div><div class="days">
+<div class="day" data-m="31" data-n="9">
 <div class="date"><b>Dom 17</b>Traslado<span class="sleep">Noche en Cartagena · Getsemaní</span></div>
 <div class="what"><h3>Palomino → Cartagena y noche en Getsemaní</h3><p>Bus a Santa Marta y combi puerta a puerta a Cartagena (unas 5 h). A la noche, Plaza de la Trinidad, salsa y bares.</p><div class="chips"><span class="chip night">salida</span><span class="chip">combi ~USD 27–31</span></div><div class="day-photos"><figure><img alt="Getsemaní" loading="lazy" src="fotos/galeria/cartagena-1.jpg"/><figcaption>Getsemaní</figcaption></figure></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 15</span><p>Menú del día y previa antes de Getsemaní</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 40</span><p>Transfer privado de Palomino a Cartagena</p></div></div>
-<div class="day" data-n="10">
+<div class="day-aj" data-l="aj"><span class="amt">−USD 15</span><p>Menú del día y previa antes de Getsemaní</p></div><div class="day-me" data-l="medio"><span class="amt">USD 31</span><p>Bus y combi a Cartagena</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 40</span><p>Transfer privado de Palomino a Cartagena</p></div></div>
+<div class="day" data-m="96" data-n="10">
 <div class="date"><b>Lun 18</b>Cholón<span class="sleep">Noche en Cartagena · Getsemaní</span></div>
 <div class="what"><h3>Barco de fiesta a Cholón</h3><p>Una hora de lancha a una laguna de agua turquesa donde se juntan barcos con música y todos están en el agua. Un lunes hay menos gente; conviene un party boat con DJ y barra a bordo. Ojo con los vendedores en bote: preguntar precio antes de pedir.</p><div class="chips"><span class="chip nat">islas</span><span class="chip night">fiesta en el agua</span><span class="chip">~USD 60–130</span></div><div class="links"><a href="https://www.getyourguide.com/rosario-islands-l114972/cholon-forever-boat-party-t509632/" rel="noopener" target="_blank">Party boat a Cholón</a></div><div class="day-photos"><figure><img alt="Cholón" loading="lazy" src="fotos/galeria/cartagena-3.jpg"/><figcaption>Cholón</figcaption></figure><figure><img alt="Cholón" loading="lazy" src="fotos/galeria/cartagena-4.jpg"/><figcaption>Cholón</figcaption></figure></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 65</span><p>Lancha compartida barata a Cholón, o saltearlo</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 40</span><p>Party boat premium con barra libre o lancha privada para el grupo</p></div></div>
-<div class="day" data-n="11">
+<div class="day-aj" data-l="aj"><span class="amt">−USD 65</span><p>Lancha compartida barata a Cholón, o saltearlo</p></div><div class="day-me" data-l="medio"><span class="amt">USD 96</span><p>Barco de fiesta a Cholón</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 40</span><p>Party boat premium con barra libre o lancha privada para el grupo</p></div></div>
+<div class="day" data-m="21" data-n="11">
 <div class="date"><b>Mar 19</b>Ciudad<span class="sleep">Noche en Cartagena · Getsemaní</span></div>
 <div class="what"><h3>Ciudad amurallada y última noche grupal</h3><p>Free tour por el centro histórico, atardecer en la muralla y la gran despedida en Getsemaní antes de que se vuelva el bloque de 10 días.</p><div class="chips"><span class="chip night">noche fuerte</span><span class="chip">free tour = propina</span></div><div class="day-photos"><figure><img alt="Ciudad amurallada" loading="lazy" src="fotos/galeria/cartagena-2.jpg"/><figcaption>Ciudad amurallada</figcaption></figure></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 20</span><p>Free tour y salsa en la plaza, sin cena afuera</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 60</span><p>Cena en la ciudad amurallada y atardecer en Café del Mar</p></div></div>
-<div class="day" data-n="12">
+<div class="day-aj" data-l="aj"><span class="amt">−USD 20</span><p>Free tour y salsa en la plaza, sin cena afuera</p></div><div class="day-me" data-l="medio"><span class="amt">USD 21</span><p>Free tour por la ciudad amurallada</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 60</span><p>Cena en la ciudad amurallada y atardecer en Café del Mar</p></div></div>
+<div class="day" data-m="162" data-n="12">
 <div class="date"><b>Mié 20</b>Vuelos<span class="sleep">Noche en San Andrés</span><span class="sleep sleep-alt">Los de 10 días: vuelo a casa</span></div>
 <div class="what"><h3>Unos vuelven, otros siguen al Caribe</h3><p>El bloque de 10 días vuela a Buenos Aires. El resto, una hora de vuelo hasta San Andrés y tarde de playa.</p><div class="chips"><span class="chip">CTG → San Andrés ~USD 90</span></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 20</span><p>Solo mochila en el vuelo a San Andrés</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 40</span><p>Hotel con pileta en San Andrés (por noche)</p></div></div>
+<div class="day-aj" data-l="aj"><span class="amt">−USD 20</span><p>Solo mochila en el vuelo a San Andrés</p></div><div class="day-me" data-l="medio"><span class="amt">USD 162</span><p>Vuelo con valija y tarjeta de turismo</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 40</span><p>Hotel con pileta en San Andrés (por noche)</p></div></div>
 </div><div class="stub hl"><strong>✈ Acá vuelven los de 10 días</strong><span>Mié 20 · Cartagena → Buenos Aires · ~USD 400–500 (hay directo nuevo de Aerolíneas)</span></div></div>
 </div>
 <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
@@ -403,25 +403,25 @@
 <div class="meter m-joda"><div class="lab"><span>Joda</span><span class="mono">2/5</span></div><div class="pips" data-v="2"></div></div>
 <div class="meter m-nat"><div class="lab"><span>Naturaleza</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
 <div class="meter m-gente"><div class="lab"><span>Gente en enero</span><span class="mono">4/5</span></div><div class="pips" data-v="4"></div></div>
-</div><div class="calc"><p class="eyebrow">Cómo lo calculamos · por persona · enero</p><div class="tablebox"><table class="calc-t"><thead><tr><th>Nivel</th><th>Alojamiento</th><th>Por noche</th><th>Comida por día</th></tr></thead><tbody><tr data-l="aj"><th>Ajustado</th><td>Dorm en Viajero</td><td class="num">~USD 30</td><td class="num">~USD 35</td></tr><tr data-l="medio"><th>Medio</th><td>Privada en Viajero o Dreamer</td><td class="num">~USD 45</td><td class="num">~USD 55</td></tr><tr data-l="gustos"><th>Con gustos</th><td>Hotel con pileta</td><td class="num">~USD 90</td><td class="num">~USD 90</td></tr></tbody></table></div></div><div class="stay">
+</div><div class="calc"><p class="eyebrow">Cómo lo calculamos · por persona · enero</p><div class="tablebox"><table class="calc-t"><thead><tr><th>Nivel</th><th>Alojamiento</th><th>Por noche</th><th>Comida y salidas por día</th></tr></thead><tbody><tr data-l="aj"><th>Ajustado</th><td>Dorm en Viajero</td><td class="num c-aloj">~USD 30</td><td class="num c-com">~USD 35</td></tr><tr data-l="medio"><th>Medio</th><td>Privada en Viajero o Dreamer</td><td class="num c-aloj">~USD 45</td><td class="num c-com">~USD 55</td></tr><tr data-l="gustos"><th>Con gustos</th><td>Hotel con pileta</td><td class="num c-aloj">~USD 90</td><td class="num c-com">~USD 90</td></tr></tbody></table></div></div><div class="stay">
 <p class="eyebrow">Dónde dormir</p>
 <ul>
 <li><a href="https://www.viajerohostels.com/es/destinos-colombia/san-andres/" rel="noopener" target="_blank">Viajero San Andrés</a>: el más social de la isla, con rooftop y desayuno.</li>
 <li><a href="https://www.hostelworld.com/hostels/south-america/colombia/san-andres-island/" rel="noopener" target="_blank">Dreamer Beach Club</a>: más cheto, con pileta, cerca de la playa.</li>
 </ul>
-</div><p class="note">Al llegar se paga la tarjeta de turismo obligatoria: COP 153.000 en 2026 (unos USD 46).</p></div></div><div class="stop-days"><div aria-hidden="true" class="days-head"><span>Día</span><span>Plan</span><span class="h-aj">Ajustado · qué recortás</span><span class="h-gu">Con gustos · qué sumás</span></div><div class="days">
-<div class="day" data-n="13">
+</div><p class="note">Al llegar se paga la tarjeta de turismo obligatoria: COP 153.000 en 2026 (unos USD 46).</p></div></div><div class="stop-days"><div aria-hidden="true" class="days-head"><span>Día</span><span>Plan</span><span class="h-aj">Ajustado · qué recortás</span><span class="h-me">Medio · plan base</span><span class="h-gu">Con gustos · qué sumás</span></div><div class="days">
+<div class="day" data-m="42" data-n="13">
 <div class="date"><b>Jue 21</b>Cayos<span class="sleep">Noche en San Andrés</span></div>
 <div class="what"><h3>Johnny Cay y el Acuario</h3><p>Primera lancha de la mañana para llegar a Johnny Cay antes de que se llene. Después, Haynes Cay, donde se camina en el agua entre mantarrayas.</p><div class="chips"><span class="chip nat">mar</span><span class="chip">tour ~USD 20–40 + impuesto Johnny Cay ~USD 5</span></div><div class="links"><a href="https://islaventura.com.co/tour/tour-acuario-johnny-cay/" rel="noopener" target="_blank">Tour Acuario + Johnny Cay</a></div><div class="day-photos"><figure><img alt="Johnny Cay" loading="lazy" src="fotos/galeria/sanandres-1.jpg"/><figcaption>Johnny Cay</figcaption></figure><figure><img alt="Haynes Cay (el Acuario)" loading="lazy" src="fotos/galeria/sanandres-2.jpg"/><figcaption>Haynes Cay (el Acuario)</figcaption></figure></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 10</span><p>Tour compartido básico a los cayos</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 40</span><p>Lancha privada a los cayos</p></div></div>
-<div class="day" data-n="14">
+<div class="day-aj" data-l="aj"><span class="amt">−USD 10</span><p>Tour compartido básico a los cayos</p></div><div class="day-me" data-l="medio"><span class="amt">USD 42</span><p>Tour Acuario y Johnny Cay con impuesto</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 40</span><p>Lancha privada a los cayos</p></div></div>
+<div class="day" data-m="49" data-n="14">
 <div class="date"><b>Vie 22</b>Isla<span class="sleep">Noche en San Andrés</span></div>
 <div class="what"><h3>Vuelta a la isla en carrito de golf</h3><p>Alquilamos "mulitas" y recorremos la isla. Snorkel en West View y La Piscinita, atardecer en el oeste y última noche.</p><div class="chips"><span class="chip nat">snorkel</span><span class="chip">carrito ~USD 23–30 c/u</span><span class="chip">entradas ~USD 5</span></div><div class="day-photos"><figure><img alt="Vuelta a la isla en carrito" loading="lazy" src="fotos/galeria/sanandres-3.jpg"/><figcaption>Vuelta a la isla en carrito</figcaption></figure><figure><img alt="Atardecer en San Andrés" loading="lazy" src="fotos/galeria/sanandres-4.jpg"/><figcaption>Atardecer en San Andrés</figcaption></figure></div></div>
-<div class="day-aj" data-l="aj"><span class="amt">−USD 25</span><p>Bus de la isla en vez de carrito de golf</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 50</span><p>Bautismo de buceo</p></div></div>
-<div class="day" data-n="15">
+<div class="day-aj" data-l="aj"><span class="amt">−USD 25</span><p>Bus de la isla en vez de carrito de golf</p></div><div class="day-me" data-l="medio"><span class="amt">USD 49</span><p>Carrito de golf y snorkel</p></div><div class="day-gu" data-l="gustos"><span class="amt">+USD 55</span><p>Bautismo de buceo</p></div></div>
+<div class="day" data-m="31" data-n="15">
 <div class="date"><b>Sáb 23</b>Vuelta<span class="sleep">Vuelta a casa</span></div>
 <div class="what"><h3>San Andrés → Buenos Aires</h3><p>Fin del viaje completo.</p><div class="chips"><span class="chip">~USD 400–600 con escala</span></div></div>
-<div class="day-aj empty"><p>—</p></div><div class="day-gu empty"><p>—</p></div></div>
+<div class="day-aj empty"><p>—</p></div><div class="day-me" data-l="medio"><span class="amt">USD 31</span><p>Traslado al aeropuerto</p></div><div class="day-gu empty"><p>—</p></div></div>
 </div><div class="stub hl"><strong>✈ Vuelta del bloque completo</strong><span>Sáb 23 · San Andrés → Buenos Aires</span></div></div>
 </div>
 <div class="slide-foot"><span>Colombia · 9 al 23 de enero de 2027</span><span class="slide-count"></span></div>
@@ -533,10 +533,10 @@
 </section>
 </main>
 <script crossorigin="" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="data/updates.js?v=17"></script>
-<script src="js/scenes.js?v=17"></script>
-<script src="js/app.js?v=17"></script>
-<script src="js/decisiones.js?v=17"></script>
-<script src="js/mapa.js?v=17"></script>
+<script src="data/updates.js?v=19"></script>
+<script src="js/scenes.js?v=19"></script>
+<script src="js/app.js?v=19"></script>
+<script src="js/decisiones.js?v=19"></script>
+<script src="js/mapa.js?v=19"></script>
 </body>
 </html>
