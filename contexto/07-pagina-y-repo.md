@@ -30,3 +30,4 @@ Switch "Esconder montos" al lado del título (`#maskToggle`, `js/montos.js`). Ar
 ## Slide "Levers de precio" (Inicio)
 Después de Presupuesto. Arranca con un recuadro que aclara que el presupuesto es el techo (se armó haciendo todo, todos los días) y que saltear actividades es ahorro. Después, dos columnas: grupales (nivel del hostel, traslados, tours vs. por cuenta propia, ritmo, cuándo compramos, super y previa) e individuales (bloque, vuelo internacional, valija, actividades que se saltean, comida, noche, gustos). Los montos salen del modelo de costos (viaje completo, por persona).
 - Se sacó el lever "cama en dorm dentro del mismo hostel": a Lucas le pareció egoísta para un viaje grupal.
+- Decisiones: al cargar, todos arrancan en Argentina (`cargarFoto(-1)`), para irlos moviendo en vivo durante la llamada. Tocando un update se carga esa foto; "Reiniciar" vuelve a la foto cargada (o a todos en Argentina).

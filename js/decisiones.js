@@ -1,6 +1,6 @@
 /* Proceso de decisión: el avión arrastrable + la lista de updates.
    Los datos vienen de data/updates.js. Lo que se arrastra NO se guarda:
-   al recargar (o con "Volver a la foto del día") vuelve al update elegido. */
+   al recargar arrancan todos en Argentina; tocando un update se carga esa foto. */
 (function(){
   var PERSONAS = window.PERSONAS || [];
   var UPDATES = window.UPDATES || [];
@@ -46,11 +46,12 @@
       c.adentro + " adentro · " + c.pensando + " pensando · " + c.afuera + " afuera";
   }
 
+  /* idx = -1: arranque, todos en Argentina (para ir moviéndolos en vivo) */
   function cargarFoto(idx){
     actual = idx;
-    var u = UPDATES[idx];
+    var u = idx >= 0 ? UPDATES[idx] : {estados:{}};
     PERSONAS.forEach(function(p){
-      var info = (u.estados && u.estados[p.id]) || {estado:"pensando"};
+      var info = idx >= 0 ? ((u.estados && u.estados[p.id]) || {estado:"pensando"}) : {estado:"afuera"};
       var el = tokens[p.id];
       el.classList.remove("moved");
       el.querySelector(".pax-note").textContent = info.nota || "";
@@ -58,7 +59,7 @@
       el.dataset.orig = info.estado;
       (zones[info.estado] || zones.pensando).appendChild(el);
     });
-    document.getElementById("snapLabel").textContent = "Foto del " + fechaLarga(u.fecha) + " · " + u.titulo;
+    document.getElementById("snapLabel").textContent = idx >= 0 ? "Foto del " + fechaLarga(u.fecha) + " · " + u.titulo : "Todos arrancan en Argentina · arrastrá a cada uno";
     document.querySelectorAll(".upd").forEach(function(b, i){ b.classList.toggle("on", i === idx); });
     contar();
   }
@@ -144,5 +145,5 @@
     contar();
   });
 
-  cargarFoto(0);
+  cargarFoto(-1);
 })();
