@@ -128,19 +128,26 @@
   /* ---------- curva de joda / naturaleza ---------- */
   (function(){
     var g=document.getElementById("curveg"); if(!g) return; var ns="http://www.w3.org/2000/svg";
-    var vals=[5,5,3,2,1,1,3,2,4,5,4,2,2,2,1];
-    var nat=[0,1,1,1,1,1,1,1,0,1,0,0,1,1,0];
-    var X0=40,X1=620,Y0=24,Y1=150,n=vals.length,step=(X1-X0)/(n-1);
+    var joda=[5,5,3,2,1,1,3,2,4,5,4,2,2,2,1];   /* nivel de salida esa noche, 0 a 5 */
+    var nat =[0,3,3,3,4,5,5,3,1,3,0,2,5,4,1];   /* contacto con la naturaleza ese día, 0 a 5 */
+    var X0=40,X1=620,Y0=24,Y1=150,n=joda.length,step=(X1-X0)/(n-1);
     function el(t,a){var e=document.createElementNS(ns,t);for(var k in a)e.setAttribute(k,a[k]);g.appendChild(e);return e;}
     function y(v){return Y1-(v/5)*(Y1-Y0);}
-    for(var i=0;i<n;i++){if(nat[i])el("rect",{class:"band",x:X0+i*step-step/2,y:Y0-6,width:step,height:Y1-Y0+6});}
+    /* curva suave (Catmull-Rom → Bézier) */
+    function camino(vals){
+      var P=vals.map(function(v,i){return [X0+i*step,y(v)];}), d="M"+P[0][0]+","+P[0][1];
+      for(var i=0;i<P.length-1;i++){
+        var p0=P[i-1]||P[i], p1=P[i], p2=P[i+1], p3=P[i+2]||p2;
+        d+=" C"+(p1[0]+(p2[0]-p0[0])/6)+","+Math.min(Y1,Math.max(Y0,p1[1]+(p2[1]-p0[1])/6))+" "+(p2[0]-(p3[0]-p1[0])/6)+","+Math.min(Y1,Math.max(Y0,p2[1]-(p3[1]-p1[1])/6))+" "+p2[0]+","+p2[1];
+      }
+      return d;
+    }
     [0,2.5,5].forEach(function(v){el("line",{class:"grid",x1:X0,x2:X1,y1:y(v),y2:y(v)});});
     el("text",{class:"ax",x:4,y:y(5)+4}).textContent="alto";
     el("text",{class:"ax",x:4,y:y(0)+4}).textContent="bajo";
-    var pts=vals.map(function(v,i){return (X0+i*step)+","+y(v);}).join(" ");
-    el("polygon",{class:"areaA",points:X0+","+Y1+" "+pts+" "+X1+","+Y1});
-    el("polyline",{class:"lineA",points:pts});
-    vals.forEach(function(v,i){el("circle",{class:"dot",cx:X0+i*step,cy:y(v),r:3});el("text",{class:"ax",x:X0+i*step,y:Y1+16,"text-anchor":"middle"}).textContent=String(i+9);});
+    el("path",{class:"lineN",d:camino(nat)});
+    el("path",{class:"lineA",d:camino(joda)});
+    joda.forEach(function(v,i){el("text",{class:"ax",x:X0+i*step,y:Y1+16,"text-anchor":"middle"}).textContent=String(i+9);});
     [["Medellín",0,2],["Minca",3,4],["Tayrona",5,5],["Palomino",6,7],["Cartagena",8,11],["San Andrés",12,14]].forEach(function(s){
       el("text",{class:"stop",x:X0+((s[1]+s[2])/2)*step,y:Y1+40,"text-anchor":"middle"}).textContent=s[0];
     });

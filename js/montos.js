@@ -2,7 +2,7 @@
    Arranca escondido en cada carga, para el suspenso; el switch de arriba los muestra.
    Las fechas y otros números quedan visibles: solo se tapan los que vienen con USD o $. */
 (function(){
-  var RE = /((?:USD|US\$|U\$S|\$)\s?)(\d+(?:[.,]\d+)*(?:\s?[–-]\s?\d+(?:[.,]\d+)*)?)/g;
+  var RE = /((?:USD|US\$|U\$S|\$|€)\s?)(\d+(?:[.,]\d+)*(?:\s?[–-]\s?\d+(?:[.,]\d+)*)?)/g;
   var toggle = document.getElementById("maskToggle");
   var on = true;
   var tocados = [];

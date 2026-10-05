@@ -546,3 +546,9 @@ body[data-mix="on"] .seg-level button{opacity:.75}
 .lever-intro p{font-size:16px;line-height:1.5}
 .lever-intro .lever-intro-k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .links a.yt::before{content:"▶";font-size:10px;margin-right:6px;color:var(--coral)}
+.curve .lineN{fill:none;stroke:var(--deep);stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+.curve .lineA{stroke-linecap:round}
+/* preguntas grandes en Inicio */
+.q-big{font-size:clamp(40px,6.2vw,84px);line-height:1;letter-spacing:-.025em}
+.q-msg{font-family:var(--display);font-weight:700;font-size:clamp(20px,2.4vw,30px);line-height:1.2;color:var(--sea);max-width:900px}
+.slide--dark .q-msg{color:var(--sun)}
