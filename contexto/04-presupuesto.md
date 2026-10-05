@@ -75,3 +75,21 @@ Cumpleaños del sáb 9 (cena + salida): sumar ~40 / 70 / 120.
 
 ## Pendiente de confirmar
 Hostels con las fechas exactas (Hostelworld/Booking, para 4–6); tarifas 2027 de Tayrona (~+5%) y tarjeta de San Andrés (~COP 158.000–162.000); calendario de cierres 2027 de Tayrona; precios de Cabo San Juan; días de operación de JetSMART y Aerolíneas; tipo de cambio la semana del viaje.
+
+## Traslados (explícitos por día)
+Cada día muestra una línea **Traslado** con el detalle, y la celda Medio aclara "incluye traslados ~USD X". Los traslados ya estaban sumados dentro del `data-m` de cada día; no cambian los totales. Ajustado/Con gustos cambian el traslado cuando aplica (ej. colectivo vs. transfer privado).
+
+| Día | Traslado | USD |
+|---|---|---|
+| 1 sáb 9 | Aeropuerto → El Poblado | 8 |
+| 2 dom 10 | Incluido en el tour a Guatapé | 0 |
+| 3 lun 11 | Transporte a San Félix + metro a Comuna 13 | 13 |
+| 4 mar 12 | Vuelo MDE→SMR + valija + taxi a Minca + mototaxi | 101 |
+| 5 mié 13 | Mototaxis a cascadas | 6 |
+| 6 jue 14 | Van con valijas a Palomino (bajamos en El Zaíno) + buseta | 27 |
+| 7 vie 15 | Bus + mototaxi a Palomino | 5 |
+| 9 dom 17 | Bus Palomino→Santa Marta ~4 + combi Marsol a Cartagena ~27 | 31 |
+| 10 lun 18 | Taxi al muelle | 2 |
+| 12 mié 20 | Taxi + vuelo CTG→ADZ ~90 + valija ~25 + taxi | 124 |
+| 13–14 | Incluido / carrito de golf | 0 |
+| 15 sáb 23 | Taxi al aeropuerto | 5 |

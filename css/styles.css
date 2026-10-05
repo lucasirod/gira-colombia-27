@@ -518,3 +518,10 @@ body[data-mix="on"] .seg-level button{opacity:.75}
 .route-box p{font-size:15px}
 .route-steps{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
 .route-steps b{font-family:var(--mono);font-weight:500;margin-right:6px}
+.route-steps{list-style:none;padding-left:0;gap:8px}
+.route-steps li{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:start}
+.route-steps b{font-family:var(--mono);font-weight:500;font-size:13px;padding-top:2px}
+@media (max-width:560px){.route-steps li{grid-template-columns:1fr;gap:2px}}
+.day .transfer{font-size:14px;color:var(--ink);background:color-mix(in srgb,var(--deep) 8%,transparent);border-radius:8px;padding:6px 10px;align-self:flex-start}
+.day .transfer b{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--deep);margin-right:6px}
+.day-me small{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:2px}

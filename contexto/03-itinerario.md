@@ -40,3 +40,6 @@
 - Adentro del parque no hay hostels: solo campings con hamacas y carpas (Cabo San Juan, Arrecifes) y los Ecohabs de Cañaveral, que son caros.
 - Viajero Tayrona Hostel & Ecohabs está afuera del parque, sobre la ruta a Riohacha (km 45), en la playa, a unos 10 km pasando la entrada de El Zaíno.
 - Mochilas grandes el jueves 14: lo más simple es un taxi o van privada desde Minca que deje al grupo en El Zaíno y siga con las mochilas hasta el hostel de Palomino (coordinarlo antes con el hostel, que reciba el equipaje aunque la reserva arranque el viernes). Alternativas: guardarlas en un hostel cerca de la entrada (preguntar costo), o reservar Palomino desde el jueves y pasar primero por ahí (suma ~2 h y llegan más tarde a la taquilla).
+
+## "Cómo se mueve esta parada"
+Cada parada en Día por día tiene un recuadro `.route-box` que cuenta la logística como historia: dónde quedan las valijas, qué se hace con mochila chica y cómo se llega a la siguiente. Si cambia un traslado, actualizá ese recuadro, la línea `p.transfer` del día y la tabla de `04-presupuesto.md`.
