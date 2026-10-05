@@ -552,3 +552,4 @@ body[data-mix="on"] .seg-level button{opacity:.75}
 .q-big{font-size:clamp(40px,6.2vw,84px);line-height:1;letter-spacing:-.025em}
 .q-msg{font-family:var(--display);font-weight:700;font-size:clamp(20px,2.4vw,30px);line-height:1.2;color:var(--sea);max-width:900px}
 .slide--dark .q-msg{color:var(--sun)}
+.stage-btns{display:flex;gap:8px;flex-wrap:wrap}

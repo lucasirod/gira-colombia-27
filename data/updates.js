@@ -27,6 +27,27 @@ window.PERSONAS = [
 window.UPDATES = [
   {
     fecha: "2026-10-04",
+    titulo: "Charla con el grupo",
+    resumen: "Presentamos el plan completo en la llamada. Cuatro ya están arriba del avión y arrancamos a organizar.",
+    decisiones: [
+      "Confirmados: Lucas, Mati, Reja y Seba",
+      "Monti está en el check-in: le falta cerrar un tema para confirmar",
+      "Pancho, Iván y José, por ahora no vienen"
+    ],
+    estados: {
+      lucas:  { estado: "adentro" },
+      mati:   { estado: "adentro" },
+      reja:   { estado: "adentro" },
+      seba:   { estado: "adentro" },
+      monti:  { estado: "pensando", nota: "Le falta cerrar un tema para confirmar" },
+      pancho: { estado: "afuera", nota: "99% no: prefiere usar sus vacaciones para otro plan" },
+      ivan:   { estado: "afuera" },
+      jose:   { estado: "afuera", nota: "Fechas: recién puede a partir de abril" }
+    },
+    proximo: "Los confirmados eligen bloque y compramos la ida antes del 31 de octubre."
+  },
+  {
+    fecha: "2026-10-04",
     titulo: "Presentación del plan",
     resumen: "Se presentó la propuesta completa: Colombia del 9 al 23 de enero, con bloques de 7, 10 y 15 días para que cada uno elija según su plata y sus vacaciones.",
     decisiones: [

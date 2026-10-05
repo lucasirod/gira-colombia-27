@@ -1,6 +1,6 @@
 /* Proceso de decisión: el avión arrastrable + la lista de updates.
    Los datos vienen de data/updates.js. Lo que se arrastra NO se guarda:
-   al recargar arrancan todos en Argentina; tocando un update se carga esa foto. */
+   al recargar se ve el último update; "Todos a Argentina" los pone a todos afuera para moverlos en vivo. */
 (function(){
   var PERSONAS = window.PERSONAS || [];
   var UPDATES = window.UPDATES || [];
@@ -87,6 +87,8 @@
   });
 
   document.getElementById("resetSnap").addEventListener("click", function(){ cargarFoto(actual); });
+  var cero = document.getElementById("zeroSnap");
+  if(cero) cero.addEventListener("click", function(){ cargarFoto(-1); });
 
   /* arrastrar (mouse y touch) */
   var drag = null;
@@ -145,5 +147,5 @@
     contar();
   });
 
-  cargarFoto(-1);
+  cargarFoto(0);
 })();

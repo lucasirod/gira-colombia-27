@@ -19,3 +19,10 @@ Preguntas que fueron surgiendo mientras se armaba el viaje, y cómo quedaron.
 - **Diferencia de precio con fines de feb / marzo:** ~USD 150–300 por persona.
 - **¿La temporada alta es hasta el 10 de enero?:** corrección: el pico es hasta Reyes, pero la temporada alta sigue hasta la vuelta a clases (~19–25 ene).
 - **Parapente:** literal, en tándem con instructor, 15–30 min, de mañana y si el clima acompaña.
+
+## Charla del 4 de octubre de 2026
+- Arriba del avión: Lucas, Mati, Reja y Seba.
+- Monti en el check-in (el detalle está en el Project privado).
+- Pancho 99% no: no quiere usar sus vacaciones para este viaje.
+- Iván no viene.
+- José no viene por fechas: recién puede a partir de abril.

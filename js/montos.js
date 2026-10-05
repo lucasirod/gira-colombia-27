@@ -1,10 +1,10 @@
 /* Esconder montos: cambia cada monto en dólares de la página por "XXX" (ej. "USD 3.140" → "USD XXX").
-   Arranca escondido en cada carga, para el suspenso; el switch de arriba los muestra.
+   Arranca con los montos visibles; el switch de arriba los esconde (para presentar con suspenso).
    Las fechas y otros números quedan visibles: solo se tapan los que vienen con USD o $. */
 (function(){
   var RE = /((?:USD|US\$|U\$S|\$|€)\s?)(\d+(?:[.,]\d+)*(?:\s?[–-]\s?\d+(?:[.,]\d+)*)?)/g;
   var toggle = document.getElementById("maskToggle");
-  var on = true;
+  var on = false;
   var tocados = [];
 
   function tapar(t){ return t.replace(RE, function(_, pre, nro){ return pre + nro.replace(/\d+(?:[.,]\d+)*/g, "XXX"); }); }
@@ -52,8 +52,7 @@
   }
 
   if(toggle){
-    toggle.checked = true;
+    toggle.checked = false;
     toggle.addEventListener("change", function(){ aplicar(toggle.checked); });
   }
-  aplicar(true);
 })();
